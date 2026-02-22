@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c4hruxts2v85k"]
+
+[ext_resource type="PackedScene" uid="uid://cymg822cr3j54" path="res://3DScens/Vehicle/taxi.tscn" id="1_25yt1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_25yt1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_25yt1"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="main3D" type="Node3D" unique_id=568222157]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
+transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 6.5928526, 1.4532847)
+fov = 81.56249
+
+[node name="taxi" parent="." unique_id=1141445616 instance=ExtResource("1_25yt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4600931, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1493351526]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=69305962]
+transform = Transform3D(22.926468, 0, 0, 0, 1, 0, 0, 0, 18.838072, 0, 0, 0)
+mesh = SubResource("BoxMesh_25yt1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1954790088]
+transform = Transform3D(22.926468, 0, 0, 0, 1, 0, 0, 0, 18.838072, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_25yt1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=577747593]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 3, 0)
