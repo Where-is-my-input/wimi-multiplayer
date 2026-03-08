@@ -1,30 +1,115 @@
 [gd_scene format=3 uid="uid://c4hruxts2v85k"]
 
-[ext_resource type="PackedScene" uid="uid://cymg822cr3j54" path="res://3DScens/Vehicle/taxi.tscn" id="1_25yt1"]
+[ext_resource type="Script" uid="uid://ckn6prbgxgvsj" path="res://3DScens/main_3d.gd" id="1_fst4s"]
+[ext_resource type="PackedScene" uid="uid://c1uai3rvx8hul" path="res://3DScens/Vehicle/TruckTownVehicles/car_base.tscn" id="2_2uxca"]
+[ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
+[ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
+[ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="4_3hs6u"]
+[ext_resource type="Script" uid="uid://b4oqnb2lobtsx" path="res://3DScens/spawn_point.gd" id="6_anahg"]
+[ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="6_opkmm"]
+[ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="7_opkmm"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_25yt1"]
+[sub_resource type="Environment" id="Environment_2uxca"]
+background_mode = 2
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_25yt1"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_fst4s"]
+properties/0/path = NodePath(".:currentSpawn")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2uxca"]
+size = Vector3(1, 6.316162, 11.7421875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
+size = Vector3(1000, 1, 1000)
 
 [node name="main3D" type="Node3D" unique_id=568222157]
+script = ExtResource("1_fst4s")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
-transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 6.5928526, 1.4532847)
+transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
 fov = 81.56249
-
-[node name="taxi" parent="." unique_id=1141445616 instance=ExtResource("1_25yt1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4600931, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1493351526]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=69305962]
-transform = Transform3D(22.926468, 0, 0, 0, 1, 0, 0, 0, 18.838072, 0, 0, 0)
-mesh = SubResource("BoxMesh_25yt1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1954790088]
-transform = Transform3D(22.926468, 0, 0, 0, 1, 0, 0, 0, 18.838072, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_25yt1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=577747593]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 3, 0)
+
+[node name="highLevelUI" type="Control" parent="." unique_id=1650054064]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_5jwh4")
+player_scene = ExtResource("2_2uxca")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="highLevelUI" unique_id=984472954]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="btnServer" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1136691403]
+layout_mode = 2
+text = "Server"
+
+[node name="btnClient" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1996972119]
+layout_mode = 2
+text = "Client"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=121938159]
+spawn_path = NodePath("..")
+script = ExtResource("3_3hs6u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504006752]
+environment = SubResource("Environment_2uxca")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1078570752]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh_library = ExtResource("4_3hs6u")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 0, 6, 65535, 1, 6, 65535, 2, 6, 65535, 3, 6, 65535, 4, 6, 65535, 5, 6, 65535, 6, 6, 1, 65535, 4, 65535, 7, 6, 65535, 8, 6, 65535, 9, 6, 65535, 10, 6, 1, 11, 1048580, 2, 13, 1441799, 4, 13, 1048586, 5, 13, 1048595, 6, 13, 1048594, 7, 13, 1048593, 8, 13, 1048593, 9, 13, 1048593, 10, 13, 1048593, 11, 13, 1048593, 12, 13, 1048593, 13, 13, 655374, 13, 12, 655366, 11, 11, 1441796, 10, 10, 3, 9, 11, 655362, 8, 11, 1048582, 7, 11, 1048582, 5, 11, 1048582, 6, 11, 1048582, 4, 9, 1048580, 3, 7, 655365, 4, 5, 655365, 6, 4, 4, 7, 4, 1441796, 7, 5, 655364, 6, 7, 1048578, 6, 6, 6, 6, 5, 10, 6, 0, 655366, 3, 65534, 1048581, 5, 65535, 1441795, 4, 65534, 1441798, 3, 13, 1048587)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap2" type="GridMap" parent="." unique_id=542898724]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh_library = ExtResource("4_3hs6u")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(6, 4, 11, 6, 3, 12, 6, 1, 655366)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="spawnPoint" type="Node3D" parent="." unique_id=830303611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9225388, 10.089245, 0)
+script = ExtResource("6_anahg")
+
+[node name="Node3D" type="Node3D" parent="spawnPoint" unique_id=1644935636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.739677, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="spawnPoint" unique_id=950184864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5967941, 0, 0)
+
+[node name="Node3D3" type="Node3D" parent="spawnPoint" unique_id=704436608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5779185, 0, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="spawnPoint" unique_id=164907130]
+replication_config = SubResource("SceneReplicationConfig_fst4s")
+
+[node name="booster" type="Area3D" parent="." unique_id=470215218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.913269, 5.754986, 134.98135)
+script = ExtResource("6_opkmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="booster" unique_id=1519375177]
+shape = SubResource("BoxShape3D_2uxca")
+
+[node name="respawner" type="Area3D" parent="." unique_id=872085960]
+script = ExtResource("7_opkmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="respawner" unique_id=84082886]
+shape = SubResource("BoxShape3D_anahg")
+debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
+
+[connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
+[connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]
+[connection signal="body_entered" from="booster" to="booster" method="_on_body_entered"]
+[connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]
