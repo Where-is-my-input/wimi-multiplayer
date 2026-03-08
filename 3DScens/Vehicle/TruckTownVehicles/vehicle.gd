@@ -1,4 +1,5 @@
 extends VehicleBody3D
+@onready var set_respawn_timer: Timer = $setRespawnTimer
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
@@ -73,3 +74,15 @@ func _input(event: InputEvent) -> void:
 
 func respawn():
 	global_position = spawnPos
+
+
+func _on_set_respawn_timer_timeout() -> void:
+	#print("timer ", spawnPos)
+	for c in get_children():
+		if c is VehicleWheel3D:
+			#print(c)
+			if !c.is_in_contact():
+				set_respawn_timer.start(5)
+				return
+	spawnPos = global_position
+	set_respawn_timer.start(5)

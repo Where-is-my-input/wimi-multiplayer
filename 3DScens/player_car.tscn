@@ -187,5 +187,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9
 [node name="TopDownCameraPosition" type="Marker3D" parent="Body" unique_id=832821805]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.00169557, 15.7771, 0.0955178)
 
+[node name="setRespawnTimer" type="Timer" parent="Body" unique_id=1389878136]
+wait_time = 5.0
+autostart = true
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=494711759]
 replication_config = SubResource("SceneReplicationConfig_q1o7u")
+
+[connection signal="timeout" from="Body/setRespawnTimer" to="Body" method="_on_set_respawn_timer_timeout"]
