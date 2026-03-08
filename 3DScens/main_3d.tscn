@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c4hruxts2v85k"]
 
 [ext_resource type="Script" uid="uid://ckn6prbgxgvsj" path="res://3DScens/main_3d.gd" id="1_fst4s"]
-[ext_resource type="PackedScene" uid="uid://c1uai3rvx8hul" path="res://3DScens/Vehicle/TruckTownVehicles/car_base.tscn" id="2_2uxca"]
 [ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
+[ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="4_3hs6u"]
 [ext_resource type="Script" uid="uid://b4oqnb2lobtsx" path="res://3DScens/spawn_point.gd" id="6_anahg"]
 [ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="6_opkmm"]
@@ -39,12 +39,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_5jwh4")
-player_scene = ExtResource("2_2uxca")
+player_scene = ExtResource("3_fst4s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="highLevelUI" unique_id=984472954]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 198.0
+offset_bottom = 136.0
 
 [node name="btnServer" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1136691403]
 layout_mode = 2
@@ -53,6 +53,14 @@ text = "Server"
 [node name="btnClient" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1996972119]
 layout_mode = 2
 text = "Client"
+
+[node name="ip" type="LineEdit" parent="highLevelUI/VBoxContainer" unique_id=33938838]
+layout_mode = 2
+text = "localhost"
+
+[node name="port" type="LineEdit" parent="highLevelUI/VBoxContainer" unique_id=1561067646]
+layout_mode = 2
+text = "42069"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=121938159]
 spawn_path = NodePath("..")

@@ -5,6 +5,8 @@ extends Control
 #@onready var spawn_point: Node3D = $spawnPoint
 @onready var multiplayer_spawner: MultiplayerSpawner = $"../MultiplayerSpawner"
 @onready var btn_client: Button = $VBoxContainer/btnClient
+@onready var ip: LineEdit = $VBoxContainer/ip
+@onready var port: LineEdit = $VBoxContainer/port
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -14,12 +16,12 @@ func _ready() -> void:
 	multiplayer_spawner.add_spawnable_scene(player_scene.resource_path)
 
 func _on_btn_client_pressed() -> void:
-	HighLevelNetworkHandler.startClient()
+	HighLevelNetworkHandler.startClient(port.text, ip.text)
 
 
 func _on_btn_server_pressed() -> void:
 	print("Starting server...")
-	HighLevelNetworkHandler.startServer()
+	HighLevelNetworkHandler.startServer(port.text)
 
 	if multiplayer.is_server():
 		print("Server started, spawning player...")
@@ -44,5 +46,5 @@ func _on_disconnected() -> void:
 	set_buttons_visibility(true)
 
 func set_buttons_visibility(should_show: bool) -> void:
-	$VBoxContainer/btnServer.visible = should_show
-	$VBoxContainer/btnClient.visible = should_show
+	visible = should_show
+	#$VBoxContainer/btnClient.visible = should_show
