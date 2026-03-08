@@ -19,6 +19,9 @@ friction = 0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_x74tc"]
 size = Vector3(0.954078, 1, 2.32662)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_atssk"]
+size = Vector3(0.05517578, 0.15332031, 2.5091553)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bpr2q"]
 random_pitch = 1.05
 random_volume_offset_db = 2.0
@@ -142,6 +145,16 @@ mesh = ExtResource("3_cqia8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1801338453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588269, 0.0774262)
 shape = SubResource("BoxShape3D_x74tc")
+
+[node name="rightSideCS" type="CollisionShape3D" parent="Body" unique_id=539307910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7258927, 0.1577418, 0.13201904)
+shape = SubResource("BoxShape3D_atssk")
+debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
+
+[node name="leftSideCS2" type="CollisionShape3D" parent="Body" unique_id=1776044526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726, 0.158, 0.132)
+shape = SubResource("BoxShape3D_atssk")
+debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
 
 [node name="CameraBase" type="Node3D" parent="Body" unique_id=1051954387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97449, 0)
