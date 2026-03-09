@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="4_ajr1d"]
 [ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="4_irtq8"]
 [ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="6_777il"]
+[ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="6_gmsvl"]
+[ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="6_owbra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmsvl"]
 albedo_color = Color(1, 0.1882353, 1, 0.13725491)
@@ -84,6 +86,7 @@ transform = Transform3D(-0.50701195, 0, -0.861939, 0, 1, 0, 0.861939, 0, -0.5070
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="booster" unique_id=704864568]
 transform = Transform3D(1.8964477, 0, 0, 0, 1.1165023, 0, 0, 0, 16.337866, 0, 0, 0)
+transparency = 0.49
 mesh = SubResource("BoxMesh_owbra")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="booster" unique_id=1245938723]
@@ -99,7 +102,28 @@ shape = SubResource("BoxShape3D_anahg")
 debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=705644834]
-transform = Transform3D(16.802233, 0, 0, 0, 0.31134653, 0, 0, 0, 1, -2.2620187, -0.99387455, 0)
+transform = Transform3D(16.802233, 0, 0, 0, 0.31134653, 0, 0, 0, 1, -2.2620187, -0.99387455, 3.8838258)
 mesh = SubResource("BoxMesh_0iigc")
+
+[node name="checkpoints" parent="." unique_id=1218153255 instance=ExtResource("6_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1027622, 17.779205)
+
+[node name="checkpoint" parent="checkpoints" unique_id=226977553 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.748257)
+
+[node name="checkpoint2" parent="checkpoints" unique_id=1842438431 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 68.781204)
+
+[node name="checkpoint3" parent="checkpoints" unique_id=1661359675 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.366356, 0, 68.781204)
+
+[node name="checkpoint4" parent="checkpoints" unique_id=851372089 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.53227, 0, -74.33327)
+
+[node name="checkpoint5" parent="checkpoints" unique_id=1935204367 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.30363, 0, -200.71251)
+
+[node name="checkpoint6" parent="checkpoints" unique_id=958146358 instance=ExtResource("6_gmsvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029438972, 0, -200.71251)
 
 [connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]
