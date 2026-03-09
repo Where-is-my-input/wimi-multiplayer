@@ -8,6 +8,7 @@ extends Control
 @onready var ip: LineEdit = $VBoxContainer/ip
 @onready var port: LineEdit = $VBoxContainer/port
 @onready var players: Node = $"../players"
+@onready var players_connected: Control = $"../playersConnected"
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -29,6 +30,7 @@ func _on_btn_server_pressed() -> void:
 		#var player_scene = load("res://scenes/player.tscn")
 		var player = player_scene.instantiate()
 		player.name = "1"  # Server has peer ID 1
+		players_connected.addPlayer(player.name)
 		if player.global_position is Vector3:
 			#player.global_position = Vector3(0, 1.46, 0)
 			player.global_position = spawn_point.getNextSpawn()

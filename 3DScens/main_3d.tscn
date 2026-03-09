@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="6_opkmm"]
 [ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="7_opkmm"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
+[ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 
 [sub_resource type="Environment" id="Environment_2uxca"]
 background_mode = 2
@@ -126,6 +127,41 @@ debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
 [node name="players" type="Node" parent="." unique_id=776287051]
 
 [node name="notifications" parent="." unique_id=942002380 instance=ExtResource("9_0iigc")]
+anchors_preset = 1
+anchor_bottom = 0.0
+offset_bottom = 289.0
+grow_vertical = 1
+
+[node name="playersConnected" type="Control" parent="." unique_id=1411463389]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -159.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("10_88ymw")
+
+[node name="Panel" type="Panel" parent="playersConnected" unique_id=101571015]
+modulate = Color(1, 1, 1, 0.14117648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playerList" type="VBoxContainer" parent="playersConnected" unique_id=1675799791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]

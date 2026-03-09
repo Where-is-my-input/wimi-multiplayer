@@ -1,7 +1,7 @@
 extends MultiplayerSpawner
 #@onready var spawn_point: Node3D = %spawnPoint
 @onready var spawn_point: Node3D = $"../spawnPoint"
-
+@onready var players_connected: Control = $"../playersConnected"
 @export var networkPlayer: PackedScene
 
 func _ready() -> void:
@@ -12,6 +12,7 @@ func spawnPlayer(id: int):
 	
 	var player: Node = networkPlayer.instantiate()
 	player.name = str(id)
+	players_connected.addPlayer(player.name)
 	
 	if player.global_position is Vector3:
 		#player.global_position = Vector3(0, 1.46, 0)

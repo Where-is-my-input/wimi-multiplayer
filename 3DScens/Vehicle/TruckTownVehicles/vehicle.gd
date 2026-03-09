@@ -71,9 +71,6 @@ func _physics_process(delta: float):
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_accept"):
 		respawn()
-	elif event.is_action("play"):
-		if multiplayer.is_server():
-			Global.startRace.emit()
 
 func respawn(respawnTo:Vector3 = Vector3(0,0,0)):
 	global_position = spawnPos if respawnTo == Vector3(0,0,0) else respawnTo
