@@ -1,8 +1,6 @@
 extends Control
 
 @export var player_scene:PackedScene
-@onready var spawn_point: Node3D = $"../spawnPoint"
-#@onready var spawn_point: Node3D = $spawnPoint
 @onready var multiplayer_spawner: MultiplayerSpawner = $"../MultiplayerSpawner"
 @onready var btn_client: Button = $VBoxContainer/btnClient
 @onready var ip: LineEdit = $VBoxContainer/ip
@@ -33,7 +31,8 @@ func _on_btn_server_pressed() -> void:
 		players_connected.addPlayer(player.name)
 		if player.global_position is Vector3:
 			#player.global_position = Vector3(0, 1.46, 0)
-			player.global_position = spawn_point.getNextSpawn()
+			#player.global_position = get_parent().getSpawnPos()
+			pass
 		else:
 			player.global_position = Vector2(455, 79)
 		players.add_child(player)

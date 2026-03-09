@@ -4,26 +4,16 @@
 [ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
-[ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="4_3hs6u"]
-[ext_resource type="Script" uid="uid://b4oqnb2lobtsx" path="res://3DScens/spawn_point.gd" id="6_anahg"]
-[ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="6_opkmm"]
-[ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="7_opkmm"]
+[ext_resource type="PackedScene" uid="uid://1xion50akge" path="res://3DScens/tracks/track1.tscn" id="7_opkmm"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 
 [sub_resource type="Environment" id="Environment_2uxca"]
 background_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_0iigc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2uxca"]
-size = Vector3(1, 6.316162, 19.63501)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
-size = Vector3(1000, 1, 1000)
-
-[node name="main3D" type="Node3D" unique_id=568222157]
+[node name="main3D" type="Node3D" unique_id=568222157 node_paths=PackedStringArray("raceTrack")]
 script = ExtResource("1_fst4s")
+raceTrack = NodePath("raceTrack")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
 transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
@@ -68,62 +58,6 @@ script = ExtResource("3_3hs6u")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504006752]
 environment = SubResource("Environment_2uxca")
 
-[node name="GridMap" type="GridMap" parent="." unique_id=1078570752]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
-mesh_library = ExtResource("4_3hs6u")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(65535, 1, 6, 65535, 2, 6, 65535, 3, 6, 65535, 5, 6, 1, 65535, 4, 9, 13, 1048593, 10, 13, 1048593, 11, 13, 1048593, 12, 13, 1048593, 13, 13, 655374, 13, 12, 655366, 11, 11, 1441796, 10, 10, 3, 9, 11, 655362, 4, 5, 655365, 6, 4, 4, 7, 4, 1441796, 7, 5, 655364, 3, 65534, 1048581, 5, 65535, 1441795, 4, 65534, 1441798, 65534, 6, 655363, 65528, 11, 0, 65526, 12, 655361, 65525, 12, 2, 65525, 13, 1048578, 65526, 13, 1441798, 65527, 13, 1441798, 6, 11, 1048582, 5, 11, 1048582, 65529, 10, 0, 65530, 9, 0, 6, 6, 6, 65533, 7, 1, 65535, 4, 6, 65535, 0, 6, 3, 7, 655365, 6, 7, 1048578, 4, 9, 1048580, 8, 11, 1048582, 7, 11, 1048582, 5, 13, 1048595, 6, 13, 1048594, 8, 13, 1048593, 7, 13, 1048593, 4, 13, 1048586, 3, 13, 1048587, 2, 13, 1441799, 1, 13, 1441798, 0, 13, 1441798, 65535, 13, 1441798, 65534, 13, 1441798, 65533, 13, 1441798, 65532, 13, 1441798, 65531, 13, 1441798, 65530, 13, 1441798, 65529, 13, 1441798, 65528, 13, 1441798)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="GridMap2" type="GridMap" parent="." unique_id=542898724]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
-mesh_library = ExtResource("4_3hs6u")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(6, 5, 6, 6, 4, 6, 6, 3, 7, 6, 1, 655370, 6, 0, 655366)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1083600612]
-transform = Transform3D(16.802233, 0, 0, 0, 0.31134653, 0, 0, 0, 1, -7.1845574, 8.177632, 0)
-mesh = SubResource("BoxMesh_0iigc")
-skeleton = NodePath("../spawnPoint")
-
-[node name="spawnPoint" type="Node3D" parent="." unique_id=830303611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9225388, 9.171507, 0)
-script = ExtResource("6_anahg")
-
-[node name="Node3D" type="Node3D" parent="spawnPoint" unique_id=1644935636]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.739677, 0, 0)
-
-[node name="Node3D2" type="Node3D" parent="spawnPoint" unique_id=950184864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5967941, 0, 0)
-
-[node name="Node3D3" type="Node3D" parent="spawnPoint" unique_id=704436608]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5779185, 0, 0)
-
-[node name="Node3D4" type="Node3D" parent="spawnPoint" unique_id=512389273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7927303, 0, 0)
-
-[node name="Node3D5" type="Node3D" parent="spawnPoint" unique_id=1871501298]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.045372, 0, 0)
-
-[node name="booster" type="Area3D" parent="." unique_id=470215218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.913269, 8.05537, 202.7154)
-script = ExtResource("6_opkmm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="booster" unique_id=1519375177]
-shape = SubResource("BoxShape3D_2uxca")
-
-[node name="respawner" type="Area3D" parent="." unique_id=872085960]
-script = ExtResource("7_opkmm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="respawner" unique_id=84082886]
-shape = SubResource("BoxShape3D_anahg")
-debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
-
 [node name="players" type="Node" parent="." unique_id=776287051]
 
 [node name="notifications" parent="." unique_id=942002380 instance=ExtResource("9_0iigc")]
@@ -163,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
+[node name="raceTrack" parent="." unique_id=1926592461 instance=ExtResource("7_opkmm")]
+
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]
-[connection signal="body_entered" from="booster" to="booster" method="_on_body_entered"]
-[connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]

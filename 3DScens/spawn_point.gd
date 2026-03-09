@@ -1,17 +1,20 @@
 extends Node3D
 
 @export var currentSpawn:int = 0
+@onready var spawn_points: Node3D = $spawnPoints
 
 func getNextSpawn():
 	var count = 0
-	for c in get_children():
+	Global.notify.emit("Spawn points count: " + str(spawn_points.get_child_count()))
+	for c in spawn_points.get_children():
 		if c is not Node3D: continue
 		if currentSpawn == count:
+			Global.notify.emit("Spawning on spot: " + str(currentSpawn))
 			currentSpawn += 1
-			if currentSpawn > get_child_count():
+			if currentSpawn > spawn_points.get_child_count() - 1:
 				currentSpawn = 0
 			return c.global_position
 		count += 1
-	if currentSpawn > get_child_count():
+	if currentSpawn > spawn_points.get_child_count() - 1:
 		currentSpawn = 0
-	return global_position
+	return spawn_points.get_child(0).global_position

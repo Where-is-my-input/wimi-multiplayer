@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c1kqv0ch6nclx"]
+
+[ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="1_hlpbg"]
+
+[node name="booster" type="Area3D" unique_id=952101983]
+transform = Transform3D(-0.5070119, 0, -0.8619391, 0, 1, 0, 0.8619391, 0, -0.5070119, 0, 0, 0)
+script = ExtResource("1_hlpbg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

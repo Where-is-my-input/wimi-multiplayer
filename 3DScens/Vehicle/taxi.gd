@@ -1,6 +1,4 @@
 extends VehicleBody3D
-#@onready var spawn_point: Node3D = $spawnPoint
-#@onready var spawn_point: Node3D = %spawnPoint
 
 @export var maxSteer = 0.3
 @export var enginePower = 650000

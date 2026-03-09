@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://1xion50akge"]
+
+[ext_resource type="Script" uid="uid://b4oqnb2lobtsx" path="res://3DScens/spawn_point.gd" id="1_gmsvl"]
+[ext_resource type="PackedScene" uid="uid://bo71hlwpe5mla" path="res://3DScens/tracks/spawn_position.tscn" id="2_owbra"]
+[ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="4_ajr1d"]
+[ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="4_irtq8"]
+[ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="6_777il"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmsvl"]
+albedo_color = Color(1, 0.1882353, 1, 0.13725491)
+
+[sub_resource type="BoxMesh" id="BoxMesh_owbra"]
+material = SubResource("StandardMaterial3D_gmsvl")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ajr1d"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0iigc"]
+
+[node name="raceTrack" type="Node3D" unique_id=1926592461]
+script = ExtResource("1_gmsvl")
+
+[node name="spawnPoints" type="Node3D" parent="." unique_id=725806807]
+
+[node name="spawnPosition" parent="spawnPoints" unique_id=225116517 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4563022, -0.8872967, 0)
+
+[node name="spawnPosition2" parent="spawnPoints" unique_id=653060349 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.688399, -0.8872967, 0)
+
+[node name="spawnPosition3" parent="spawnPoints" unique_id=1167756454 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.539323, -0.8872967, 0)
+
+[node name="spawnPosition4" parent="spawnPoints" unique_id=1190155805 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9758501, -0.8872967, 0)
+
+[node name="spawnPosition5" parent="spawnPoints" unique_id=1538113743 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27835846, -0.8872967, 0)
+
+[node name="spawnPosition6" parent="spawnPoints" unique_id=1527776719 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9678311, -0.8872967, -4.1003)
+
+[node name="spawnPosition7" parent="spawnPoints" unique_id=1200799845 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17687, -0.8872967, -4.1003)
+
+[node name="spawnPosition8" parent="spawnPoints" unique_id=2017648800 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.027794, -0.8872967, -4.1003)
+
+[node name="spawnPosition9" parent="spawnPoints" unique_id=1367003038 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4643211, -0.8872967, -4.1003)
+
+[node name="spawnPosition10" parent="spawnPoints" unique_id=212738856 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21011257, -0.8872967, -4.1003)
+
+[node name="spawnPosition11" parent="spawnPoints" unique_id=559448184 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9950233, -0.8872967, -8.119256)
+
+[node name="spawnPosition12" parent="spawnPoints" unique_id=242886959 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.149678, -0.8872967, -8.119256)
+
+[node name="spawnPosition13" parent="spawnPoints" unique_id=1855470937 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.000602, -0.8872967, -8.119256)
+
+[node name="spawnPosition14" parent="spawnPoints" unique_id=1042113570 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.437129, -0.8872967, -8.119256)
+
+[node name="spawnPosition15" parent="spawnPoints" unique_id=1812326674 instance=ExtResource("2_owbra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81707954, -0.8872967, -8.119256)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1964182731]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 4.9225388, -9.171507, 0)
+mesh_library = ExtResource("4_irtq8")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 65535, 6, 65535, 0, 6, 65535, 1, 6, 65535, 2, 6, 65535, 3, 6, 65535, 4, 6, 65535, 5, 6, 0, 6, 1048579, 1, 6, 655363, 3, 4, 655365, 4, 2, 655365, 5, 0, 655365, 6, 65534, 655365, 7, 65532, 655365, 8, 65530, 655365, 8, 65529, 1441793, 6, 65526, 1441792, 5, 65525, 1441792, 4, 65523, 1048577, 2, 65522, 1441796, 1, 65522, 4, 65535, 65534, 6, 65535, 65533, 6, 65535, 65532, 6, 65535, 65531, 6, 65535, 65530, 6, 65535, 65529, 6, 65535, 65528, 6, 65535, 65527, 6, 65535, 65523, 6, 65535, 65524, 6, 65535, 65525, 6, 65535, 65526, 6)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="booster" parent="." unique_id=952101983 instance=ExtResource("4_ajr1d")]
+transform = Transform3D(-0.50701195, 0, -0.861939, 0, 1, 0, 0.861939, 0, -0.50701195, 56.02356, -1.1161366, 66.42053)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="booster" unique_id=704864568]
+transform = Transform3D(1.8964477, 0, 0, 0, 1.1165023, 0, 0, 0, 16.337866, 0, 0, 0)
+mesh = SubResource("BoxMesh_owbra")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="booster" unique_id=1245938723]
+transform = Transform3D(1.8964477, 0, 0, 0, 1.1165023, 0, 0, 0, 16.337866, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ajr1d")
+
+[node name="respawner" type="Area3D" parent="." unique_id=2001696357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9225388, -9.171507, 0)
+script = ExtResource("6_777il")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="respawner" unique_id=221569409]
+shape = SubResource("BoxShape3D_anahg")
+debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=705644834]
+transform = Transform3D(16.802233, 0, 0, 0, 0.31134653, 0, 0, 0, 1, -2.2620187, -0.99387455, 0)
+mesh = SubResource("BoxMesh_0iigc")
+
+[connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]
