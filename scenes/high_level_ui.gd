@@ -7,6 +7,7 @@ extends Control
 @onready var btn_client: Button = $VBoxContainer/btnClient
 @onready var ip: LineEdit = $VBoxContainer/ip
 @onready var port: LineEdit = $VBoxContainer/port
+@onready var players: Node = $"../players"
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -20,24 +21,24 @@ func _on_btn_client_pressed() -> void:
 
 
 func _on_btn_server_pressed() -> void:
-	print("Starting server...")
+	Global.notify.emit("Starting server...")
 	HighLevelNetworkHandler.startServer(port.text)
 
 	if multiplayer.is_server():
-		print("Server started, spawning player...")
+		Global.notify.emit("Server started, spawning player...")
 		#var player_scene = load("res://scenes/player.tscn")
 		var player = player_scene.instantiate()
 		player.name = "1"  # Server has peer ID 1
 		if player.global_position is Vector3:
-			player.global_position = Vector3(0, 1.46, 0)
+			#player.global_position = Vector3(0, 1.46, 0)
 			player.global_position = spawn_point.getNextSpawn()
 		else:
 			player.global_position = Vector2(455, 79)
-		get_tree().current_scene.add_child(player)
-		print("Server player spawned with name: ", player.name)
+		players.add_child(player)
+		Global.notify.emit("Server player spawned with name: " + player.name)
 		set_buttons_visibility(false)
 	else:
-		print("Failed to start server or not server")
+		Global.notify.emit("Failed to start server or not server")
 
 func _on_connected_to_server() -> void:
 	set_buttons_visibility(false)

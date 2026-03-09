@@ -32,9 +32,9 @@ const VAN = preload("uid://bdh3x1rcfdepo")
 @onready var audio_listener_3d: AudioListener3D = $Body/AudioListener3D
 
 func _ready() -> void:
-	global_position = get_parent().getSpawnPos()
+	global_position = get_parent().get_parent().getSpawnPos()
 	#global_position = spawn_point.getNextSpawn()
-	print("Multiplayer authority will be set to: ", name.to_int())
+	Global.notify.emit("Multiplayer authority will be set to: " + name)
 	set_multiplayer_authority(name.to_int())
 	if is_multiplayer_authority(): 
 		camera_3d.make_current()
@@ -60,3 +60,6 @@ func selectModel():
 			model = SEDAN.instantiate()
 			
 	body.add_child(model)
+
+func respawn(respawnTo:Vector3 = Vector3(0,0,0)):
+	body.respawn(respawnTo)
