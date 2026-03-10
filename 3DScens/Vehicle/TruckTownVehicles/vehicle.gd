@@ -1,12 +1,14 @@
 extends VehicleBody3D
+class_name CarBodyClass
 @onready var set_respawn_timer: Timer = $setRespawnTimer
+const MISSILE = preload("uid://dao4ok5uv6imf")
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
 const BRAKE_STRENGTH = 2.0
 
 @export var engine_force_value := 40.0
-var spawnPos:Vector3
+var spawnPos:Transform3D
 var previous_speed := linear_velocity.length()
 var _steer_target := 0.0
 
@@ -15,20 +17,24 @@ var _steer_target := 0.0
 func _ready() -> void:
 	#print("Multiplayer authority will be set to: ", name.to_int())
 	#set_multiplayer_authority(name.to_int())
-	spawnPos = global_position
+	spawnPos = global_transform
 
 func _physics_process(delta: float):
+	#Global.notify.emit(str(linear_velocity))
 	var fwd_mps := (linear_velocity * transform.basis).x
 
 	_steer_target = Input.get_axis("ui_right", "ui_left")
 	_steer_target *= STEER_LIMIT
 
 	# Engine sound simulation (not realistic, as this car script has no notion of gear or engine RPM).
-	desired_engine_pitch = 0.05 + linear_velocity.length() / (engine_force_value * 0.5)
+	if isOnFloor() || Input.is_action_pressed("ui_up"):
+		desired_engine_pitch = 0.05 + linear_velocity.length() / (engine_force_value * 0.5)
+	else:
+		desired_engine_pitch = 0.05 / (engine_force_value * 0.5)
 	# Change pitch smoothly to avoid abrupt change on collision.
 	$EngineSound.pitch_scale = lerpf($EngineSound.pitch_scale, desired_engine_pitch, 0.2)
 
-	if abs(linear_velocity.length() - previous_speed) > 1.0:
+	if abs(linear_velocity.length() - previous_speed) > 1.0 && isOnFloor():
 		# Sudden velocity change, likely due to a collision. Play an impact sound to give audible feedback,
 		# and vibrate for haptic feedback.
 		$ImpactSound.play()
@@ -68,20 +74,45 @@ func _physics_process(delta: float):
 
 
 func _input(event: InputEvent) -> void:
+	if !is_multiplayer_authority(): return
 	if event.is_action("ui_accept"):
 		respawn()
+	elif event.is_action_pressed("use"):
+		shootMissile.rpc()
 
+@rpc("call_local")
+func shootMissile():
+	var m = MISSILE.instantiate() as ProjectileClass
+	#m.global_transform = global_transform
+	#m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
+	#Global.notify.emit(str(Vector3(global_rotation.x, 0, global_rotation.z).normalized()))
+	#Global.notify.emit(str(global_position))
+	m.global_position = global_position
+	#m.global_rotation = global_rotation
+	get_tree().root.add_child(m)
+	
+#TODO Respawn cooldown after respawning and after getting hit
 func respawn(respawnTo:Vector3 = Vector3(0,0,0)):
-	global_position = spawnPos if respawnTo == Vector3(0,0,0) else respawnTo
+	if respawnTo == Vector3(0,0,0):
+		global_transform = spawnPos
+	else:
+		global_position = respawnTo
+	linear_velocity = Vector3(0, 0, 0)
+	#global_rotation = Vector3(0,0,0)
 
 
 func _on_set_respawn_timer_timeout() -> void:
 	#print("timer ", spawnPos)
+	if isOnFloor():
+		spawnPos = global_transform
+	set_respawn_timer.start(5)
+
+
+func isOnFloor():
 	for c in get_children():
 		if c is VehicleWheel3D:
 			#print(c)
 			if !c.is_in_contact():
-				set_respawn_timer.start(5)
-				return
-	spawnPos = global_position
-	set_respawn_timer.start(5)
+				return false
+	return true
+	

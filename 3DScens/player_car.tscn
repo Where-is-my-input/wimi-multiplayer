@@ -29,7 +29,7 @@ stream_1/stream = ExtResource("8_uxtj7")
 stream_2/stream = ExtResource("9_x86wc")
 stream_3/stream = ExtResource("10_lhlgl")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuuj3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6iq7"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -44,7 +44,7 @@ proximity_fade_enabled = true
 proximity_fade_distance = 0.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_30wks"]
-material = SubResource("StandardMaterial3D_fuuj3")
+material = SubResource("StandardMaterial3D_e6iq7")
 
 [sub_resource type="Curve" id="Curve_4j5vd"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -68,7 +68,6 @@ properties/2/replication_mode = 1
 script = ExtResource("1_8qvhg")
 
 [node name="Body" type="VehicleBody3D" parent="." unique_id=810613696]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169557, 0.222867, -0.0955184)
 physics_material_override = SubResource("PhysicsMaterial_l7i2k")
 center_of_mass_mode = 1
 script = ExtResource("2_sgv7n")

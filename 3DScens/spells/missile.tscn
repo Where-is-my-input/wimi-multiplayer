@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dao4ok5uv6imf"]
+
+[ext_resource type="PackedScene" uid="uid://ivr4qgjq2dss" path="res://3DScens/spells/projectile.tscn" id="1_0m0h7"]
+[ext_resource type="Script" uid="uid://cvmvijfd3rl5c" path="res://3DScens/spells/missile.gd" id="2_j0sko"]
+[ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="2_u0aht"]
+[ext_resource type="PackedScene" uid="uid://dh7ikigltp4k2" path="res://Assets/3D/Models/GLB format/cone.glb" id="3_j0sko"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuuj3"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.462745, 0.462745, 0.462745, 0.501961)
+albedo_texture = ExtResource("2_u0aht")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_85pud"]
+material = SubResource("StandardMaterial3D_fuuj3")
+
+[sub_resource type="Curve" id="Curve_hf41v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wnsav"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0m0h7"]
+size = Vector3(0.4189453, 0.24023438, 0.5126953)
+
+[node name="projectile" unique_id=95624433 instance=ExtResource("1_0m0h7")]
+script = ExtResource("2_j0sko")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="0" unique_id=1629376181]
+transform = Transform3D(1, 0, 0, 0, 0.57896817, 0.8153502, 0, -0.8153502, 0.57896817, 0, 0, 0)
+amount = 1250
+lifetime = 1.25
+mesh = SubResource("QuadMesh_85pud")
+direction = Vector3(0, 1, -0.5)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+damping_min = 0.05
+damping_max = 0.05
+angle_max = 360.0
+scale_amount_curve = SubResource("Curve_hf41v")
+color_ramp = SubResource("Gradient_wnsav")
+
+[node name="cone2" parent="." index="1" unique_id=732142350 instance=ExtResource("3_j0sko")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(1676392798) index="0" unique_id=248997117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24365234)
+shape = SubResource("BoxShape3D_0m0h7")
+debug_color = Color(0.98425215, 0, 0.3497935, 0.41960785)
