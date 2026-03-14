@@ -30,7 +30,6 @@ func _ready() -> void:
 func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 	if body is VehicleBody3D && body.is_multiplayer_authority():
 		Global.notify.emit("Checkpoint " + str(source) + " hit")
-		Global.notify.emit("current checkpoint is: " + str(currentCheckpoint))
 		if source == currentCheckpoint:
 			if currentCheckpoint == firstCheckpoint:
 				Global.notify.emit("Lap " + str(lap) + " complete!")

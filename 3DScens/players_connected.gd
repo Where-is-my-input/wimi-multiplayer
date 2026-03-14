@@ -8,7 +8,7 @@ func addPlayer(playerName:String = "Nameless"):
 	var h = HBoxContainer.new()
 	var l = Label.new()
 	l.text = playerName
-	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	h.alignment = BoxContainer.ALIGNMENT_CENTER
 	h.add_child(l)
 	h.add_child(Label.new())
 	player_list.add_child(h)

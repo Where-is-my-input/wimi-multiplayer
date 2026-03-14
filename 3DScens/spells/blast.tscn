@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cxrg2v0gag1qr" path="res://3DScens/spells/blast.gd" id="1_qr017"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wbyy8"]
-radius = 2.2069144
+radius = 0.5087787
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr017"]
 albedo_color = Color(1, 0, 0, 1)

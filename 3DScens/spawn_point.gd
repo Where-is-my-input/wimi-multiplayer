@@ -5,11 +5,9 @@ extends Node3D
 
 func getNextSpawn():
 	var count = 0
-	Global.notify.emit("Spawn points count: " + str(spawn_points.get_child_count()))
 	for c in spawn_points.get_children():
 		if c is not Node3D: continue
 		if currentSpawn == count:
-			Global.notify.emit("Spawning on spot: " + str(currentSpawn))
 			currentSpawn += 1
 			if currentSpawn > spawn_points.get_child_count() - 1:
 				currentSpawn = 0

@@ -25,6 +25,7 @@ const TRACTOR = preload("uid://d07fyyhbg8n5w")
 const TRUCK_FLAT = preload("uid://cju4xcsctrpvb")
 const TRUCK = preload("uid://d0bd4c30nnxhv")
 const VAN = preload("uid://bdh3x1rcfdepo")
+@onready var player_hud: Control = $playerHUD
 
 @onready var body: VehicleBody3D = $Body
 @onready var audio_listener_3d: AudioListener3D = $Body/AudioListener3D
@@ -33,9 +34,11 @@ func _ready() -> void:
 	global_position = get_parent().get_parent().getSpawnPos()
 	Global.notify.emit("Multiplayer authority will be set to: " + name)
 	set_multiplayer_authority(name.to_int())
-	if is_multiplayer_authority(): 
+	if is_multiplayer_authority():
 		camera_3d.make_current()
 		audio_listener_3d.make_current()
+	else:
+		player_hud.visible = false
 	selectModel()
 
 func selectModel():

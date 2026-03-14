@@ -2,6 +2,8 @@ extends VehicleBody3D
 class_name CarBodyClass
 @onready var set_respawn_timer: Timer = $setRespawnTimer
 const MISSILE = preload("uid://dao4ok5uv6imf")
+@onready var gun: Marker3D = $gun
+@onready var player_hud: Control = $"../playerHUD"
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
@@ -20,7 +22,6 @@ func _ready() -> void:
 	spawnPos = global_transform
 
 func _physics_process(delta: float):
-	#Global.notify.emit(str(linear_velocity))
 	var fwd_mps := (linear_velocity * transform.basis).x
 
 	_steer_target = Input.get_axis("ui_right", "ui_left")
@@ -78,16 +79,17 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("ui_accept"):
 		respawn()
 	elif event.is_action_pressed("use"):
-		shootMissile.rpc()
+		player_hud.useCard.rpc()
+		#shootMissile.rpc()
 
 @rpc("call_local")
 func shootMissile():
+	return
 	var m = MISSILE.instantiate() as ProjectileClass
-	#m.global_transform = global_transform
+	m.global_transform = gun.global_transform
+	m.speed += linear_velocity.length()
 	#m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
-	#Global.notify.emit(str(Vector3(global_rotation.x, 0, global_rotation.z).normalized()))
-	#Global.notify.emit(str(global_position))
-	m.global_position = global_position
+	#m.global_position = global_position
 	#m.global_rotation = global_rotation
 	get_tree().root.add_child(m)
 	

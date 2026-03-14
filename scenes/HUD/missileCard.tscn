@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://clh46q4n6j5s6"]
+
+[ext_resource type="PackedScene" uid="uid://d00qkr2gh5xsc" path="res://scenes/HUD/card.tscn" id="1_pdnd2"]
+[ext_resource type="Script" uid="uid://drxvnnph87hwr" path="res://scenes/HUD/missileEffect.gd" id="2_84oe0"]
+[ext_resource type="PackedScene" uid="uid://w03pnlof0owo" path="res://Assets/3D/Models/FBX format/cone.fbx" id="2_nlivp"]
+
+[node name="card" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_pdnd2")]
+effect = NodePath("effect")
+
+[node name="effect" type="Node" parent="." index="2" unique_id=2131042407]
+script = ExtResource("2_84oe0")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." index="3" unique_id=820397696]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.99997
+offset_top = 15.9999695
+offset_right = 336.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27599365, 0.27599365)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" index="0" unique_id=1067974419]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" index="0" unique_id=1983126318]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1500.786, 1.078)
+
+[node name="cone" parent="SubViewportContainer" index="1" unique_id=439014067 instance=ExtResource("2_nlivp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 0)

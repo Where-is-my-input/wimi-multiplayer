@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d00qkr2gh5xsc"]
+
+[ext_resource type="Script" uid="uid://dkowvgsnrpvtn" path="res://scenes/HUD/card.gd" id="1_lf3ml"]
+
+[node name="card" type="Control" unique_id=1052156645]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -951.0
+offset_bottom = -398.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lf3ml")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1731259155]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 250.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1887246187]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 196.0
+offset_bottom = 245.0
+color = Color(0, 0, 0, 1)

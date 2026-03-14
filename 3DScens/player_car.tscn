@@ -9,7 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://sun2n8a4xapl" path="res://3DScens/Vehicle/TruckTownVehicles/impact_3.wav" id="9_x86wc"]
 [ext_resource type="AudioStream" uid="uid://dpbayeeufya21" path="res://3DScens/Vehicle/TruckTownVehicles/impact_4.wav" id="10_lhlgl"]
 [ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="11_aw56n"]
+[ext_resource type="PackedScene" uid="uid://du0o4j23pvx0w" path="res://Assets/3D/Models/GLB format/debris-bolt.glb" id="11_oeren"]
 [ext_resource type="Texture2D" uid="uid://bju75l2w3r7vq" path="res://3DScens/Vehicle/TruckTownVehicles/blob_shadow.png" id="12_0lg18"]
+[ext_resource type="Script" uid="uid://0epb2l0ycfb" path="res://3DScens/player_hud.gd" id="12_8qvhg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l7i2k"]
 friction = 0.5
@@ -190,7 +192,47 @@ transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228
 wait_time = 5.0
 autostart = true
 
+[node name="gun" type="Marker3D" parent="Body" unique_id=833833550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5755069, 1.4921799)
+
+[node name="debris-bolt2" parent="Body/gun" unique_id=42489377 instance=ExtResource("11_oeren")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=494711759]
 replication_config = SubResource("SceneReplicationConfig_q1o7u")
+
+[node name="playerHUD" type="Control" parent="." unique_id=1426714067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_8qvhg")
+
+[node name="drawProgress" type="ProgressBar" parent="playerHUD" unique_id=151631885]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="hand" type="HBoxContainer" parent="playerHUD" unique_id=1797822757]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 787.0
+offset_top = -106.0
+offset_right = 792.333
+offset_bottom = 136.3335
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+alignment = 2
 
 [connection signal="timeout" from="Body/setRespawnTimer" to="Body" method="_on_set_respawn_timer_timeout"]

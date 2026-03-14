@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="PackedScene" uid="uid://1xion50akge" path="res://3DScens/tracks/track1.tscn" id="7_opkmm"]
+[ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="8_fst4s"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 
@@ -63,7 +64,10 @@ environment = SubResource("Environment_2uxca")
 [node name="notifications" parent="." unique_id=942002380 instance=ExtResource("9_0iigc")]
 anchors_preset = 1
 anchor_bottom = 0.0
-offset_bottom = 289.0
+offset_left = -1150.0
+offset_top = 138.0
+offset_right = -841.0
+offset_bottom = 598.0
 grow_vertical = 1
 
 [node name="playersConnected" type="Control" parent="." unique_id=1411463389]
@@ -73,8 +77,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -201.0
-offset_top = -159.0
+offset_left = -200.0
+offset_top = -645.0
+offset_right = 1.0
+offset_bottom = -486.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("10_88ymw")
@@ -95,9 +101,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 2
 
 [node name="raceTrack" parent="." unique_id=1926592461 instance=ExtResource("7_opkmm")]
+
+[node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1134003765]
+_spawnable_scenes = PackedStringArray("uid://dao4ok5uv6imf")
+spawn_path = NodePath("..")
+script = ExtResource("8_fst4s")
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]
