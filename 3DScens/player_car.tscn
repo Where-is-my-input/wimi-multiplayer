@@ -58,7 +58,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_q1o7u"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 1
+properties/0/replication_mode = 2
 properties/1/path = NodePath("Body:position")
 properties/1/spawn = true
 properties/1/replication_mode = 1
@@ -67,12 +67,13 @@ properties/2/spawn = true
 properties/2/replication_mode = 1
 properties/3/path = NodePath("playerHUD/drawProgress:value")
 properties/3/spawn = true
-properties/3/replication_mode = 1
+properties/3/replication_mode = 2
 
 [node name="playerCar" type="Node3D" unique_id=686389758]
 script = ExtResource("1_8qvhg")
 
 [node name="Body" type="VehicleBody3D" parent="." unique_id=810613696]
+collision_layer = 257
 physics_material_override = SubResource("PhysicsMaterial_l7i2k")
 center_of_mass_mode = 1
 script = ExtResource("2_sgv7n")

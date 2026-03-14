@@ -4,6 +4,8 @@ extends Control
 @onready var hand: HBoxContainer = $hand
 const MISSILE_CARD = preload("uid://clh46q4n6j5s6")
 @onready var body: CarBodyClass = $"../Body"
+const BOOST_CARD = preload("uid://c72bf0q7d52h8")
+const PARRY_CARD = preload("uid://cw8e6agsvrtc1")
 
 #func _ready() -> void:
 	#if !is_multiplayer_authority():
@@ -23,7 +25,18 @@ func setDrawProgress(value:float = 100):
 
 func drawCard():
 	if hand.get_child_count() > 3: return
-	var c = MISSILE_CARD.instantiate()
+	
+	var c
+	
+	match int(body.linear_velocity.length()) % 3:
+		Global.Spells.MISSILE:
+			c = MISSILE_CARD.instantiate()
+		Global.Spells.BOOST:
+			c = BOOST_CARD.instantiate()
+		Global.Spells.PARRY:
+			c = PARRY_CARD.instantiate()
+		_:
+			c = BOOST_CARD.instantiate()
 	hand.add_child(c)
 
 @rpc("call_local")

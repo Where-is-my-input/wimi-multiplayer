@@ -1,16 +1,12 @@
-extends Node
-@onready var cone: Node3D = $"../SubViewportContainer/cone"
+extends EffectClass
 const MISSILE = preload("uid://dao4ok5uv6imf")
-
-func _process(delta: float) -> void:
-	cone.rotate(Vector3(0, 1, 0), 1.5 * delta)
 
 func activate(body:VehicleBody3D):
 	var m = MISSILE.instantiate() as ProjectileClass
 	m.global_transform = body.gun.global_transform
 	m.speed += body.linear_velocity.length()
 	shootMissile(m)
-	get_parent().queue_free()
+	super(body)
 
 #@rpc("call_local")
 func shootMissile(m:ProjectileClass):

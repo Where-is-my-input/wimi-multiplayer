@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var totalLaps:int = 0
+
 var currentCheckpoint:Area3D
 var firstCheckpoint:Area3D
 
@@ -29,11 +31,15 @@ func _ready() -> void:
 
 func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 	if body is VehicleBody3D && body.is_multiplayer_authority():
-		Global.notify.emit("Checkpoint " + str(source) + " hit")
 		if source == currentCheckpoint:
 			if currentCheckpoint == firstCheckpoint:
 				Global.notify.emit("Lap " + str(lap) + " complete!")
 				lap += 1
+				if lap > totalLaps: finish.rpc(body)
 			currentCheckpoint.visible = false
 			currentCheckpoint = source.nextCheckpoint
 			currentCheckpoint.visible = true
+
+@rpc("call_local")
+func finish(body:VehicleBody3D):
+	Global.notify.emit("We have a winner!" + str(body))

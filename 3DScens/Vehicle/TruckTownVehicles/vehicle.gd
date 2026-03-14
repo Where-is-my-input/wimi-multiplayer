@@ -79,9 +79,15 @@ func _input(event: InputEvent) -> void:
 	if !is_multiplayer_authority(): return
 	if event.is_action("ui_accept"):
 		respawn()
-	elif event.is_action_pressed("use"):
-		player_hud.useCard.rpc()
+	elif event.is_action_pressed("use0"):
+		player_hud.useCard.rpc(0)
 		#shootMissile.rpc()
+	elif event.is_action_pressed("use1"):
+		player_hud.useCard.rpc(1)
+	elif event.is_action_pressed("use2"):
+		player_hud.useCard.rpc(2)
+	elif event.is_action_pressed("use3"):
+		player_hud.useCard.rpc(3)
 
 @rpc("call_local")
 func shootMissile():

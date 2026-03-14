@@ -24,6 +24,8 @@ albedo_color = Color(0.69803923, 0.29411766, 0, 1)
 material = SubResource("StandardMaterial3D_h1tgg")
 
 [node name="blast" type="Area3D" unique_id=122913138]
+collision_layer = 0
+collision_mask = 256
 script = ExtResource("1_qr017")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1985598575]

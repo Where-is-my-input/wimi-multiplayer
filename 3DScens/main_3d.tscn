@@ -5,11 +5,16 @@
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="PackedScene" uid="uid://1xion50akge" path="res://3DScens/tracks/track1.tscn" id="7_opkmm"]
+[ext_resource type="AudioStream" uid="uid://f8q0dybwnxkj" path="res://Assets/Music/racing_game_ending_bpm100.ogg" id="8_fst4s"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 
 [sub_resource type="Environment" id="Environment_2uxca"]
 background_mode = 2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0iigc"]
+streams_count = 1
+stream_0/stream = ExtResource("8_fst4s")
 
 [node name="main3D" type="Node3D" unique_id=568222157 node_paths=PackedStringArray("raceTrack")]
 script = ExtResource("1_fst4s")
@@ -105,6 +110,11 @@ grow_vertical = 2
 
 [node name="raceStartCooldown" type="Timer" parent="." unique_id=1999243265]
 one_shot = true
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=184874406]
+stream = SubResource("AudioStreamRandomizer_0iigc")
+autoplay = true
+bus = &"BGM"
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]

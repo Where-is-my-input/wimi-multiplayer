@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b1215ljyurth0"]
+
+[node name="credits" type="Control" unique_id=2021032563]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1493126461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3D Assets
+
+Car Kit by Kenney
+Modular Racetrack - 3D Models by Keith at Fertile Soil Productions
+
+Music:
+
+Racing Game Ending by MintoDog
+Race of the Wasp by OwlishMedia
+Empty Stretch by Zane Little Music
+Darkness Road(+Remeke) by MintoDog
+Strange Factory by MintoDog
+Dizzy Racing by Zane Little Music
+Sky Blue Street by MintoDog
+As fast as you can by Centurion_of_war
+Hot Roadway by MintoDog
+Awake! (Megawall-10) by cynicmusic
+Cool Highway [Remake] by MintoDog
+Super Wreck Roadway by Umplix
+
+Special thanks
+
+3D Truck Town Demo by Godot Engine"
+scroll_following = true
+horizontal_alignment = 1

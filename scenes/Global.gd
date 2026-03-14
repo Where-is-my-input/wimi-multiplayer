@@ -4,6 +4,14 @@ signal startRace
 signal notify
 signal spawnProjectile
 
+enum Spells{
+	MISSILE,
+	BOOST,
+	PARRY
+}
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_home"):
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://3DScens/main_3d.tscn")
+	elif event.is_action_pressed("credits"):
+		get_tree().change_scene_to_file("res://credits.tscn")

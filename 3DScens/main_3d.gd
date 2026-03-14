@@ -2,6 +2,7 @@ extends Node3D
 
 @export var raceTrack:Node3D
 @onready var race_start_cooldown: Timer = $raceStartCooldown
+@onready var bgm: AudioStreamPlayer2D = $BGM
 
 #@onready var spawn_point: Node3D = $spawnPoint
 @onready var players: Node = $players
@@ -9,6 +10,8 @@ extends Node3D
 
 func _ready() -> void:
 	Global.connect("startRace", startRace)
+	if OS.is_debug_build():
+		bgm.stop()
 
 func getSpawnPos():
 	return raceTrack.getNextSpawn()
