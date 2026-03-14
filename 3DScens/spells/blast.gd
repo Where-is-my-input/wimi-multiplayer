@@ -16,3 +16,4 @@ func blastEffect(body:Node3D):
 	if body is not VehicleBody3D: return
 	var vector_to_target = (body.global_position - global_position)
 	body.linear_velocity -= (blastStrength / vector_to_target.length()) * vector_to_target.normalized() * -1 * Vector3(1, -1.0001, 1)
+	body.setRespawnCooldown(10)

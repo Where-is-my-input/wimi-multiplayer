@@ -65,6 +65,9 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Body:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath("playerHUD/drawProgress:value")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="playerCar" type="Node3D" unique_id=686389758]
 script = ExtResource("1_8qvhg")
@@ -191,6 +194,9 @@ transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228
 [node name="setRespawnTimer" type="Timer" parent="Body" unique_id=1389878136]
 wait_time = 5.0
 autostart = true
+
+[node name="respawnCooldown" type="Timer" parent="Body" unique_id=888399545]
+one_shot = true
 
 [node name="gun" type="Marker3D" parent="Body" unique_id=833833550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5755069, 1.4921799)

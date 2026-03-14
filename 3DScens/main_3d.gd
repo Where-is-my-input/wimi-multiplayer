@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var raceTrack:Node3D
+@onready var race_start_cooldown: Timer = $raceStartCooldown
 
 #@onready var spawn_point: Node3D = $spawnPoint
 @onready var players: Node = $players
@@ -14,6 +15,8 @@ func getSpawnPos():
 
 @rpc("call_local")
 func startRace():
+	if !race_start_cooldown.is_stopped(): return
+	race_start_cooldown.start(10)
 	#if !multiplayer.is_server(): return
 	Global.notify.emit("Race will start soon...")
 	await get_tree().create_timer(3).timeout

@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="PackedScene" uid="uid://1xion50akge" path="res://3DScens/tracks/track1.tscn" id="7_opkmm"]
-[ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="8_fst4s"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 
@@ -104,10 +103,8 @@ grow_vertical = 2
 
 [node name="raceTrack" parent="." unique_id=1926592461 instance=ExtResource("7_opkmm")]
 
-[node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1134003765]
-_spawnable_scenes = PackedStringArray("uid://dao4ok5uv6imf")
-spawn_path = NodePath("..")
-script = ExtResource("8_fst4s")
+[node name="raceStartCooldown" type="Timer" parent="." unique_id=1999243265]
+one_shot = true
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]

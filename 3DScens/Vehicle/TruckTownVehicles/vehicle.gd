@@ -4,6 +4,7 @@ class_name CarBodyClass
 const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var gun: Marker3D = $gun
 @onready var player_hud: Control = $"../playerHUD"
+@onready var respawn_cooldown: Timer = $respawnCooldown
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
@@ -93,15 +94,18 @@ func shootMissile():
 	#m.global_rotation = global_rotation
 	get_tree().root.add_child(m)
 	
-#TODO Respawn cooldown after respawning and after getting hit
-func respawn(respawnTo:Vector3 = Vector3(0,0,0)):
+func respawn(respawnTo:Vector3 = Vector3(0,0,0), forceRespawn:bool = false):
+	if !respawn_cooldown.is_stopped() && !forceRespawn: return
 	if respawnTo == Vector3(0,0,0):
 		global_transform = spawnPos
 	else:
 		global_position = respawnTo
 	linear_velocity = Vector3(0, 0, 0)
+	setRespawnCooldown()
 	#global_rotation = Vector3(0,0,0)
 
+func setRespawnCooldown(value:float = 5):
+	respawn_cooldown.start(value)
 
 func _on_set_respawn_timer_timeout() -> void:
 	#print("timer ", spawnPos)
