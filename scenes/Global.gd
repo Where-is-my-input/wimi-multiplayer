@@ -12,6 +12,16 @@ enum Spells{
 	BLAST
 }
 
+enum CameraType {
+	DEFAULT,
+	EXTERIOR,
+	INTERIOR,
+	TOP_DOWN,
+	MAX,  # Represents the size of the CameraType enum.
+}
+
+var currentCamera:CameraType = CameraType.EXTERIOR
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_home"):
 		get_tree().change_scene_to_file("res://3DScens/main_3d.tscn")

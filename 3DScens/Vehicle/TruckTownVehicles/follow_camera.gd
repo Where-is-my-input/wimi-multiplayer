@@ -15,7 +15,7 @@ const FOV_CHANGE_MIN_SPEED = 0.05
 @export var angle_v_adjust := 0.0
 @export var height := 1.5
 
-var camera_type := CameraType.EXTERIOR
+var camera_type:Global.CameraType = Global.currentCamera
 
 var initial_transform := transform
 
@@ -27,30 +27,23 @@ var desired_fov := fov
 # Position on the last physics frame (used to measure speed).
 var previous_position := global_position
 
-enum CameraType {
-	DEFAULT,
-	EXTERIOR,
-	INTERIOR,
-	TOP_DOWN,
-	MAX,  # Represents the size of the CameraType enum.
-}
-
 func _ready():
 	update_camera()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		camera_type = wrapi(camera_type + 1, 0, CameraType.MAX) as CameraType
+	if event.is_action_pressed("camera"):
+		camera_type = wrapi(camera_type + 1, 0, Global.CameraType.MAX) as Global.CameraType
+		Global.currentCamera = camera_type
 		update_camera()
 
 
 func _physics_process(_delta):
-	if camera_type == CameraType.DEFAULT:
+	if camera_type == Global.CameraType.DEFAULT:
 		position = back_camera_position.global_transform.origin
 		#position.x = back_camera_position.global_transform.origin.x
 		#position.z = back_camera_position.global_transform.origin.z
 		look_at(get_parent().global_transform.origin)
-	if camera_type == CameraType.EXTERIOR:
+	if camera_type == Global.CameraType.EXTERIOR:
 		var target: Vector3 = get_parent().global_transform.origin
 		var pos := global_transform.origin
 
@@ -67,7 +60,7 @@ func _physics_process(_delta):
 		pos = target + from_target
 
 		look_at_from_position(pos, target, Vector3.UP)
-	elif camera_type == CameraType.TOP_DOWN:
+	elif camera_type == Global.CameraType.TOP_DOWN:
 		position.x = get_parent().global_transform.origin.x
 		position.z = get_parent().global_transform.origin.z
 		# Force rotation to prevent camera from being slanted after switching cameras while on a slope.
@@ -85,15 +78,15 @@ func _physics_process(_delta):
 
 func update_camera():
 	match camera_type:
-		CameraType.EXTERIOR:
+		Global.CameraType.EXTERIOR:
 			transform = initial_transform
-		CameraType.INTERIOR:
+		Global.CameraType.INTERIOR:
 			global_transform = get_node(^"../../InteriorCameraPosition").global_transform
-		CameraType.TOP_DOWN:
+		Global.CameraType.TOP_DOWN:
 			global_transform = get_node(^"../../TopDownCameraPosition").global_transform
-		CameraType.DEFAULT:
+		Global.CameraType.DEFAULT:
 			global_transform = get_node(^"../../backCameraPosition").global_transform
 
 	# This detaches the camera transform from the parent spatial node, but only
 	# for exterior and top-down cameras.
-	set_as_top_level(camera_type != CameraType.INTERIOR)
+	set_as_top_level(camera_type != Global.CameraType.INTERIOR)
