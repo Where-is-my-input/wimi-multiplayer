@@ -14,6 +14,8 @@ const STEER_LIMIT = 0.4
 const BRAKE_STRENGTH = 2.0
 
 @export var engine_force_value := 40.0
+@export var brakeForce: float = 2
+
 var spawnPos:Transform3D
 var previous_speed := linear_velocity.length()
 var _steer_target := 0.0
@@ -73,14 +75,20 @@ func _physics_process(delta: float):
 		engine_force *= Input.get_action_strength("ui_down")
 
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
-
+	
+	if Input.is_action_pressed("ui_accept"):
+		brake = 1.3
+		engine_force = 0
 	previous_speed = linear_velocity.length()
 
 
 func _input(event: InputEvent) -> void:
 	if !is_multiplayer_authority(): return
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("respawn"):
 		respawn()
+	elif event.is_action_pressed("forceRespawn"):
+		respawn(null, true)
+		Global.notify.emit("Forcing respawn")
 	elif event.is_action_pressed("use0"):
 		player_hud.useCard(0)
 		#shootMissile.rpc()
