@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4m6mag25mlme"]
 
 [ext_resource type="Script" uid="uid://cxrg2v0gag1qr" path="res://3DScens/spells/blast.gd" id="1_qr017"]
+[ext_resource type="AudioStream" uid="uid://d30chh2g6xrfq" path="res://Assets/SFX/8bit_bomb_explosion.wav" id="2_pl6iu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wbyy8"]
 radius = 0.5087787
@@ -44,3 +45,8 @@ skeleton = NodePath("")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1712031304]
 transparency = 0.44
 mesh = SubResource("SphereMesh_r1sw7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1662147519]
+stream = ExtResource("2_pl6iu")
+autoplay = true
+bus = &"SFX"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ka0qd08ka1e4"]
 
 [ext_resource type="Script" uid="uid://dhro314r1o84e" path="res://3DScens/tracks/checkpoint.gd" id="1_6l5o1"]
+[ext_resource type="AudioStream" uid="uid://cihwva1ymcktk" path="res://Assets/SFX/coin.wav" id="2_yy7p1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajr1d"]
 resource_local_to_scene = true
@@ -35,3 +36,7 @@ shape = SubResource("ConvexPolygonShape3D_gmsvl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1526508736]
 transform = Transform3D(1, 0, 0, 0, -0.7563331, 0.6541866, 0, -0.6541866, -0.7563331, 0, 7.7338104, 0)
+light_energy = 0.1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=372040551]
+stream = ExtResource("2_yy7p1")

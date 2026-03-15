@@ -1,10 +1,10 @@
 extends MultiplayerSpawner
 @onready var track: Node = $"../track"
 
-var currentTrack:int = 3
+var currentTrack:int = 0
 
-func _ready() -> void:
-	loadTrack()
+#func _ready() -> void:
+	#loadTrack()
 
 func incrementCurrentTrack():
 	currentTrack += 1
@@ -12,6 +12,7 @@ func incrementCurrentTrack():
 
 func loadTrack():
 	unloadTrack()
+	await get_tree().create_timer(1).timeout
 	var trackToLoad = load(get_spawnable_scene(currentTrack))
 	track.add_child(trackToLoad.instantiate())
 	incrementCurrentTrack()

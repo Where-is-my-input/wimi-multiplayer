@@ -46,8 +46,9 @@ func _input(event):
 
 func _physics_process(_delta):
 	if camera_type == CameraType.DEFAULT:
-		position.x = back_camera_position.global_transform.origin.x
-		position.z = back_camera_position.global_transform.origin.z
+		position = back_camera_position.global_transform.origin
+		#position.x = back_camera_position.global_transform.origin.x
+		#position.z = back_camera_position.global_transform.origin.z
 		look_at(get_parent().global_transform.origin)
 	if camera_type == CameraType.EXTERIOR:
 		var target: Vector3 = get_parent().global_transform.origin

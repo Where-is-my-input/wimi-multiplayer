@@ -6,8 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="4_cmgro"]
 [ext_resource type="PackedScene" uid="uid://bo71hlwpe5mla" path="res://3DScens/tracks/spawn_position.tscn" id="5_lxgbv"]
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_cmgro"]
+[ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="7_vxiqd"]
+[ext_resource type="AudioStream" uid="uid://cjf6yrpau6k8c" path="res://Assets/Music/darkness_road_remake_bpm165.ogg" id="8_vxiqd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ce1e4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vxiqd"]
+sky_top_color = Color(0.40455762, 0.27805516, 1, 1)
+sky_horizon_color = Color(0.90587026, 0.40630072, 1, 1)
+sky_curve = 0.044595204
+ground_bottom_color = Color(0.8629267, 0.63014746, 0.009187197, 1)
+ground_horizon_color = Color(0.90588236, 0.40784314, 1, 1)
+ground_curve = 0.17753123
+energy_multiplier = 5.54
+
+[sub_resource type="Sky" id="Sky_8t2md"]
+sky_material = SubResource("ProceduralSkyMaterial_vxiqd")
+
+[sub_resource type="Environment" id="Environment_7lft6"]
+background_mode = 2
+sky = SubResource("Sky_8t2md")
 
 [node name="track3" unique_id=1926592461 node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_m2j0m")]
 spawn_points = NodePath("spawnPoints")
@@ -18,7 +36,6 @@ data = {
 }
 
 [node name="checkpoints" parent="." index="2" unique_id=1218153255 instance=ExtResource("3_ce1e4")]
-visible = false
 
 [node name="checkpoint" parent="checkpoints" index="0" unique_id=226977553 instance=ExtResource("4_cmgro")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99.933945, 8.161967, 84.89003)
@@ -129,3 +146,21 @@ transform = Transform3D(0.00811575, 7.6641655e-08, 0.9999671, 0.865997, -0.50000
 data = {
 "cells": PackedInt32Array(8, 65531, 1441800, 7, 65531, 1441804, 19, 14, 1048578, 20, 14, 1441802)
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="13" unique_id=574562109]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99.80752, 9.617821, 70.69269)
+stream = ExtResource("7_vxiqd")
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." index="14" unique_id=460271757]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99.80752, 9.617821, 95.69708)
+stream = ExtResource("7_vxiqd")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="15" unique_id=495845954]
+stream = ExtResource("8_vxiqd")
+autoplay = true
+bus = &"BGM"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="16" unique_id=1739348351]
+environment = SubResource("Environment_7lft6")

@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 [ext_resource type="Script" uid="uid://c13y3p7mvpgo" path="res://3DScens/track_spawner.gd" id="10_niptm"]
-
-[sub_resource type="Environment" id="Environment_2uxca"]
-background_mode = 2
+[ext_resource type="Script" uid="uid://pxr31jo8jkoc" path="res://3DScens/options.gd" id="12_8hlv7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0iigc"]
 streams_count = 1
@@ -116,9 +114,6 @@ _spawnable_scenes = PackedStringArray("uid://ivr4qgjq2dss", "uid://d4m6mag25mlme
 spawn_path = NodePath("../projectiles")
 script = ExtResource("5_0iigc")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504006752]
-environment = SubResource("Environment_2uxca")
-
 [node name="players" type="Node" parent="." unique_id=776287051]
 
 [node name="notifications" parent="." unique_id=942002380 instance=ExtResource("9_0iigc")]
@@ -198,5 +193,21 @@ script = ExtResource("10_niptm")
 
 [node name="projectiles" type="Node" parent="." unique_id=1451660750]
 
+[node name="options" type="Control" parent="." unique_id=1507495389]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_8hlv7")
+
+[node name="BGM" type="CheckBox" parent="options" unique_id=2045721355]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 26.0
+button_pressed = true
+
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]
+[connection signal="toggled" from="options/BGM" to="options" method="_on_bgm_toggled"]

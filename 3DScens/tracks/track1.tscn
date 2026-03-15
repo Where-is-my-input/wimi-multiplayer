@@ -7,11 +7,26 @@
 [ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="6_777il"]
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="6_gmsvl"]
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="6_owbra"]
+[ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="8_irtq8"]
+[ext_resource type="AudioStream" uid="uid://43r6gidipdku" path="res://Assets/Music/awake10_megaWall.mp3" id="9_28kto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
 size = Vector3(1000, 1, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0iigc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_irtq8"]
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_curve = 0.2599208
+sun_angle_max = 0.0
+sun_curve = 0.7135244
+
+[sub_resource type="Sky" id="Sky_8hlv7"]
+sky_material = SubResource("ProceduralSkyMaterial_irtq8")
+
+[sub_resource type="Environment" id="Environment_28kto"]
+background_mode = 2
+sky = SubResource("Sky_8hlv7")
 
 [node name="raceTrack" type="Node3D" unique_id=1926592461 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_gmsvl")
@@ -109,5 +124,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.30363, 0, -200.71251)
 
 [node name="checkpoint6" parent="checkpoints" unique_id=958146358 instance=ExtResource("6_gmsvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029438972, 0, -200.71251)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1324937142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.645061, 0, 0)
+stream = ExtResource("8_irtq8")
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=563722928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35934, 0, 0)
+stream = ExtResource("8_irtq8")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=959896073]
+stream = ExtResource("9_28kto")
+autoplay = true
+bus = &"BGM"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=561167411]
+environment = SubResource("Environment_28kto")
 
 [connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]

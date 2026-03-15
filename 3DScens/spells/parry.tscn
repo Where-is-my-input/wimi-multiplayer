@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cd7e28n831lit"]
 
 [ext_resource type="Script" uid="uid://cib3ejqtjc57x" path="res://3DScens/spells/parry.gd" id="1_jnw65"]
+[ext_resource type="AudioStream" uid="uid://b0fvpdil3n0ha" path="res://Assets/SFX/time_stop.mp3" id="2_a3jwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k3c2"]
 albedo_color = Color(0, 0, 1, 1)
@@ -189,6 +190,11 @@ skeleton = NodePath("")
 libraries/ = SubResource("AnimationLibrary_jwlnq")
 autoplay = &"new_animation"
 speed_scale = 0.3
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1650571207]
+stream = ExtResource("2_a3jwk")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

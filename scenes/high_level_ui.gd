@@ -9,6 +9,7 @@ extends Control
 @onready var players_connected: Control = $"../playersConnected"
 @onready var track_spawner: MultiplayerSpawner = $"../trackSpawner"
 @onready var splash_art: Control = $"../splashArt"
+@onready var bgm: AudioStreamPlayer2D = $"../BGM"
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -21,8 +22,10 @@ func _on_btn_client_pressed() -> void:
 	track_spawner.unloadTrack()
 	HighLevelNetworkHandler.startClient(port.text, ip.text)
 	splash_art.queue_free()
+	bgm.queue_free()
 
 func _on_btn_server_pressed() -> void:
+	bgm.queue_free()
 	track_spawner.unloadTrack()
 	Global.notify.emit("Starting server...")
 	HighLevelNetworkHandler.startServer(port.text)

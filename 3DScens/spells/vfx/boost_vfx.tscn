@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dstdvkqt7i7lu" path="res://3DScens/spells/vfx/boost_vfx.gd" id="1_l6u17"]
 [ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="2_l6u17"]
+[ext_resource type="AudioStream" uid="uid://ccoa7wwa0q2ee" path="res://Assets/SFX/space_ship.ogg" id="3_fjkt4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6iq7"]
 transparency = 1
@@ -70,6 +71,10 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_6il3f")
 color = Color(1, 0.078431375, 0, 1)
 color_ramp = SubResource("Gradient_4otju")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1596363219]
+stream = ExtResource("3_fjkt4")
+autoplay = true
 
 [connection signal="finished" from="CPUParticles3D" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="CPUParticles3D2" to="." method="_on_timer_timeout"]

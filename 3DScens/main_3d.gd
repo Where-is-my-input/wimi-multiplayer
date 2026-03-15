@@ -12,11 +12,11 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var players: Node = $players
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 
-func _ready() -> void:
-	#Global.connect("startRace", startRace)
-	#Global.connect("spawnProjectile", spawnProjectile)
-	if OS.is_debug_build():
-		bgm.stop()
+#func _ready() -> void:
+	##Global.connect("startRace", startRace)
+	##Global.connect("spawnProjectile", spawnProjectile)
+	#if OS.is_debug_build():
+		#bgm.stop()
 
 func getSpawnPos():
 	var currentTrack = track.get_child(0)
