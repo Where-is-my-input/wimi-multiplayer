@@ -2,7 +2,7 @@ extends Area3D
 
 func _ready() -> void:
 	var parent = get_parent() as VehicleBody3D
-	parent.set_collision_mask_value(9, false)
+	parent.set_collision_layer_value(9, false)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body != get_parent():
@@ -13,8 +13,9 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	#return
+	await get_tree().create_timer(5).timeout
 	visible = false
 	monitoring = false
-	await get_tree().create_timer(2).timeout
-	if get_parent() != null: get_parent().set_collision_mask_value(9, true)
+	if get_parent() != null: get_parent().set_collision_layer_value(9, true)
 	queue_free()

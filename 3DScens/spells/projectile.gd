@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name ProjectileClass
 
 @export var direction:Vector3 = Vector3(1, 0, 1)
-@export var speed:float = 25.0
+@export var speed:float = 2500.0
 
 func _ready() -> void:
 	#direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#velocity = speed * basis.get_euler() * Vector3(1, 0, 1)
-	velocity = basis.z * 2500 * delta * direction
+	velocity = basis.z * speed * delta * direction
 	move_and_slide()
 
 

@@ -7,6 +7,7 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var respawn_cooldown: Timer = $respawnCooldown
 const PARRY = preload("uid://cd7e28n831lit")
 @onready var projectile_spawner: MultiplayerSpawner = $"../projectileSpawner"
+const BOOST_VFX = preload("uid://dy8royi8in62h")
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
@@ -134,3 +135,7 @@ func parry():
 	var p = PARRY.instantiate()
 	#projectile_spawner.spawn(p)
 	add_child(p)
+
+func boost(boostStrength:float = 1.1):
+	linear_velocity *= boostStrength
+	add_child(BOOST_VFX.instantiate())

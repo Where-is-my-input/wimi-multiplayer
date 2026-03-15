@@ -1,7 +1,8 @@
 extends EffectClass
 
 func activate(body:VehicleBody3D):
-	body.linear_velocity *= 2.5
+	#body.linear_velocity *= 2.5
+	body.boost(2.5)
 	#var storedEngineForce = body.engine_force_value
 	#body.engine_force_value *= 2
 	#await get_tree().create_timer(2).timeout
