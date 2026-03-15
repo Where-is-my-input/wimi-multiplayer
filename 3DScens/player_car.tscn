@@ -190,6 +190,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9
 [node name="TopDownCameraPosition" type="Marker3D" parent="Body" unique_id=832821805]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.00169557, 15.7771, 0.0955178)
 
+[node name="backCameraPosition" type="Marker3D" parent="Body" unique_id=564482675]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.00169557, 2.4488811, -4.307084)
+
 [node name="setRespawnTimer" type="Timer" parent="Body" unique_id=1389878136]
 wait_time = 5.0
 autostart = true
@@ -245,7 +248,7 @@ _spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62
 spawn_path = NodePath("../Body")
 
 [node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1694482051]
-_spawnable_scenes = PackedStringArray("uid://dao4ok5uv6imf")
+_spawnable_scenes = PackedStringArray("uid://dao4ok5uv6imf", "uid://d4m6mag25mlme")
 spawn_path = NodePath("..")
 script = ExtResource("13_sgv7n")
 

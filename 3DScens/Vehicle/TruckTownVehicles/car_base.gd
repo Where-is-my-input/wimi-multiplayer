@@ -70,9 +70,10 @@ func respawn(respawnTo):
 func despawn():
 	queue_free()
 
-func spawnProjectile(s:Global.Spells = Global.Spells.MISSILE):
+func spawnProjectile(s:Global.Spells = Global.Spells.MISSILE, gTransform:Transform3D = Transform3D()):
 	var data = {
-		spell = s
+		spell = s,
+		globalTransform = gTransform
 	}
 	projectile_spawner.spawn(data)
 

@@ -62,7 +62,7 @@ spawn_path = NodePath("../players")
 script = ExtResource("3_3hs6u")
 
 [node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=557625446]
-_spawnable_scenes = PackedStringArray("uid://ivr4qgjq2dss")
+_spawnable_scenes = PackedStringArray("uid://ivr4qgjq2dss", "uid://d4m6mag25mlme")
 spawn_path = NodePath("../projectiles")
 script = ExtResource("5_0iigc")
 

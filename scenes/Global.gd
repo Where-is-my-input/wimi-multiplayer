@@ -8,7 +8,8 @@ signal spawnMissile
 enum Spells{
 	MISSILE,
 	BOOST,
-	PARRY
+	PARRY,
+	BLAST
 }
 
 func _input(event: InputEvent) -> void:

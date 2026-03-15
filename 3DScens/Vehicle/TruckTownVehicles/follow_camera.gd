@@ -8,6 +8,7 @@ const FOV_SMOOTH_FACTOR = 0.2
 
 # Don't change FOV if moving below this speed. This prevents shadows from flickering when driving slowly.
 const FOV_CHANGE_MIN_SPEED = 0.05
+@onready var back_camera_position: Marker3D = $"../../backCameraPosition"
 
 @export var min_distance := 2.0
 @export var max_distance := 4.0
@@ -27,6 +28,7 @@ var desired_fov := fov
 var previous_position := global_position
 
 enum CameraType {
+	DEFAULT,
 	EXTERIOR,
 	INTERIOR,
 	TOP_DOWN,
@@ -43,6 +45,10 @@ func _input(event):
 
 
 func _physics_process(_delta):
+	if camera_type == CameraType.DEFAULT:
+		position.x = back_camera_position.global_transform.origin.x
+		position.z = back_camera_position.global_transform.origin.z
+		look_at(get_parent().global_transform.origin)
 	if camera_type == CameraType.EXTERIOR:
 		var target: Vector3 = get_parent().global_transform.origin
 		var pos := global_transform.origin
@@ -84,6 +90,8 @@ func update_camera():
 			global_transform = get_node(^"../../InteriorCameraPosition").global_transform
 		CameraType.TOP_DOWN:
 			global_transform = get_node(^"../../TopDownCameraPosition").global_transform
+		CameraType.DEFAULT:
+			global_transform = get_node(^"../../backCameraPosition").global_transform
 
 	# This detaches the camera transform from the parent spatial node, but only
 	# for exterior and top-down cameras.

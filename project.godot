@@ -34,6 +34,7 @@ Global="*uid://urqmrrqc5yws"
 [display]
 
 window/size/always_on_top=true
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
