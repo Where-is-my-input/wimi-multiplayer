@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bsbtjl7iuf1rp"]
+
+[ext_resource type="Script" uid="uid://b78nkfssw14ib" path="res://player_row.gd" id="1_vvey1"]
+
+[node name="playerRow" type="HBoxContainer" unique_id=1437123237]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+script = ExtResource("1_vvey1")
+
+[node name="lblPlayer" type="Label" parent="." unique_id=211689155]
+layout_mode = 2

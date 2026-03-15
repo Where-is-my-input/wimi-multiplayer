@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ckn6prbgxgvsj" path="res://3DScens/main_3d.gd" id="1_fst4s"]
 [ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
+[ext_resource type="Texture2D" uid="uid://b14n0hed7jhwa" path="res://wimiProductions.png" id="2_niptm"]
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="5_0iigc"]
+[ext_resource type="Script" uid="uid://dc1l77t5k804" path="res://3DScens/player_list_spawner.gd" id="8_88ymw"]
 [ext_resource type="AudioStream" uid="uid://f8q0dybwnxkj" path="res://Assets/Music/racing_game_ending_bpm100.ogg" id="8_fst4s"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
@@ -19,6 +21,54 @@ stream_0/stream = ExtResource("8_fst4s")
 
 [node name="main3D" type="Node3D" unique_id=568222157]
 script = ExtResource("1_fst4s")
+
+[node name="splashArt" type="Control" parent="." unique_id=1220068202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="splashArt" unique_id=1637465179]
+layout_mode = 0
+offset_left = -99.0
+offset_top = -319.0
+offset_right = 395.0
+offset_bottom = 197.0
+scale = Vector2(2.8417969, 2.8417969)
+texture = ExtResource("2_niptm")
+
+[node name="Panel" type="Panel" parent="splashArt" unique_id=943787861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="splashArt" unique_id=1158786353]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 194.00002
+offset_right = 927.0
+offset_bottom = 407.0
+scale = Vector2(1.2311509, 1.2311509)
+theme_override_font_sizes/font_size = 50
+text = "WIMI MULTIPLAYER
+SLOP KART RACING PARTY GAME FOR
+THE WINDOWS PC"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="splashArt/Label" unique_id=1028791797]
+modulate = Color(1, 1, 1, 0.1254902)
+layout_mode = 0
+offset_left = 601.87585
+offset_top = 201.43755
+offset_right = 724.87585
+offset_bottom = 224.43755
+scale = Vector2(0.5718182, 0.5718182)
+text = "do not use AMD"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
 transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
@@ -81,6 +131,7 @@ offset_bottom = 598.0
 grow_vertical = 1
 
 [node name="playersConnected" type="Control" parent="." unique_id=1411463389]
+modulate = Color(1, 1, 1, 0.14901961)
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -104,13 +155,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="lblPeers" type="Label" parent="playersConnected" unique_id=7349754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Peers connected"
+horizontal_alignment = 1
+
 [node name="playerList" type="VBoxContainer" parent="playersConnected" unique_id=1675799791]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="playerListSpawner" type="MultiplayerSpawner" parent="playersConnected" unique_id=351552930]
+_spawnable_scenes = PackedStringArray("uid://bsbtjl7iuf1rp")
+spawn_path = NodePath("../playerList")
+script = ExtResource("8_88ymw")
 
 [node name="raceStartCooldown" type="Timer" parent="." unique_id=1999243265]
 one_shot = true
@@ -123,7 +191,7 @@ bus = &"BGM"
 [node name="track" type="Node" parent="." unique_id=363530957]
 
 [node name="trackSpawner" type="MultiplayerSpawner" parent="." unique_id=1165880129]
-_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa")
+_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik")
 spawn_path = NodePath("../track")
 spawn_limit = 1
 script = ExtResource("10_niptm")

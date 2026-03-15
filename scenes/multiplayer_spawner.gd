@@ -7,12 +7,12 @@ const PARRY = preload("uid://cd7e28n831lit")
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(spawnPlayer)
-	multiplayer.peer_connected.connect(peerConnected)
+	#multiplayer.peer_connected.connect(peerConnected)
 	#Global.connect("spawnProjectile", SpawnProjectile)
 	#spawn_function = Callable(self, "SpawnProjectile")
 
-func peerConnected(id):
-	players_connected.addPlayer(str(id))
+#func peerConnected(id):
+	#players_connected.addPlayer(str(id))
 
 func spawnPlayer(id: int):
 	if !multiplayer.is_server(): return

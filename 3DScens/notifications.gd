@@ -8,6 +8,7 @@ func notify(text:String):
 	print(text)
 	set_deferred("visible", true)
 	var l = Label.new()
+	l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	l.text = text
 	not_box.add_child(l)

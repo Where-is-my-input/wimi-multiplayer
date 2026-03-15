@@ -106,6 +106,44 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3xolm")
 
+[sub_resource type="Animation" id="Animation_jnw65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a3jwk"]
+resource_name = "new_animation"
+length = 1.0000033
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwlnq"]
+_data = {
+&"RESET": SubResource("Animation_jnw65"),
+&"new_animation": SubResource("Animation_a3jwk")
+}
+
 [node name="parry" type="Area3D" unique_id=1091252461]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_jnw65")
@@ -146,6 +184,11 @@ skeleton = NodePath("")
 transform = Transform3D(-0.07237859, 6.327537e-09, 0, 0, 0, -0.090916984, -6.327537e-09, -0.07237859, 0, -0.00048084056, 0, -0.53244126)
 mesh = SubResource("ArrayMesh_wk76o")
 skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2065673204]
+libraries/ = SubResource("AnimationLibrary_jwlnq")
+autoplay = &"new_animation"
+speed_scale = 0.3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -27,6 +27,7 @@ const TRUCK = preload("uid://d0bd4c30nnxhv")
 const VAN = preload("uid://bdh3x1rcfdepo")
 @onready var player_hud: Control = $playerHUD
 @onready var projectile_spawner: MultiplayerSpawner = $projectileSpawner
+@onready var lbl_player_name: Label3D = $Body/lblPlayerName
 
 @onready var body: VehicleBody3D = $Body
 @onready var audio_listener_3d: AudioListener3D = $Body/AudioListener3D
@@ -34,11 +35,13 @@ const VAN = preload("uid://bdh3x1rcfdepo")
 func _ready() -> void:
 	body.global_transform = get_parent().get_parent().getSpawnPos()
 	Global.connect("startRace", startRace)
+	lbl_player_name.text = name
 	set_multiplayer_authority(name.to_int())
 	body.set_physics_process(false)
 	if is_multiplayer_authority():
 		camera_3d.make_current()
 		audio_listener_3d.make_current()
+		lbl_player_name.queue_free()
 	else:
 		player_hud.visible = false
 		#player_hud.queue_free()

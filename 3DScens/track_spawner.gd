@@ -1,7 +1,7 @@
 extends MultiplayerSpawner
 @onready var track: Node = $"../track"
 
-var currentTrack:int = 0
+var currentTrack:int = 3
 
 func _ready() -> void:
 	loadTrack()

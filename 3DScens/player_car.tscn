@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="11_aw56n"]
 [ext_resource type="PackedScene" uid="uid://du0o4j23pvx0w" path="res://Assets/3D/Models/GLB format/debris-bolt.glb" id="11_oeren"]
 [ext_resource type="Texture2D" uid="uid://bju75l2w3r7vq" path="res://3DScens/Vehicle/TruckTownVehicles/blob_shadow.png" id="12_0lg18"]
+[ext_resource type="Script" uid="uid://dd03or2bjd3v8" path="res://3DScens/lbl_player_name.gd" id="12_1ar1f"]
 [ext_resource type="Script" uid="uid://0epb2l0ycfb" path="res://3DScens/player_hud.gd" id="12_8qvhg"]
 [ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="13_sgv7n"]
 
@@ -119,16 +120,16 @@ suspension_stiffness = 40.0
 damping_compression = 0.88
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1801338453]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588269, 0.0774262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8048265, 0.0774262)
 shape = SubResource("BoxShape3D_x74tc")
 
 [node name="rightSideCS" type="CollisionShape3D" parent="Body" unique_id=539307910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7258927, 0.1577418, 0.13201904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7258927, 0.3742993, 0.13201904)
 shape = SubResource("BoxShape3D_atssk")
 debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
 
 [node name="leftSideCS2" type="CollisionShape3D" parent="Body" unique_id=1776044526]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726, 0.158, 0.132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726, 0.3745575, 0.132)
 shape = SubResource("BoxShape3D_atssk")
 debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
 
@@ -205,6 +206,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5755069, 1.4921799)
 
 [node name="debris-bolt2" parent="Body/gun" unique_id=42489377 instance=ExtResource("11_oeren")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="lblPlayerName" type="Label3D" parent="Body" unique_id=807812525]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.4622715, -0.98361075)
+text = "Nameless"
+script = ExtResource("12_1ar1f")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=494711759]
 replication_config = SubResource("SceneReplicationConfig_q1o7u")

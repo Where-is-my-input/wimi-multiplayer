@@ -79,7 +79,7 @@ func _physics_process(delta: float):
 
 func _input(event: InputEvent) -> void:
 	if !is_multiplayer_authority(): return
-	if event.is_action("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
 		respawn()
 	elif event.is_action_pressed("use0"):
 		player_hud.useCard(0)
@@ -103,14 +103,17 @@ func _input(event: InputEvent) -> void:
 	#get_tree().root.add_child(m)
 	
 func respawn(respawnTo = null, forceRespawn:bool = false):
-	if !respawn_cooldown.is_stopped() && !forceRespawn: return
+	if !respawn_cooldown.is_stopped() && !forceRespawn: 
+		Global.notify.emit("Can't respawn right now")
+		return
 	if respawnTo is not Vector3 || respawnTo == Vector3(0,0,0):
 		global_transform = spawnPos
 	elif respawnTo is Transform3D:
 		global_transform = respawnTo
 	else:
 		global_position = respawnTo
-	linear_velocity = Vector3(0, 0, 0)
+	linear_velocity = Vector3(1, 1, 1)
+	#rotation = Vector3(0, 0, 0)
 	setRespawnCooldown()
 	#global_rotation = Vector3(0,0,0)
 
@@ -119,7 +122,7 @@ func setRespawnCooldown(value:float = 5):
 
 func _on_set_respawn_timer_timeout() -> void:
 	#print("timer ", spawnPos)
-	if isOnFloor():
+	if isOnFloor() && rotation.y > 0:
 		spawnPos = global_transform
 	set_respawn_timer.start(5)
 

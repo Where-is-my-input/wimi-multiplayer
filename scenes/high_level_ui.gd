@@ -8,6 +8,7 @@ extends Control
 @onready var players: Node = $"../players"
 @onready var players_connected: Control = $"../playersConnected"
 @onready var track_spawner: MultiplayerSpawner = $"../trackSpawner"
+@onready var splash_art: Control = $"../splashArt"
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -19,11 +20,13 @@ func _ready() -> void:
 func _on_btn_client_pressed() -> void:
 	track_spawner.unloadTrack()
 	HighLevelNetworkHandler.startClient(port.text, ip.text)
+	splash_art.queue_free()
 
 func _on_btn_server_pressed() -> void:
 	track_spawner.unloadTrack()
 	Global.notify.emit("Starting server...")
 	HighLevelNetworkHandler.startServer(port.text)
+	splash_art.queue_free()
 
 	if multiplayer.is_server():
 		Global.notify.emit("Server started, spawning player...")
