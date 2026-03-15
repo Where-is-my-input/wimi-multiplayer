@@ -1,5 +1,5 @@
 extends EffectClass
 
 func activate(body:VehicleBody3D):
-	body.parry()
+	body.blast()
 	super(body)

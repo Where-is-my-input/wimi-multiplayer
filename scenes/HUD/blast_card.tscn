@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c7rvw6g6lxg54"]
+
+[ext_resource type="PackedScene" uid="uid://d00qkr2gh5xsc" path="res://scenes/HUD/card.tscn" id="1_4xewf"]
+[ext_resource type="Script" uid="uid://drrjyggxhbuah" path="res://scenes/HUD/blastEffect.gd" id="2_pq25r"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4xewf"]
+
+[node name="blastCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_4xewf")]
+effect = NodePath("effect")
+spellType = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." index="2" unique_id=1532706976]
+position = Vector2(101, 120)
+scale = Vector2(156.3353, 154.84782)
+mesh = SubResource("SphereMesh_4xewf")
+
+[node name="effect" type="Node" parent="." index="3" unique_id=1853703476]
+script = ExtResource("2_pq25r")

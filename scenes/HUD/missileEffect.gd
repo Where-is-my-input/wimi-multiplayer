@@ -11,7 +11,7 @@ func activate(body:VehicleBody3D):
 	body.get_parent().spawnProjectile(Global.Spells.MISSILE)
 	super(body)
 
-#@rpc("call_local")
+#@rpc("call_local")p
 #func shootMissile(m:ProjectileClass):
 	##m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
 	##m.global_position = global_position

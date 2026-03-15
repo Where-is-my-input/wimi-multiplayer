@@ -8,7 +8,7 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 const PARRY = preload("uid://cd7e28n831lit")
 @onready var projectile_spawner: MultiplayerSpawner = $"../projectileSpawner"
 const BOOST_VFX = preload("uid://dy8royi8in62h")
-
+const LITTLE_BLAST = preload("uid://c112ualpvwrab")
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
 const BRAKE_STRENGTH = 2.0
@@ -136,6 +136,11 @@ func isOnFloor():
 	
 func parry():
 	var p = PARRY.instantiate()
+	#projectile_spawner.spawn(p)
+	add_child(p)
+
+func blast():
+	var p = LITTLE_BLAST.instantiate()
 	#projectile_spawner.spawn(p)
 	add_child(p)
 

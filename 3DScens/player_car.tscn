@@ -240,17 +240,17 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 787.0
-offset_top = -106.0
-offset_right = 792.333
-offset_bottom = 136.3335
+offset_left = 924.0
+offset_top = -114.0
+offset_right = 445.99976
+offset_bottom = 128.3335
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
 alignment = 2
 
 [node name="bodyProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1445990575]
-_spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h")
+_spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h", "uid://c112ualpvwrab")
 spawn_path = NodePath("../Body")
 
 [node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1694482051]
