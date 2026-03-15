@@ -44,7 +44,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v4wla")
 
-[node name="card" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_pdnd2")]
+[node name="missileCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_pdnd2")]
 effect = NodePath("effect")
 
 [node name="effect" type="Node" parent="." index="2" unique_id=2131042407]

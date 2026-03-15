@@ -38,21 +38,3 @@ func spawnAllPeers():
 	
 	for p in multiplayer.get_peers():
 		spawnPlayer(p)
-
-#func SpawnProjectile(data: Variant):
-	#return
-	#match data["Spell"]:
-		#Global.Spells.MISSILE:
-			#Global.notify.emit("Missile spawned")
-			#var m = MISSILE.instantiate() as ProjectileClass
-			#m.global_transform = data["body"].gun.global_transform
-			#m.speed += data["body"].linear_velocity.length()
-			#get_tree().root.call_deferred("add_child", m)
-			##return m
-		#Global.Spells.BOOST:
-			#data["body"].linear_velocity *= 2.5
-		#Global.Spells.PARRY:
-			#var p = PARRY.instantiate()
-			#data["body"].add_child(p)
-		#_:
-			#Global.notify.emit("Something else " + str(data))

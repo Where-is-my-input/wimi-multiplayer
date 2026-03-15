@@ -27,7 +27,6 @@ func _on_btn_server_pressed() -> void:
 
 	if multiplayer.is_server():
 		Global.notify.emit("Server started, spawning player...")
-		#var player_scene = load("res://scenes/player.tscn")
 		var player = player_scene.instantiate()
 		player.name = "1"  # Server has peer ID 1
 		players_connected.addPlayer(player.name)
@@ -41,7 +40,7 @@ func _on_btn_server_pressed() -> void:
 		Global.notify.emit("Server player spawned with name: " + player.name)
 		set_buttons_visibility(false)
 	else:
-		Global.notify.emit("Failed to start server or not server")
+		push_error("Failed to start server or not server")
 
 func _on_connected_to_server() -> void:
 	set_buttons_visibility(false)
@@ -51,4 +50,3 @@ func _on_disconnected() -> void:
 
 func set_buttons_visibility(should_show: bool) -> void:
 	visible = should_show
-	#$VBoxContainer/btnClient.visible = should_show

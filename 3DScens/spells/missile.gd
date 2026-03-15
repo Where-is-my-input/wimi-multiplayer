@@ -1,6 +1,8 @@
 extends ProjectileClass
 const BLAST = preload("uid://d4m6mag25mlme")
 
+#func _ready() -> void:
+	#Global.notify.emit(str(multiplayer.multiplayer_peer))
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	var b = BLAST.instantiate() as BlastClass

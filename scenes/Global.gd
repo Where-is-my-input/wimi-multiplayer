@@ -3,6 +3,7 @@ extends Node
 signal startRace
 signal notify
 signal spawnProjectile
+signal spawnMissile
 
 enum Spells{
 	MISSILE,

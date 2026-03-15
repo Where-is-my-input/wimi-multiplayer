@@ -28,8 +28,8 @@ func drawCard():
 	
 	var c
 	
-	match int(body.linear_velocity.length()) % 3:
-	#match 0:
+	#match int(body.linear_velocity.length()) % 3:
+	match 0:
 		Global.Spells.MISSILE:
 			c = MISSILE_CARD.instantiate()
 		Global.Spells.BOOST:
@@ -40,7 +40,7 @@ func drawCard():
 			c = BOOST_CARD.instantiate()
 	hand.add_child(c)
 
-@rpc("call_local")
+#@rpc("call_local")
 func useCard(card:int = 0) -> bool:
 	var cardUsed = hand.get_child(card)
 	if cardUsed != null:

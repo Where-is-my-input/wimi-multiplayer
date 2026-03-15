@@ -63,7 +63,7 @@ script = ExtResource("3_3hs6u")
 
 [node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=557625446]
 _spawnable_scenes = PackedStringArray("uid://ivr4qgjq2dss")
-spawn_path = NodePath(".")
+spawn_path = NodePath("../projectiles")
 script = ExtResource("5_0iigc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504006752]
@@ -127,6 +127,8 @@ _spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge",
 spawn_path = NodePath("../track")
 spawn_limit = 1
 script = ExtResource("10_niptm")
+
+[node name="projectiles" type="Node" parent="." unique_id=1451660750]
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]

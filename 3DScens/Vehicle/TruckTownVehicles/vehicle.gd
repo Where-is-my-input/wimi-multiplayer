@@ -81,25 +81,25 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("ui_accept"):
 		respawn()
 	elif event.is_action_pressed("use0"):
-		player_hud.useCard.rpc(0)
+		player_hud.useCard(0)
 		#shootMissile.rpc()
 	elif event.is_action_pressed("use1"):
-		player_hud.useCard.rpc(1)
+		player_hud.useCard(1)
 	elif event.is_action_pressed("use2"):
-		player_hud.useCard.rpc(2)
+		player_hud.useCard(2)
 	elif event.is_action_pressed("use3"):
-		player_hud.useCard.rpc(3)
+		player_hud.useCard(3)
 
-@rpc("call_local")
-func shootMissile():
-	return
-	var m = MISSILE.instantiate() as ProjectileClass
-	m.global_transform = gun.global_transform
-	m.speed += linear_velocity.length()
-	#m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
-	#m.global_position = global_position
-	#m.global_rotation = global_rotation
-	get_tree().root.add_child(m)
+#@rpc("call_local")
+#func shootMissile():
+	#return
+	#var m = MISSILE.instantiate() as ProjectileClass
+	#m.global_transform = gun.global_transform
+	#m.speed += linear_velocity.length()
+	##m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
+	##m.global_position = global_position
+	##m.global_rotation = global_rotation
+	#get_tree().root.add_child(m)
 	
 func respawn(respawnTo = null, forceRespawn:bool = false):
 	if !respawn_cooldown.is_stopped() && !forceRespawn: return
@@ -121,7 +121,6 @@ func _on_set_respawn_timer_timeout() -> void:
 	if isOnFloor():
 		spawnPos = global_transform
 	set_respawn_timer.start(5)
-
 
 func isOnFloor():
 	for c in get_children():

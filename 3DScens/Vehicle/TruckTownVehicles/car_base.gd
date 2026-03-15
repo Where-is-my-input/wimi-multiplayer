@@ -26,12 +26,13 @@ const TRUCK_FLAT = preload("uid://cju4xcsctrpvb")
 const TRUCK = preload("uid://d0bd4c30nnxhv")
 const VAN = preload("uid://bdh3x1rcfdepo")
 @onready var player_hud: Control = $playerHUD
+@onready var projectile_spawner: MultiplayerSpawner = $projectileSpawner
 
 @onready var body: VehicleBody3D = $Body
 @onready var audio_listener_3d: AudioListener3D = $Body/AudioListener3D
 
 func _ready() -> void:
-	global_transform = get_parent().get_parent().getSpawnPos()
+	body.global_transform = get_parent().get_parent().getSpawnPos()
 	
 	Global.notify.emit(str(multiplayer.get_multiplayer_peer()) + ": Multiplayer authority will be set to: " + name)
 	set_multiplayer_authority(name.to_int())
@@ -68,3 +69,9 @@ func respawn(respawnTo):
 
 func despawn():
 	queue_free()
+
+func spawnProjectile(s:Global.Spells = Global.Spells.MISSILE):
+	var data = {
+		spell = s
+	}
+	projectile_spawner.spawn(data)
