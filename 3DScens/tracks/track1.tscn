@@ -90,6 +90,7 @@ mesh = SubResource("BoxMesh_0iigc")
 
 [node name="checkpoints" parent="." unique_id=1218153255 instance=ExtResource("6_owbra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1027622, 17.779205)
+visible = false
 
 [node name="checkpoint" parent="checkpoints" unique_id=226977553 instance=ExtResource("6_gmsvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.748257)

@@ -13,7 +13,7 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 
 func _ready() -> void:
-	Global.connect("startRace", startRace)
+	#Global.connect("startRace", startRace)
 	#Global.connect("spawnProjectile", spawnProjectile)
 	if OS.is_debug_build():
 		bgm.stop()
@@ -23,7 +23,7 @@ func getSpawnPos():
 	return currentTrack.getNextSpawn() if currentTrack != null else Transform3D()
 
 #@rpc("call_local")
-func startRace():
+func prepareRace():
 	if !race_start_cooldown.is_stopped(): return
 	race_start_cooldown.start(3)
 	#if !multiplayer.is_server(): return
@@ -35,18 +35,20 @@ func startRace():
 		c.respawn(posToSpawn)
 		c.despawn()
 	multiplayer_spawner.spawnAllPeers()
-	Global.notify.emit("Race started")
+	startRace.rpc()
+
+@rpc("call_local")
+func startRace():
+	Global.notify.emit("3")
+	await get_tree().create_timer(1).timeout
+	Global.notify.emit("2")
+	await get_tree().create_timer(1).timeout
+	Global.notify.emit("1")
+	await get_tree().create_timer(1).timeout
+	Global.notify.emit("Race started!!!")
+	for p in players.get_children():
+		p.startRace()
 
 func _input(event: InputEvent) -> void:
 	if multiplayer.is_server() && event.is_action("play"):
-		startRace()
-
-#func spawnProjectile(p:ProjectileClass):
-	#projectiles.call_deferred("add_child", p)
-#
-#func spawnMissile(body:VehicleBody3D):
-	#var m = MISSILE.instantiate() as ProjectileClass
-	#m.global_transform = body.gun.global_transform
-	#m.speed += body.linear_velocity.length()
-	#projectiles.call_deferred("add_child", m)
-	#Global.notify.emit(str(body) + " spawned a missile")
+		prepareRace()

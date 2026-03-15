@@ -4,3 +4,4 @@
 
 [node name="checkpoints" type="Node3D" unique_id=1218153255]
 script = ExtResource("1_awqj3")
+totalLaps = 3

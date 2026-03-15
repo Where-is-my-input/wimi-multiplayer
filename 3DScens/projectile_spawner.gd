@@ -14,7 +14,6 @@ func spawnProjectile(data:Variant):
 			m.global_transform = get_parent().body.gun.global_transform
 			#m.global_transform = get_node(spawn_path).gun.global_transform if is_multiplayer_authority() else get_node(data["body"]).gun.global_transform
 			m.speed += get_parent().body.linear_velocity.length()
-	Global.notify.emit(str(m) + " spawned as a projectile")
 	return m
 #
 #func spawnMissile(body:VehicleBody3D):
@@ -22,5 +21,3 @@ func spawnProjectile(data:Variant):
 	#m.global_transform = body.gun.global_transform
 	#m.speed += body.linear_velocity.length()
 	#get_node(spawn_path).call_deferred("add_child", m)
-	#Global.notify.emit(str(body) + " spawned a missile")
-	#Global.notify.emit(str(m) + " spawned as a missile at " + str(spawn_path))

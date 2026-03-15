@@ -8,7 +8,6 @@ func activate(body:VehicleBody3D):
 		#Spell = spellType,
 		#body = body
 	#}
-	#Global.notify.emit("Attempting to spawn: " + str(data))
 	#Global.spawnProjectile.emit(data)
 	#queue_free()
 	#return

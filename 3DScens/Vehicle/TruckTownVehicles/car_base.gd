@@ -33,9 +33,9 @@ const VAN = preload("uid://bdh3x1rcfdepo")
 
 func _ready() -> void:
 	body.global_transform = get_parent().get_parent().getSpawnPos()
-	
-	Global.notify.emit(str(multiplayer.get_multiplayer_peer()) + ": Multiplayer authority will be set to: " + name)
+	Global.connect("startRace", startRace)
 	set_multiplayer_authority(name.to_int())
+	body.set_physics_process(false)
 	if is_multiplayer_authority():
 		camera_3d.make_current()
 		audio_listener_3d.make_current()
@@ -75,3 +75,6 @@ func spawnProjectile(s:Global.Spells = Global.Spells.MISSILE):
 		spell = s
 	}
 	projectile_spawner.spawn(data)
+
+func startRace():
+	body.set_physics_process(true)
