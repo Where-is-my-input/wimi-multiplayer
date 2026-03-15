@@ -46,6 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_7v2r3")
 
 [node name="boostCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_t43yr")]
 effect = NodePath("effect")
+spellType = 1
 
 [node name="effect" type="Node" parent="." index="2" unique_id=125033992]
 script = ExtResource("2_ng6vf")

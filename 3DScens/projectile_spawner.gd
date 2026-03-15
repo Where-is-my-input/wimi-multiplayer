@@ -5,4 +5,4 @@ func _ready():
 
 func spawnProjectile(p:ProjectileClass):
 	get_node(spawn_path).call_deferred("add_child", p)
-	spawn(p)
+	#add_child(p)

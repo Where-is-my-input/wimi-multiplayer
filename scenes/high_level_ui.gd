@@ -7,6 +7,7 @@ extends Control
 @onready var port: LineEdit = $VBoxContainer/port
 @onready var players: Node = $"../players"
 @onready var players_connected: Control = $"../playersConnected"
+@onready var track_spawner: MultiplayerSpawner = $"../trackSpawner"
 
 func _ready() -> void:
 	btn_client.grab_focus()
@@ -16,10 +17,11 @@ func _ready() -> void:
 	multiplayer_spawner.add_spawnable_scene(player_scene.resource_path)
 
 func _on_btn_client_pressed() -> void:
+	track_spawner.unloadTrack()
 	HighLevelNetworkHandler.startClient(port.text, ip.text)
 
-
 func _on_btn_server_pressed() -> void:
+	track_spawner.unloadTrack()
 	Global.notify.emit("Starting server...")
 	HighLevelNetworkHandler.startServer(port.text)
 

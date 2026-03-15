@@ -2,10 +2,14 @@ extends MultiplayerSpawner
 #@onready var spawn_point: Node3D = $"../spawnPoint"
 @onready var players_connected: Control = $"../playersConnected"
 @export var networkPlayer: PackedScene
+const MISSILE = preload("uid://dao4ok5uv6imf")
+const PARRY = preload("uid://cd7e28n831lit")
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(spawnPlayer)
 	multiplayer.peer_connected.connect(peerConnected)
+	#Global.connect("spawnProjectile", SpawnProjectile)
+	#spawn_function = Callable(self, "SpawnProjectile")
 
 func peerConnected(id):
 	players_connected.addPlayer(str(id))
@@ -34,3 +38,21 @@ func spawnAllPeers():
 	
 	for p in multiplayer.get_peers():
 		spawnPlayer(p)
+
+#func SpawnProjectile(data: Variant):
+	#return
+	#match data["Spell"]:
+		#Global.Spells.MISSILE:
+			#Global.notify.emit("Missile spawned")
+			#var m = MISSILE.instantiate() as ProjectileClass
+			#m.global_transform = data["body"].gun.global_transform
+			#m.speed += data["body"].linear_velocity.length()
+			#get_tree().root.call_deferred("add_child", m)
+			##return m
+		#Global.Spells.BOOST:
+			#data["body"].linear_velocity *= 2.5
+		#Global.Spells.PARRY:
+			#var p = PARRY.instantiate()
+			#data["body"].add_child(p)
+		#_:
+			#Global.notify.emit("Something else " + str(data))

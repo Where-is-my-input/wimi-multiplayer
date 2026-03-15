@@ -4,10 +4,11 @@
 [ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
-[ext_resource type="PackedScene" uid="uid://1xion50akge" path="res://3DScens/tracks/track1.tscn" id="7_opkmm"]
+[ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="5_0iigc"]
 [ext_resource type="AudioStream" uid="uid://f8q0dybwnxkj" path="res://Assets/Music/racing_game_ending_bpm100.ogg" id="8_fst4s"]
 [ext_resource type="PackedScene" uid="uid://6haptm8y00hp" path="res://UIScenes/notifications.tscn" id="9_0iigc"]
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
+[ext_resource type="Script" uid="uid://c13y3p7mvpgo" path="res://3DScens/track_spawner.gd" id="10_niptm"]
 
 [sub_resource type="Environment" id="Environment_2uxca"]
 background_mode = 2
@@ -16,9 +17,8 @@ background_mode = 2
 streams_count = 1
 stream_0/stream = ExtResource("8_fst4s")
 
-[node name="main3D" type="Node3D" unique_id=568222157 node_paths=PackedStringArray("raceTrack")]
+[node name="main3D" type="Node3D" unique_id=568222157]
 script = ExtResource("1_fst4s")
-raceTrack = NodePath("raceTrack")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
 transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
@@ -57,8 +57,14 @@ layout_mode = 2
 text = "42069"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=121938159]
+_spawnable_scenes = PackedStringArray("uid://1dc2gpmfcxu4")
 spawn_path = NodePath("../players")
 script = ExtResource("3_3hs6u")
+
+[node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=557625446]
+_spawnable_scenes = PackedStringArray("uid://ivr4qgjq2dss")
+spawn_path = NodePath(".")
+script = ExtResource("5_0iigc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504006752]
 environment = SubResource("Environment_2uxca")
@@ -106,8 +112,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="raceTrack" parent="." unique_id=1926592461 instance=ExtResource("7_opkmm")]
-
 [node name="raceStartCooldown" type="Timer" parent="." unique_id=1999243265]
 one_shot = true
 
@@ -115,6 +119,14 @@ one_shot = true
 stream = SubResource("AudioStreamRandomizer_0iigc")
 autoplay = true
 bus = &"BGM"
+
+[node name="track" type="Node" parent="." unique_id=363530957]
+
+[node name="trackSpawner" type="MultiplayerSpawner" parent="." unique_id=1165880129]
+_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa")
+spawn_path = NodePath("../track")
+spawn_limit = 1
+script = ExtResource("10_niptm")
 
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]

@@ -16,5 +16,5 @@ func _on_timer_timeout() -> void:
 	visible = false
 	monitoring = false
 	await get_tree().create_timer(2).timeout
-	get_parent().set_collision_mask_value(9, true)
+	if get_parent() != null: get_parent().set_collision_mask_value(9, true)
 	queue_free()

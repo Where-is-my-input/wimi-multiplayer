@@ -29,6 +29,7 @@ _surfaces = [{
 
 [node name="parryCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_viruu")]
 effect = NodePath("effect")
+spellType = 2
 
 [node name="effect" type="Node" parent="." index="2" unique_id=993848517]
 script = ExtResource("2_wgxyj")

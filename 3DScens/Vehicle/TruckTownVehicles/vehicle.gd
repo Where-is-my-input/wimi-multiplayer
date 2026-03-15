@@ -5,6 +5,8 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var gun: Marker3D = $gun
 @onready var player_hud: Control = $"../playerHUD"
 @onready var respawn_cooldown: Timer = $respawnCooldown
+const PARRY = preload("uid://cd7e28n831lit")
+@onready var projectile_spawner: MultiplayerSpawner = $"../projectileSpawner"
 
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
@@ -18,12 +20,11 @@ var _steer_target := 0.0
 @onready var desired_engine_pitch: float = $EngineSound.pitch_scale
 
 func _ready() -> void:
-	#print("Multiplayer authority will be set to: ", name.to_int())
 	#set_multiplayer_authority(name.to_int())
 	spawnPos = global_transform
 
 func _physics_process(delta: float):
-	var fwd_mps := (linear_velocity * transform.basis).x
+	#var fwd_mps := (linear_velocity * transform.basis).x
 
 	_steer_target = Input.get_axis("ui_right", "ui_left")
 	_steer_target *= STEER_LIMIT
@@ -100,10 +101,12 @@ func shootMissile():
 	#m.global_rotation = global_rotation
 	get_tree().root.add_child(m)
 	
-func respawn(respawnTo:Vector3 = Vector3(0,0,0), forceRespawn:bool = false):
+func respawn(respawnTo = null, forceRespawn:bool = false):
 	if !respawn_cooldown.is_stopped() && !forceRespawn: return
-	if respawnTo == Vector3(0,0,0):
+	if respawnTo is not Vector3 || respawnTo == Vector3(0,0,0):
 		global_transform = spawnPos
+	elif respawnTo is Transform3D:
+		global_transform = respawnTo
 	else:
 		global_position = respawnTo
 	linear_velocity = Vector3(0, 0, 0)
@@ -128,3 +131,7 @@ func isOnFloor():
 				return false
 	return true
 	
+func parry():
+	var p = PARRY.instantiate()
+	#projectile_spawner.spawn(p)
+	add_child(p)

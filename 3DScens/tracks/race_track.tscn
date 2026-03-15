@@ -1,88 +1,13 @@
 [gd_scene format=3 uid="uid://176waillgicm"]
 
 [ext_resource type="Script" uid="uid://b4oqnb2lobtsx" path="res://3DScens/spawn_point.gd" id="1_e76by"]
-[ext_resource type="MeshLibrary" uid="uid://ddb4lrppcirrb" path="res://3DScens/CollisionShapes/RaceTracks/MeshLybrary/RaceTracksMeshInstance.meshlib" id="2_2au43"]
-[ext_resource type="PackedScene" uid="uid://bo71hlwpe5mla" path="res://3DScens/tracks/spawn_position.tscn" id="2_ham24"]
-[ext_resource type="PackedScene" uid="uid://bggsh87im0r2x" path="res://3DScens/CollisionShapes/RaceTracks/grid_map.tscn" id="2_tevdf"]
-[ext_resource type="Script" uid="uid://cq1ls3rqvpiiv" path="res://3DScens/booster.gd" id="3_tevdf"]
 [ext_resource type="Script" uid="uid://cn6gaaxdtibwy" path="res://3DScens/respawner.gd" id="4_ham24"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2uxca"]
-size = Vector3(1, 6.316162, 19.63501)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
 size = Vector3(1000, 1, 1000)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0iigc"]
-
 [node name="raceTrack" type="Node3D" unique_id=1926592461]
 script = ExtResource("1_e76by")
-
-[node name="spawnPoints" type="Node3D" parent="." unique_id=725806807]
-
-[node name="spawnPosition" parent="spawnPoints" unique_id=225116517 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6727457, -0.88493466, 0)
-
-[node name="spawnPosition2" parent="spawnPoints" unique_id=456959265 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40611935, -0.88493466, 0)
-
-[node name="spawnPosition3" parent="spawnPoints" unique_id=1414373705 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8893137, -0.88493466, 0)
-
-[node name="spawnPosition4" parent="spawnPoints" unique_id=1681656672 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.483978, -0.88493466, 0)
-
-[node name="spawnPosition5" parent="spawnPoints" unique_id=969094339 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.483978, -0.88493466, 0)
-
-[node name="spawnPosition6" parent="spawnPoints" unique_id=1814539338 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6727457, -0.88493466, -3.6934857)
-
-[node name="spawnPosition7" parent="spawnPoints" unique_id=936149794 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40611935, -0.88493466, -3.6934857)
-
-[node name="spawnPosition8" parent="spawnPoints" unique_id=1074140703 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8893137, -0.88493466, -3.6934857)
-
-[node name="spawnPosition9" parent="spawnPoints" unique_id=984786511 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.483978, -0.88493466, -3.6934857)
-
-[node name="spawnPosition10" parent="spawnPoints" unique_id=1633433738 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.483978, -0.88493466, -3.6934857)
-
-[node name="spawnPosition11" parent="spawnPoints" unique_id=492238657 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6727457, -0.88493466, -7.345427)
-
-[node name="spawnPosition12" parent="spawnPoints" unique_id=1433276550 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40611935, -0.88493466, -7.345427)
-
-[node name="spawnPosition13" parent="spawnPoints" unique_id=1905332243 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8893137, -0.88493466, -7.345427)
-
-[node name="spawnPosition14" parent="spawnPoints" unique_id=1812506383 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.483978, -0.88493466, -7.345427)
-
-[node name="spawnPosition15" parent="spawnPoints" unique_id=1102402535 instance=ExtResource("2_ham24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.483978, -0.88493466, -7.345427)
-
-[node name="GridMap" parent="." unique_id=1964182731 instance=ExtResource("2_tevdf")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 4.9225388, -9.171507, 0)
-
-[node name="GridMap2" type="GridMap" parent="." unique_id=614727221]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 4.9225388, -9.171507, 0)
-mesh_library = ExtResource("2_2au43")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(6, 5, 6, 6, 4, 6, 6, 3, 7, 6, 1, 655370, 6, 0, 655366)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="booster" type="Area3D" parent="." unique_id=436962599]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.835808, -1.1161366, 202.7154)
-script = ExtResource("3_tevdf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="booster" unique_id=1768379628]
-shape = SubResource("BoxShape3D_2uxca")
 
 [node name="respawner" type="Area3D" parent="." unique_id=2001696357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9225388, -9.171507, 0)
@@ -92,9 +17,4 @@ script = ExtResource("4_ham24")
 shape = SubResource("BoxShape3D_anahg")
 debug_color = Color(0.99428815, 0, 0.23171434, 0.41960785)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=705644834]
-transform = Transform3D(16.802233, 0, 0, 0, 0.31134653, 0, 0, 0, 1, -2.2620187, -0.99387455, 0)
-mesh = SubResource("BoxMesh_0iigc")
-
-[connection signal="body_entered" from="booster" to="booster" method="_on_body_entered"]
 [connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]

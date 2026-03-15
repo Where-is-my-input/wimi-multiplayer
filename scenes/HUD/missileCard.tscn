@@ -47,9 +47,8 @@ shadow_mesh = SubResource("ArrayMesh_v4wla")
 [node name="card" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_pdnd2")]
 effect = NodePath("effect")
 
-[node name="effect" type="Node" parent="." index="2" unique_id=2131042407 node_paths=PackedStringArray("asset")]
+[node name="effect" type="Node" parent="." index="2" unique_id=2131042407]
 script = ExtResource("2_84oe0")
-asset = NodePath("")
 
 [node name="cone" type="MeshInstance2D" parent="." index="3" unique_id=1395875993]
 position = Vector2(101, 219.00002)
