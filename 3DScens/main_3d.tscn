@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dvt8do8wyrjx4" path="res://scenes/high_level_ui.gd" id="2_5jwh4"]
 [ext_resource type="Texture2D" uid="uid://b14n0hed7jhwa" path="res://wimiProductions.png" id="2_niptm"]
 [ext_resource type="Script" uid="uid://bj4m1ogeondfs" path="res://scenes/multiplayer_spawner.gd" id="3_3hs6u"]
+[ext_resource type="Script" uid="uid://c2dgdp4ld6k88" path="res://3DScens/username.gd" id="3_33y3j"]
 [ext_resource type="PackedScene" uid="uid://1dc2gpmfcxu4" path="res://3DScens/player_car.tscn" id="3_fst4s"]
 [ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="5_0iigc"]
 [ext_resource type="Script" uid="uid://dc1l77t5k804" path="res://3DScens/player_list_spawner.gd" id="8_88ymw"]
@@ -92,6 +93,16 @@ M > Mute BGM
 
 Host commands:
 P > Change to next track"
+
+[node name="username" type="LineEdit" parent="splashArt" unique_id=1940983590]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 53.0
+offset_right = 700.0
+offset_bottom = 91.0
+placeholder_text = "Username"
+alignment = 1
+script = ExtResource("3_33y3j")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
 transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
@@ -233,6 +244,7 @@ offset_right = 1150.0
 offset_bottom = 26.0
 button_pressed = true
 
+[connection signal="text_changed" from="splashArt/username" to="splashArt/username" method="_on_text_changed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnClient" to="highLevelUI" method="_on_btn_client_pressed"]
 [connection signal="toggled" from="options/BGM" to="options" method="_on_bgm_toggled"]

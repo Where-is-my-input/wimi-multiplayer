@@ -7,4 +7,5 @@ func _ready():
 func spawnPlayerRow(data:Variant):
 	var pr = PLAYER_ROW.instantiate()
 	pr.playerName = data["playerName"]
+	pr.peerId = data["peerId"]
 	return pr

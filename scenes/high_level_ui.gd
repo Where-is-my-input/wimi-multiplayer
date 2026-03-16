@@ -20,8 +20,8 @@ func _ready() -> void:
 
 func _on_btn_client_pressed() -> void:
 	track_spawner.unloadTrack()
-	HighLevelNetworkHandler.startClient(port.text, ip.text)
 	splash_art.queue_free()
+	HighLevelNetworkHandler.startClient(port.text, ip.text)
 	bgm.queue_free()
 
 func _on_btn_server_pressed() -> void:
@@ -35,7 +35,7 @@ func _on_btn_server_pressed() -> void:
 		Global.notify.emit("Server started, spawning player...")
 		var player = player_scene.instantiate()
 		player.name = "1"  # Server has peer ID 1
-		players_connected.addPlayer(player.name)
+		players_connected.addPlayer(Global.username)
 		if player.global_position is Vector3:
 			#player.global_position = Vector3(0, 1.46, 0)
 			#player.global_position = get_parent().getSpawnPos()

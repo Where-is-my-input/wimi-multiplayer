@@ -4,6 +4,7 @@ signal startRace
 signal notify
 signal spawnProjectile
 signal spawnMissile
+signal setUsername
 
 enum Spells{
 	MISSILE,
@@ -21,6 +22,7 @@ enum CameraType {
 }
 
 var currentCamera:CameraType = CameraType.EXTERIOR
+var username:String = "Random Username"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_home"):

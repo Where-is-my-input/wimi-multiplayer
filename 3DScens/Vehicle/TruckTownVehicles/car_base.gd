@@ -35,13 +35,14 @@ const VAN = preload("uid://bdh3x1rcfdepo")
 func _ready() -> void:
 	body.global_transform = get_parent().get_parent().getSpawnPos()
 	Global.connect("startRace", startRace)
-	lbl_player_name.text = name
+	#lbl_player_name.text = name
 	set_multiplayer_authority(name.to_int())
 	body.set_physics_process(false)
 	if is_multiplayer_authority():
 		camera_3d.make_current()
 		audio_listener_3d.make_current()
-		lbl_player_name.queue_free()
+		lbl_player_name.visible = false
+		lbl_player_name.text = Global.username
 	else:
 		player_hud.visible = false
 		#player_hud.queue_free()

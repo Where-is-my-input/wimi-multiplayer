@@ -57,6 +57,11 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_p5xtl"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1ar1f"]
+properties/0/path = NodePath(".:text")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_q1o7u"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
@@ -228,6 +233,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 text = "Nameless"
 script = ExtResource("12_1ar1f")
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Body/lblPlayerName" unique_id=1196317260]
+replication_config = SubResource("SceneReplicationConfig_1ar1f")
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=494711759]
 replication_config = SubResource("SceneReplicationConfig_q1o7u")
 
@@ -277,3 +285,5 @@ spawn_path = NodePath("..")
 script = ExtResource("13_sgv7n")
 
 [connection signal="timeout" from="Body/setRespawnTimer" to="Body" method="_on_set_respawn_timer_timeout"]
+[connection signal="delta_synchronized" from="Body/lblPlayerName/MultiplayerSynchronizer" to="Body/lblPlayerName" method="_on_multiplayer_synchronizer_delta_synchronized"]
+[connection signal="synchronized" from="Body/lblPlayerName/MultiplayerSynchronizer" to="Body/lblPlayerName" method="_on_multiplayer_synchronizer_synchronized"]
