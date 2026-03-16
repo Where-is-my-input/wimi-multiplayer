@@ -85,7 +85,7 @@ func _physics_process(delta: float):
 func _input(event: InputEvent) -> void:
 	if !is_multiplayer_authority(): return
 	if event.is_action_pressed("respawn"):
-		respawn()
+		respawn(null)
 	elif event.is_action_pressed("forceRespawn"):
 		respawn(null, true)
 		Global.notify.emit("Forcing respawn")
