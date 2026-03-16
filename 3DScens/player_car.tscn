@@ -229,8 +229,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5755069, 1.4921799)
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="lblPlayerName" type="Label3D" parent="Body" unique_id=807812525]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.4622715, -0.98361075)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 6.1348267, 0.18696213)
+fixed_size = true
 text = "Nameless"
+font_size = 8
 script = ExtResource("12_1ar1f")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Body/lblPlayerName" unique_id=1196317260]

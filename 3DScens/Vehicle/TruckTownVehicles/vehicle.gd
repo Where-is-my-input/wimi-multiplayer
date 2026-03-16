@@ -79,6 +79,8 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_accept"):
 		brake = 1.3
 		engine_force = 0
+	else:
+		brake = 0
 	previous_speed = linear_velocity.length()
 
 

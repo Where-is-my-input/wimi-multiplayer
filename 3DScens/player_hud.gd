@@ -33,8 +33,8 @@ func drawCard():
 	
 	var c
 	
-	#match int(body.linear_velocity.length()) % Global.Cards.size():
-	match 4:
+	match int(body.linear_velocity.length()) % Global.Cards.size():
+	#match 4:
 		Global.Cards.MISSILE:
 			c = MISSILE_CARD.instantiate()
 		Global.Cards.BOOST:
