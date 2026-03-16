@@ -1,6 +1,7 @@
 extends Node3D
 @onready var track: Node = $track
 const MISSILE = preload("uid://dao4ok5uv6imf")
+@onready var winner_cam_spawner: MultiplayerSpawner = $winner/winnerCamSpawner
 
 #@export var raceTrack:Node3D
 @onready var race_start_cooldown: Timer = $raceStartCooldown
@@ -12,11 +13,8 @@ const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var players: Node = $players
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 
-#func _ready() -> void:
-	##Global.connect("startRace", startRace)
-	##Global.connect("spawnProjectile", spawnProjectile)
-	#if OS.is_debug_build():
-		#bgm.stop()
+func _ready() -> void:
+	Global.connect("setWinner", spawnWinnerCam)
 
 func getSpawnPos():
 	var currentTrack = track.get_child(0)
@@ -28,6 +26,7 @@ func prepareRace():
 	race_start_cooldown.start(3)
 	#if !multiplayer.is_server(): return
 	Global.notify.emit("Race will start soon...")
+	winner_cam_spawner.newRace()
 	track_spawner.loadTrack()
 	await get_tree().create_timer(3).timeout
 	for c in players.get_children():
@@ -52,3 +51,6 @@ func startRace():
 func _input(event: InputEvent) -> void:
 	if multiplayer.is_server() && event.is_action("play"):
 		prepareRace()
+
+func spawnWinnerCam(peerId:int):
+	winner_cam_spawner.spawn({peerId = peerId})

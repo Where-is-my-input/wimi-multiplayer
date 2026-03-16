@@ -28,20 +28,20 @@ func _ready() -> void:
 		count += 1
 	previousCheckpoint.nextCheckpoint = firstCheckpoint
 
-
 func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 	if body is VehicleBody3D && body.is_multiplayer_authority():
 		if source == currentCheckpoint:
+			body.spawnPos = body.global_transform
 			source.audio.play()
 			if currentCheckpoint == firstCheckpoint:
 				if lap > 0: Global.notify.emit("Lap " + str(lap) + " complete!")
 				lap += 1
-				if lap > totalLaps: finish.rpc(body)
+				if lap > totalLaps: finish(body)
 			currentCheckpoint.visible = false
 			currentCheckpoint = source.nextCheckpoint
 			currentCheckpoint.visible = true
 
-@rpc("call_local")
 func finish(body:VehicleBody3D):
 	Global.notify.emit("We have a winner! " + body.name)
+	Global.spawnWinnerCam.rpc(body.get_multiplayer_authority())
 	body.raceFinished()

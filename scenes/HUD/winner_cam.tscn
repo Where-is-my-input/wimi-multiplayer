@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bberchp665sgt"]
+
+[ext_resource type="Script" uid="uid://cp3wb6cmpwgms" path="res://scenes/HUD/winner_cam.gd" id="1_xgi28"]
+
+[node name="winnerCam" type="SubViewportContainer" unique_id=1031162507]
+offset_left = 950.00006
+offset_top = 43.0
+offset_right = 1462.0
+offset_bottom = 555.0
+scale = Vector2(0.26473594, 0.26473594)
+script = ExtResource("1_xgi28")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1092827779]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="cameraHandler" type="Node3D" parent="SubViewport" unique_id=714473843]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/cameraHandler" unique_id=2078230934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.603478, 3.5631442, 3.3750825)
+
+[node name="placing" type="Label" parent="." unique_id=1811220797]
+layout_mode = 2
+theme_override_font_sizes/font_size = 85
+text = "This is a bug"

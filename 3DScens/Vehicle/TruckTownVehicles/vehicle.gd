@@ -1,6 +1,5 @@
 extends VehicleBody3D
 class_name CarBodyClass
-@onready var set_respawn_timer: Timer = $setRespawnTimer
 const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var gun: Marker3D = $gun
 @onready var player_hud: Control = $"../playerHUD"
@@ -116,7 +115,8 @@ func respawn(respawnTo = null, forceRespawn:bool = false):
 	if !respawn_cooldown.is_stopped() && !forceRespawn: 
 		Global.notify.emit("Can't respawn right now")
 		return
-	if respawnTo is not Vector3 || respawnTo == Vector3(0,0,0):
+	await get_tree().physics_frame
+	if respawnTo == null || respawnTo is not Vector3 || respawnTo == Vector3(0,0,0):
 		global_transform = spawnPos
 	elif respawnTo is Transform3D:
 		global_transform = respawnTo
@@ -129,12 +129,6 @@ func respawn(respawnTo = null, forceRespawn:bool = false):
 
 func setRespawnCooldown(value:float = 5):
 	respawn_cooldown.start(value)
-
-func _on_set_respawn_timer_timeout() -> void:
-	#print("timer ", spawnPos)
-	if isOnFloor() && rotation.y > 0:
-		spawnPos = global_transform
-	set_respawn_timer.start(5)
 
 func isOnFloor():
 	for c in get_children():

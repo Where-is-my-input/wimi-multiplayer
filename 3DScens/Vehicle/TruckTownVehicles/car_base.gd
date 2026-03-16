@@ -63,6 +63,14 @@ func selectModel():
 			model = HATCHBACK_SPORTS.instantiate()
 		5:
 			model = SUV_LUXURY.instantiate()
+		6:
+			model = DELIVERY.instantiate()
+		7:
+			model = RACE.instantiate()
+		8:
+			model = AMBULANCE.instantiate()
+		9:
+			model = TRACTOR_POLICE.instantiate()
 		_:
 			model = SEDAN.instantiate()
 			

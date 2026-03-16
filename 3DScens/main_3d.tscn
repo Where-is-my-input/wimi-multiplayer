@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 [ext_resource type="Script" uid="uid://c13y3p7mvpgo" path="res://3DScens/track_spawner.gd" id="10_niptm"]
 [ext_resource type="Script" uid="uid://pxr31jo8jkoc" path="res://3DScens/options.gd" id="12_8hlv7"]
+[ext_resource type="Script" uid="uid://dtd1evb5gh8dh" path="res://3DScens/winner_cam_spawner.gd" id="15_6brgv"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0iigc"]
 streams_count = 1
@@ -243,6 +244,20 @@ offset_top = 2.0
 offset_right = 1150.0
 offset_bottom = 26.0
 button_pressed = true
+
+[node name="winner" type="HBoxContainer" parent="." unique_id=1621443503]
+modulate = Color(1, 1, 1, 0.5411765)
+z_index = -1
+offset_left = 14.000002
+offset_top = 9.0
+offset_right = 14.000002
+offset_bottom = 9.0
+scale = Vector2(0.32278445, 0.32278445)
+
+[node name="winnerCamSpawner" type="MultiplayerSpawner" parent="winner" unique_id=638187279]
+_spawnable_scenes = PackedStringArray("uid://bberchp665sgt")
+spawn_path = NodePath("..")
+script = ExtResource("15_6brgv")
 
 [connection signal="text_changed" from="splashArt/username" to="splashArt/username" method="_on_text_changed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]

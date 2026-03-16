@@ -215,10 +215,6 @@ transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228
 [node name="backCameraPosition" type="Marker3D" parent="Body" unique_id=564482675]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.00169557, 2.4488811, -4.307084)
 
-[node name="setRespawnTimer" type="Timer" parent="Body" unique_id=1389878136]
-wait_time = 5.0
-autostart = true
-
 [node name="respawnCooldown" type="Timer" parent="Body" unique_id=888399545]
 one_shot = true
 
@@ -526,6 +522,5 @@ _spawnable_scenes = PackedStringArray("uid://dao4ok5uv6imf", "uid://d4m6mag25mlm
 spawn_path = NodePath("..")
 script = ExtResource("13_sgv7n")
 
-[connection signal="timeout" from="Body/setRespawnTimer" to="Body" method="_on_set_respawn_timer_timeout"]
 [connection signal="delta_synchronized" from="Body/lblPlayerName/MultiplayerSynchronizer" to="Body/lblPlayerName" method="_on_multiplayer_synchronizer_delta_synchronized"]
 [connection signal="synchronized" from="Body/lblPlayerName/MultiplayerSynchronizer" to="Body/lblPlayerName" method="_on_multiplayer_synchronizer_synchronized"]
