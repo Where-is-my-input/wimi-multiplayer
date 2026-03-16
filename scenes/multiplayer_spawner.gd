@@ -7,9 +7,7 @@ const PARRY = preload("uid://cd7e28n831lit")
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(spawnPlayer)
-	#multiplayer.peer_connected.connect(peerConnected)
-	#Global.connect("spawnProjectile", SpawnProjectile)
-	#spawn_function = Callable(self, "SpawnProjectile")
+	spawn_function = Callable(self, "spawnPlayerCar")
 
 #func peerConnected(id):
 	#players_connected.addPlayer(str(id))
@@ -18,7 +16,12 @@ func spawnPlayer(id: int):
 	if !multiplayer.is_server(): return
 	
 	var player: Node = networkPlayer.instantiate()
+	spawn({id = id, modelSelected = randi() % player.models.size()})
+	player.queue_free()
+	return
+	
 	player.name = str(id)
+	#player.modelSelected = randi() % player.models.size()
 	
 	if player.global_position is Vector3:
 		#player.global_position = Vector3(0, 1.46, 0)
@@ -38,3 +41,11 @@ func spawnAllPeers():
 	
 	for p in multiplayer.get_peers():
 		spawnPlayer(p)
+
+func spawnPlayerCar(data:Variant):
+	var player: Node = networkPlayer.instantiate()
+	player.name = str(data["id"])
+	player.modelSelected = data["modelSelected"]
+	return player
+	
+	

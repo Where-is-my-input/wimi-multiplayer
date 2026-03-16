@@ -2,18 +2,38 @@
 
 [ext_resource type="Script" uid="uid://cipanuk3pstc4" path="res://3DScens/Vehicle/TruckTownVehicles/car_base.gd" id="1_8qvhg"]
 [ext_resource type="Script" uid="uid://cib1gkgns78mu" path="res://3DScens/Vehicle/TruckTownVehicles/vehicle.gd" id="2_sgv7n"]
+[ext_resource type="PackedScene" uid="uid://dm8tmrjjhta37" path="res://Assets/3D/Models/FBX format/ambulance.fbx" id="2_ts40p"]
+[ext_resource type="PackedScene" uid="uid://pwvxsedjbixw" path="res://Assets/3D/Models/FBX format/delivery-flat.fbx" id="3_un6yk"]
+[ext_resource type="PackedScene" uid="uid://dt7u1ppet2ct3" path="res://Assets/3D/Models/FBX format/delivery.fbx" id="4_sebmb"]
+[ext_resource type="PackedScene" uid="uid://dyvoeorokgvqp" path="res://Assets/3D/Models/FBX format/firetruck.fbx" id="5_gd124"]
 [ext_resource type="Script" uid="uid://b7bnqybjqex0f" path="res://3DScens/Vehicle/TruckTownVehicles/follow_camera.gd" id="5_ur1mo"]
 [ext_resource type="AudioStream" uid="uid://cb7wvsd6vygd3" path="res://3DScens/Vehicle/TruckTownVehicles/engine.wav" id="6_p2y86"]
+[ext_resource type="PackedScene" uid="uid://b4vn5u4nwm7wt" path="res://Assets/3D/Models/FBX format/garbage-truck.fbx" id="6_vy846"]
 [ext_resource type="AudioStream" uid="uid://sy2li7u35867" path="res://3DScens/Vehicle/TruckTownVehicles/impact_1.wav" id="7_cqr83"]
+[ext_resource type="PackedScene" uid="uid://cs55cshfhkmwc" path="res://Assets/3D/Models/FBX format/hatchback-sports.fbx" id="7_qsu8r"]
+[ext_resource type="PackedScene" uid="uid://cuvwf4a67yq52" path="res://Assets/3D/Models/FBX format/police.fbx" id="8_m8t5m"]
 [ext_resource type="AudioStream" uid="uid://bf0h7s81yr8nj" path="res://3DScens/Vehicle/TruckTownVehicles/impact_2.wav" id="8_uxtj7"]
+[ext_resource type="PackedScene" uid="uid://dg0pt8gpo3jjk" path="res://Assets/3D/Models/FBX format/race-future.fbx" id="9_4m41s"]
 [ext_resource type="AudioStream" uid="uid://sun2n8a4xapl" path="res://3DScens/Vehicle/TruckTownVehicles/impact_3.wav" id="9_x86wc"]
 [ext_resource type="AudioStream" uid="uid://dpbayeeufya21" path="res://3DScens/Vehicle/TruckTownVehicles/impact_4.wav" id="10_lhlgl"]
+[ext_resource type="PackedScene" uid="uid://ci8qjhboh34qs" path="res://Assets/3D/Models/FBX format/race.fbx" id="10_x5fyr"]
 [ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="11_aw56n"]
 [ext_resource type="PackedScene" uid="uid://du0o4j23pvx0w" path="res://Assets/3D/Models/GLB format/debris-bolt.glb" id="11_oeren"]
+[ext_resource type="PackedScene" uid="uid://bhqs61lpxfcc3" path="res://Assets/3D/Models/FBX format/sedan-sports.fbx" id="11_vns3a"]
 [ext_resource type="Texture2D" uid="uid://bju75l2w3r7vq" path="res://3DScens/Vehicle/TruckTownVehicles/blob_shadow.png" id="12_0lg18"]
 [ext_resource type="Script" uid="uid://dd03or2bjd3v8" path="res://3DScens/lbl_player_name.gd" id="12_1ar1f"]
 [ext_resource type="Script" uid="uid://0epb2l0ycfb" path="res://3DScens/player_hud.gd" id="12_8qvhg"]
+[ext_resource type="PackedScene" uid="uid://bbttqoxowm6x0" path="res://Assets/3D/Models/FBX format/sedan.fbx" id="12_o60ip"]
+[ext_resource type="PackedScene" uid="uid://0jdrtduh1ubf" path="res://Assets/3D/Models/FBX format/suv-luxury.fbx" id="13_8pfhb"]
 [ext_resource type="Script" uid="uid://54lx6kb1x8ys" path="res://3DScens/projectile_spawner.gd" id="13_sgv7n"]
+[ext_resource type="PackedScene" uid="uid://q0jpt0h461on" path="res://Assets/3D/Models/FBX format/suv.fbx" id="14_fjp2i"]
+[ext_resource type="PackedScene" uid="uid://cvhqotcpatdpo" path="res://Assets/3D/Models/FBX format/taxi.fbx" id="15_cxphp"]
+[ext_resource type="PackedScene" uid="uid://dr4xpm2t3bm3l" path="res://Assets/3D/Models/FBX format/tractor-police.fbx" id="16_rhw0f"]
+[ext_resource type="PackedScene" uid="uid://d0i18rpwy3q4e" path="res://Assets/3D/Models/FBX format/tractor-shovel.fbx" id="17_8ucoa"]
+[ext_resource type="PackedScene" uid="uid://bl7l3kcwkksw6" path="res://Assets/3D/Models/FBX format/tractor.fbx" id="18_xe5aj"]
+[ext_resource type="PackedScene" uid="uid://ckvflqhpyd8qf" path="res://Assets/3D/Models/FBX format/truck-flat.fbx" id="19_tfbgf"]
+[ext_resource type="PackedScene" uid="uid://ce32557nrdjak" path="res://Assets/3D/Models/FBX format/truck.fbx" id="20_m3lxx"]
+[ext_resource type="PackedScene" uid="uid://bjwe1leco7gk1" path="res://Assets/3D/Models/FBX format/van.fbx" id="21_f447r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l7i2k"]
 friction = 0.5
@@ -72,6 +92,9 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Body:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:modelSelected")
+properties/3/spawn = true
+properties/3/replication_mode = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ar1f"]
 content_margin_left = 2.0
@@ -91,6 +114,7 @@ corner_detail = 6
 
 [node name="playerCar" type="Node3D" unique_id=686389758]
 script = ExtResource("1_8qvhg")
+models = Array[PackedScene]([ExtResource("2_ts40p"), ExtResource("3_un6yk"), ExtResource("4_sebmb"), ExtResource("5_gd124"), ExtResource("6_vy846"), ExtResource("7_qsu8r"), ExtResource("8_m8t5m"), ExtResource("9_4m41s"), ExtResource("10_x5fyr"), ExtResource("11_vns3a"), ExtResource("12_o60ip"), ExtResource("13_8pfhb"), ExtResource("14_fjp2i"), ExtResource("15_cxphp"), ExtResource("16_rhw0f"), ExtResource("17_8ucoa"), ExtResource("18_xe5aj"), ExtResource("19_tfbgf"), ExtResource("20_m3lxx"), ExtResource("21_f447r")])
 
 [node name="Body" type="VehicleBody3D" parent="." unique_id=810613696]
 collision_layer = 257

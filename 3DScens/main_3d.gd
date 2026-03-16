@@ -28,11 +28,12 @@ func prepareRace():
 	Global.notify.emit("Race will start soon...")
 	winner_cam_spawner.newRace()
 	track_spawner.loadTrack()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1.5).timeout
 	for c in players.get_children():
 		var posToSpawn = getSpawnPos()
 		c.respawn(posToSpawn)
 		c.despawn()
+	await get_tree().create_timer(1.5).timeout
 	multiplayer_spawner.spawnAllPeers()
 	startRace.rpc()
 
