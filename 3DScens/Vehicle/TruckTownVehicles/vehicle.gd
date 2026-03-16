@@ -143,6 +143,10 @@ func isOnFloor():
 	return true
 	
 func parry():
+	for c in get_children():
+		if c is ParryClass:
+			c.queue_free()
+			await get_tree().create_timer(0.5).timeout
 	var p = PARRY.instantiate()
 	#projectile_spawner.spawn(p)
 	add_child(p)
@@ -155,3 +159,6 @@ func blast():
 func boost(boostStrength:float = 1.1):
 	linear_velocity *= boostStrength
 	add_child(BOOST_VFX.instantiate())
+
+func raceFinished():
+	set_physics_process(false)

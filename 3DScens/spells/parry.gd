@@ -1,4 +1,5 @@
 extends Area3D
+class_name ParryClass
 
 func _ready() -> void:
 	var parent = get_parent() as VehicleBody3D
@@ -10,7 +11,6 @@ func _on_body_entered(body: Node3D) -> void:
 			body.linear_velocity *= 0.5
 		elif body is CharacterBody3D:
 			body.queue_free()
-
 
 func _on_timer_timeout() -> void:
 	#return

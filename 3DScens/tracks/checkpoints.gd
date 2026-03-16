@@ -44,3 +44,4 @@ func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 @rpc("call_local")
 func finish(body:VehicleBody3D):
 	Global.notify.emit("We have a winner! " + body.name)
+	body.raceFinished()

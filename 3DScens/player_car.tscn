@@ -248,6 +248,231 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_8qvhg")
 
+[node name="cardIndicators" type="Control" parent="playerHUD" unique_id=622774199]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="whiteColorRect" type="Control" parent="playerHUD/cardIndicators" unique_id=1223652187]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1947046518]
+z_index = 1
+layout_mode = 0
+offset_left = 963.0
+offset_top = 597.0
+offset_right = 1003.0
+offset_bottom = 637.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect2" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=795132861]
+z_index = 1
+layout_mode = 0
+offset_left = 1002.0001
+offset_top = 597.00006
+offset_right = 1042.0
+offset_bottom = 637.00006
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect5" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=221557070]
+z_index = 1
+layout_mode = 0
+offset_left = 1007.0001
+offset_top = 597.00006
+offset_right = 1047.0
+offset_bottom = 637.00006
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect3" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1517622549]
+z_index = 1
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 593.0
+offset_right = 1090.0
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect6" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=336761417]
+z_index = 1
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 598.0
+offset_right = 1087.0
+offset_bottom = 638.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect7" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1694504593]
+z_index = 1
+layout_mode = 0
+offset_left = 1053.0002
+offset_top = 598.0
+offset_right = 1093.0002
+offset_bottom = 638.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect4" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1070886958]
+z_index = 1
+layout_mode = 0
+offset_left = 1104.0001
+offset_top = 591.0
+offset_right = 1144.0001
+offset_bottom = 631.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect8" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1010394548]
+z_index = 1
+layout_mode = 0
+offset_left = 1097.0001
+offset_top = 597.00006
+offset_right = 1137.0001
+offset_bottom = 637.00006
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect9" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=846592945]
+z_index = 1
+layout_mode = 0
+offset_left = 1111.0
+offset_top = 597.0
+offset_right = 1151.0
+offset_bottom = 637.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="ColorRect10" type="ColorRect" parent="playerHUD/cardIndicators/whiteColorRect" unique_id=1620634127]
+z_index = 1
+layout_mode = 0
+offset_left = 1104.0001
+offset_top = 603.0
+offset_right = 1144.0001
+offset_bottom = 643.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+
+[node name="blackColorRect" type="Control" parent="playerHUD/cardIndicators" unique_id=1007155653]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=515580577]
+z_index = 1
+layout_mode = 0
+offset_left = 963.0
+offset_top = 598.0
+offset_right = 998.0
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=1314968610]
+z_index = 1
+layout_mode = 0
+offset_left = 1002.0001
+offset_top = 598.0
+offset_right = 1037.0001
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=2057015032]
+z_index = 1
+layout_mode = 0
+offset_left = 1007.0001
+offset_top = 598.0
+offset_right = 1042.0001
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=388099915]
+z_index = 1
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 594.0
+offset_right = 1085.0
+offset_bottom = 629.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=87396530]
+z_index = 1
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 599.0
+offset_right = 1082.0
+offset_bottom = 634.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=792039029]
+z_index = 1
+layout_mode = 0
+offset_left = 1053.0002
+offset_top = 599.0
+offset_right = 1088.0002
+offset_bottom = 634.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=571319565]
+z_index = 1
+layout_mode = 0
+offset_left = 1104.0001
+offset_top = 592.0
+offset_right = 1139.0001
+offset_bottom = 627.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=191840058]
+z_index = 1
+layout_mode = 0
+offset_left = 1097.0001
+offset_top = 598.0
+offset_right = 1132.0001
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=1013677895]
+z_index = 1
+layout_mode = 0
+offset_left = 1110.9999
+offset_top = 598.0
+offset_right = 1145.9999
+offset_bottom = 633.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="playerHUD/cardIndicators/blackColorRect" unique_id=95815176]
+z_index = 1
+layout_mode = 0
+offset_left = 1104.0001
+offset_top = 604.0
+offset_right = 1139.0001
+offset_bottom = 639.0
+rotation = 0.7853982
+scale = Vector2(0.22299723, 0.22299723)
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
 [node name="drawProgress" type="ProgressBar" parent="playerHUD" unique_id=151631885]
 layout_mode = 1
 anchors_preset = 12
@@ -260,20 +485,35 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1ar1f")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vp7kq")
 
-[node name="hand" type="HBoxContainer" parent="playerHUD" unique_id=1797822757]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 924.0
-offset_top = -114.0
-offset_right = 445.99976
-offset_bottom = 128.3335
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.3, 0.3)
-alignment = 2
+[node name="hand" type="Node" parent="playerHUD" unique_id=1466305781]
+
+[node name="1" type="BoxContainer" parent="playerHUD/hand" unique_id=759085507]
+offset_left = 930.0
+offset_top = 521.0
+offset_right = 1080.0
+offset_bottom = 763.0
+scale = Vector2(0.33494318, 0.33494318)
+
+[node name="2" type="BoxContainer" parent="playerHUD/hand" unique_id=1669472472]
+offset_left = 976.2
+offset_top = 521.0
+offset_right = 1126.2
+offset_bottom = 763.0
+scale = Vector2(0.33494318, 0.33494318)
+
+[node name="3" type="BoxContainer" parent="playerHUD/hand" unique_id=383024565]
+offset_left = 1022.39996
+offset_top = 521.0
+offset_right = 1172.3999
+offset_bottom = 763.0
+scale = Vector2(0.33494318, 0.33494318)
+
+[node name="4" type="BoxContainer" parent="playerHUD/hand" unique_id=725159214]
+offset_left = 1068.6001
+offset_top = 521.0
+offset_right = 1218.6001
+offset_bottom = 763.0
+scale = Vector2(0.33494318, 0.33494318)
 
 [node name="bodyProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1445990575]
 _spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h", "uid://c112ualpvwrab")

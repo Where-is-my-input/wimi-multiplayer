@@ -44,8 +44,8 @@ func _ready() -> void:
 		lbl_player_name.visible = false
 		lbl_player_name.text = Global.username
 	else:
-		player_hud.visible = false
-		#player_hud.queue_free()
+		#player_hud.visible = false
+		player_hud.queue_free()
 	selectModel()
 
 func selectModel():
