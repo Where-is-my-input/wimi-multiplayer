@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bggsh87im0r2x" path="res://3DScens/CollisionShapes/RaceTracks/grid_map.tscn" id="2_u3dm3"]
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="3_ce1e4"]
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="4_cmgro"]
-[ext_resource type="PackedScene" uid="uid://bo71hlwpe5mla" path="res://3DScens/tracks/spawn_position.tscn" id="5_lxgbv"]
+[ext_resource type="PackedScene" uid="uid://cc7mmeahimrg1" path="res://3DScens/tracks/spawn_points.tscn" id="5_vxiqd"]
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_cmgro"]
 [ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="7_vxiqd"]
 [ext_resource type="AudioStream" uid="uid://cjf6yrpau6k8c" path="res://Assets/Music/darkness_road_remake_bpm165.ogg" id="8_vxiqd"]
@@ -67,53 +67,8 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 229.
 [node name="checkpoint10" parent="checkpoints" index="9" unique_id=994995635 instance=ExtResource("4_cmgro")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 170.0317, 8.161967, 31.687962)
 
-[node name="spawnPoints" type="Node3D" parent="." index="3" unique_id=1223508432]
+[node name="spawnPoints" parent="." index="3" unique_id=1355010404 instance=ExtResource("5_vxiqd")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102.91774, 9.115696, 84.57846)
-
-[node name="spawnPosition" parent="spawnPoints" index="0" unique_id=225116517 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4563022, -0.8872967, 0)
-
-[node name="spawnPosition2" parent="spawnPoints" index="1" unique_id=2127925962 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.688399, -0.8872967, 0)
-
-[node name="spawnPosition3" parent="spawnPoints" index="2" unique_id=203443852 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.539323, -0.8872967, 0)
-
-[node name="spawnPosition4" parent="spawnPoints" index="3" unique_id=216758364 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9758501, -0.8872967, 0)
-
-[node name="spawnPosition5" parent="spawnPoints" index="4" unique_id=957298727 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27835846, -0.8872967, 0)
-
-[node name="spawnPosition6" parent="spawnPoints" index="5" unique_id=205606592 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9678311, -0.8872967, -4.1003)
-
-[node name="spawnPosition7" parent="spawnPoints" index="6" unique_id=1235567277 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17687, -0.8872967, -4.1003)
-
-[node name="spawnPosition8" parent="spawnPoints" index="7" unique_id=1209089990 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.027794, -0.8872967, -4.1003)
-
-[node name="spawnPosition9" parent="spawnPoints" index="8" unique_id=473753413 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4643211, -0.8872967, -4.1003)
-
-[node name="spawnPosition10" parent="spawnPoints" index="9" unique_id=1463755655 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21011257, -0.8872967, -4.1003)
-
-[node name="spawnPosition11" parent="spawnPoints" index="10" unique_id=1778237021 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9950233, -0.8872967, -8.119256)
-
-[node name="spawnPosition12" parent="spawnPoints" index="11" unique_id=81877761 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.149678, -0.8872967, -8.119256)
-
-[node name="spawnPosition13" parent="spawnPoints" index="12" unique_id=218220102 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.000602, -0.8872967, -8.119256)
-
-[node name="spawnPosition14" parent="spawnPoints" index="13" unique_id=1330049458 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.437129, -0.8872967, -8.119256)
-
-[node name="spawnPosition15" parent="spawnPoints" index="14" unique_id=843002858 instance=ExtResource("5_lxgbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81707954, -0.8872967, -8.119256)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4" unique_id=1058664095]
 transform = Transform3D(-7.3444886e-07, 0, -0.99999994, 0, 0.3113465, 0, 16.802233, 0, -4.371139e-08, 99.95641, 8.161967, 82.16299)

@@ -7,6 +7,7 @@ const MISSILE_CARD = preload("uid://clh46q4n6j5s6")
 const BOOST_CARD = preload("uid://c72bf0q7d52h8")
 const PARRY_CARD = preload("uid://cw8e6agsvrtc1")
 const BLAST_CARD = preload("uid://c7rvw6g6lxg54")
+const MORTAR_CARD = preload("uid://b5kxgpasayi37")
 
 #func _ready() -> void:
 	#if !is_multiplayer_authority():
@@ -32,16 +33,18 @@ func drawCard():
 	
 	var c
 	
-	match int(body.linear_velocity.length()) % Global.Spells.size():
-	#match 3:
-		Global.Spells.MISSILE:
+	#match int(body.linear_velocity.length()) % Global.Cards.size():
+	match 4:
+		Global.Cards.MISSILE:
 			c = MISSILE_CARD.instantiate()
-		Global.Spells.BOOST:
+		Global.Cards.BOOST:
 			c = BOOST_CARD.instantiate()
-		Global.Spells.PARRY:
+		Global.Cards.PARRY:
 			c = PARRY_CARD.instantiate()
-		Global.Spells.BLAST:
+		Global.Cards.BLAST:
 			c = BLAST_CARD.instantiate()
+		Global.Cards.MORTAR:
+			c = MORTAR_CARD.instantiate()
 		_:
 			c = BOOST_CARD.instantiate()
 	

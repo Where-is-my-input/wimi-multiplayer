@@ -29,6 +29,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="splashArt" unique_id=943787861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TextureRect" type="TextureRect" parent="splashArt" unique_id=1637465179]
 layout_mode = 0
 offset_left = -99.0
@@ -37,14 +45,6 @@ offset_right = 395.0
 offset_bottom = 197.0
 scale = Vector2(2.8417969, 2.8417969)
 texture = ExtResource("2_niptm")
-
-[node name="Panel" type="Panel" parent="splashArt" unique_id=943787861]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Label" type="Label" parent="splashArt" unique_id=1158786353]
 layout_mode = 0
@@ -222,7 +222,7 @@ bus = &"BGM"
 [node name="track" type="Node" parent="." unique_id=363530957]
 
 [node name="trackSpawner" type="MultiplayerSpawner" parent="." unique_id=1165880129]
-_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik")
+_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik", "uid://dlajtv1hay3lr")
 spawn_path = NodePath("../track")
 spawn_limit = 1
 script = ExtResource("10_niptm")

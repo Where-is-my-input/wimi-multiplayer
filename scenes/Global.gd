@@ -10,7 +10,17 @@ enum Spells{
 	MISSILE,
 	BOOST,
 	PARRY,
-	BLAST
+	BLAST,
+	BIG_BLAST,
+	MORTAR
+}
+
+enum Cards{
+	MISSILE,
+	BOOST,
+	PARRY,
+	BLAST,
+	MORTAR
 }
 
 enum CameraType {

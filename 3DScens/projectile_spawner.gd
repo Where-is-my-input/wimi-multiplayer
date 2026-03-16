@@ -1,6 +1,8 @@
 extends MultiplayerSpawner
 const MISSILE = preload("uid://dao4ok5uv6imf")
 const BLAST = preload("uid://d4m6mag25mlme")
+const BIG_BLAST = preload("uid://bepfcavb1e7jy")
+const MORTAR = preload("uid://beb03o8l37g1b")
 
 func _ready():
 	#Global.connect("spawnProjectile", spawnMissile)
@@ -13,6 +15,13 @@ func spawnProjectile(data:Variant):
 		Global.Spells.BLAST:
 			m = BLAST.instantiate()
 			m.global_transform = data["globalTransform"]
+		Global.Spells.BIG_BLAST:
+			m = BIG_BLAST.instantiate()
+			m.global_transform = data["globalTransform"]
+		Global.Spells.MORTAR:
+			m = MORTAR.instantiate()
+			m.global_transform = get_parent().body.gun.global_transform
+			m.speed += get_parent().body.linear_velocity.length()
 		_:
 			m = MISSILE.instantiate()
 			m.global_transform = get_parent().body.gun.global_transform

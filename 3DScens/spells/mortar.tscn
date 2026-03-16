@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://beb03o8l37g1b"]
+
+[ext_resource type="PackedScene" uid="uid://ivr4qgjq2dss" path="res://3DScens/spells/projectile.tscn" id="1_42vwe"]
+[ext_resource type="Script" uid="uid://dev8xx24ncjex" path="res://3DScens/spells/mortar.gd" id="2_elr5j"]
+[ext_resource type="PackedScene" uid="uid://c4722v1n8mtid" path="res://Assets/3D/Projectiles/grenade.blend" id="3_2451n"]
+[ext_resource type="AudioStream" uid="uid://d3u07g6yh3efs" path="res://Assets/SFX/missile.wav" id="4_5m7dv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5m7dv"]
+size = Vector3(2.9042969, 3.4257813, 4.0792847)
+
+[node name="mortar" unique_id=1327706885 instance=ExtResource("1_42vwe")]
+script = ExtResource("2_elr5j")
+gravityStrength = 0.005
+gravityThreshhold = -275.0
+direction = Vector3(2.5, 0, 2.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(1676392798) index="0" unique_id=791932521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9727478)
+shape = SubResource("BoxShape3D_5m7dv")
+debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
+
+[node name="grenade" parent="." index="2" unique_id=793703360 instance=ExtResource("3_2451n")]
+transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3" unique_id=1839070917]
+stream = ExtResource("4_5m7dv")
+autoplay = true
+bus = &"SFX"
