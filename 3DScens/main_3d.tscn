@@ -30,6 +30,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="splashArt" unique_id=960158770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Panel" type="Panel" parent="splashArt" unique_id=943787861]
 layout_mode = 1
 anchors_preset = 15
@@ -39,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="splashArt" unique_id=1637465179]
+modulate = Color(1, 1, 1, 0.2901961)
 layout_mode = 0
 offset_left = -99.0
 offset_top = -319.0
@@ -88,7 +98,8 @@ offset_left = 628.0
 offset_top = 442.0
 offset_right = 911.0
 offset_bottom = 642.0
-text = "F4 > Change camera
+text = "F3 > Change rear camera
+F4 > Change camera
 F5 > Force respawn
 M > Mute BGM
 
@@ -104,6 +115,14 @@ offset_bottom = 91.0
 placeholder_text = "Username"
 alignment = 1
 script = ExtResource("3_33y3j")
+
+[node name="Label" type="Label" parent="splashArt/username" unique_id=1220217698]
+layout_mode = 0
+offset_left = 79.0
+offset_top = -22.0
+offset_right = 159.0
+offset_bottom = 1.0
+text = "Username"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1867760568]
 transform = Transform3D(1, 0, 0, 0, 0.31975314, 0.9475009, 0, -0.9475009, 0.31975314, 0, 14.147822, 6.79376)
