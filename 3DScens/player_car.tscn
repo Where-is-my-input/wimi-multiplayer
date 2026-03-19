@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvflqhpyd8qf" path="res://Assets/3D/Models/FBX format/truck-flat.fbx" id="19_tfbgf"]
 [ext_resource type="PackedScene" uid="uid://ce32557nrdjak" path="res://Assets/3D/Models/FBX format/truck.fbx" id="20_m3lxx"]
 [ext_resource type="PackedScene" uid="uid://bjwe1leco7gk1" path="res://Assets/3D/Models/FBX format/van.fbx" id="21_f447r"]
+[ext_resource type="Script" uid="uid://dal5pgdjaycsy" path="res://3DScens/rear_window.gd" id="34_un6yk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l7i2k"]
 friction = 0.5
@@ -117,6 +118,7 @@ script = ExtResource("1_8qvhg")
 models = Array[PackedScene]([ExtResource("2_ts40p"), ExtResource("3_un6yk"), ExtResource("4_sebmb"), ExtResource("5_gd124"), ExtResource("6_vy846"), ExtResource("7_qsu8r"), ExtResource("8_m8t5m"), ExtResource("9_4m41s"), ExtResource("10_x5fyr"), ExtResource("11_vns3a"), ExtResource("12_o60ip"), ExtResource("13_8pfhb"), ExtResource("14_fjp2i"), ExtResource("15_cxphp"), ExtResource("16_rhw0f"), ExtResource("17_8ucoa"), ExtResource("18_xe5aj"), ExtResource("19_tfbgf"), ExtResource("20_m3lxx"), ExtResource("21_f447r")])
 
 [node name="Body" type="VehicleBody3D" parent="." unique_id=810613696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4735619, 1.412787)
 collision_layer = 257
 physics_material_override = SubResource("PhysicsMaterial_l7i2k")
 center_of_mass_mode = 1
@@ -129,8 +131,7 @@ use_as_steering = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_travel = 2.0
-suspension_stiffness = 40.0
+suspension_stiffness = 75.0
 damping_compression = 0.88
 
 [node name="Wheel2" type="VehicleWheel3D" parent="Body" unique_id=1852676584]
@@ -139,8 +140,7 @@ use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_travel = 2.0
-suspension_stiffness = 40.0
+suspension_stiffness = 75.0
 damping_compression = 0.88
 
 [node name="Wheel3" type="VehicleWheel3D" parent="Body" unique_id=442659941]
@@ -150,8 +150,7 @@ use_as_steering = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_travel = 2.0
-suspension_stiffness = 40.0
+suspension_stiffness = 75.0
 damping_compression = 0.88
 
 [node name="Wheel4" type="VehicleWheel3D" parent="Body" unique_id=1352631916]
@@ -159,9 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573678, 0.115169, -0.78340
 use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
-wheel_friction_slip = 1.0
-suspension_travel = 2.0
-suspension_stiffness = 40.0
+suspension_stiffness = 75.0
 damping_compression = 0.88
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1801338453]
@@ -182,7 +179,7 @@ debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97449, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Body/CameraBase" unique_id=1325670815]
-transform = Transform3D(-1, 2.11495e-08, -8.48259e-08, 0, 0.970296, 0.241922, 8.74228e-08, 0.241922, -0.970296, 0, 2.032, -4.394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97449, 0)
 fov = 74.0
 near = 0.1
 script = ExtResource("5_ur1mo")
@@ -257,6 +254,10 @@ script = ExtResource("12_1ar1f")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Body/lblPlayerName" unique_id=1196317260]
 replication_config = SubResource("SceneReplicationConfig_1ar1f")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Body" unique_id=1292745210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9012007, -0.078385115)
+remote_path = NodePath("../../playerHUD/rearWindow/rearViewport/rearCamera")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=494711759]
 replication_config = SubResource("SceneReplicationConfig_q1o7u")
@@ -536,6 +537,34 @@ offset_top = 521.0
 offset_right = 1218.6001
 offset_bottom = 763.0
 scale = Vector2(0.33494318, 0.33494318)
+
+[node name="rearWindow" type="SubViewportContainer" parent="playerHUD" unique_id=542573302]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 15.0
+offset_right = 882.21387
+offset_bottom = 166.0
+stretch = true
+script = ExtResource("34_un6yk")
+
+[node name="rearViewport" type="SubViewport" parent="playerHUD/rearWindow" unique_id=1790496421]
+handle_input_locally = false
+size = Vector2i(584, 151)
+render_target_update_mode = 4
+
+[node name="rearCamera" type="Camera3D" parent="playerHUD/rearWindow/rearViewport" unique_id=163221163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3747625, 1.3344018)
+projection = 2
+fov = 52.2
+near = 0.677
+
+[node name="speed" type="Label" parent="playerHUD" unique_id=1914226692]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 577.0
+offset_right = 74.0
+offset_bottom = 600.0
+text = "speed"
 
 [node name="bodyProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1445990575]
 _spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h", "uid://c112ualpvwrab")

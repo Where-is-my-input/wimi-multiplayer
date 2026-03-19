@@ -10,7 +10,12 @@ const BOOST_VFX = preload("uid://dy8royi8in62h")
 const LITTLE_BLAST = preload("uid://c112ualpvwrab")
 const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
-const BRAKE_STRENGTH = 2.0
+const BRAKE_STRENGTH = 5.0
+@onready var wheelFrontLeft: VehicleWheel3D = $Wheel1
+@onready var wheelBackLeft: VehicleWheel3D = $Wheel2
+@onready var wheelFrontRight: VehicleWheel3D = $Wheel3
+@onready var wheelBackRight: VehicleWheel3D = $Wheel4
+@onready var speedLabel: Label = $"../playerHUD/speed"
 
 @export var engine_force_value := 40.0
 @export var brakeForce: float = 2
@@ -26,8 +31,6 @@ func _ready() -> void:
 	spawnPos = global_transform
 
 func _physics_process(delta: float):
-	#var fwd_mps := (linear_velocity * transform.basis).x
-
 	_steer_target = Input.get_axis("ui_right", "ui_left")
 	_steer_target *= STEER_LIMIT
 
@@ -68,7 +71,7 @@ func _physics_process(delta: float):
 		if speed < 5.0 and not is_zero_approx(speed):
 			engine_force = -clampf(engine_force_value * BRAKE_STRENGTH * 5.0 / speed, 0.0, 100.0)
 		else:
-			engine_force = -engine_force_value * BRAKE_STRENGTH
+			engine_force = -engine_force_value / BRAKE_STRENGTH
 
 		# Apply analog brake factor for more subtle braking if not fully holding down the trigger.
 		engine_force *= Input.get_action_strength("ui_down")
@@ -78,9 +81,15 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_accept"):
 		brake = 1.3
 		engine_force = 0
+		wheelBackLeft.wheel_friction_slip = 0.3
+		wheelBackRight.wheel_friction_slip = 0.3
 	else:
+		wheelBackLeft.wheel_friction_slip = wheelFrontLeft.wheel_friction_slip
+		wheelBackRight.wheel_friction_slip = wheelFrontRight.wheel_friction_slip
 		brake = 0
 	previous_speed = linear_velocity.length()
+
+	if is_multiplayer_authority(): speedLabel.text = ("%.0f" % (linear_velocity.length() * 3.6)) + " km/h"
 
 
 func _input(event: InputEvent) -> void:
@@ -123,6 +132,7 @@ func respawn(respawnTo = null, forceRespawn:bool = false):
 	else:
 		global_position = respawnTo
 	linear_velocity = Vector3(1, 1, 1)
+	angular_velocity = Vector3(1, 1, 1)
 	#rotation = Vector3(0, 0, 0)
 	setRespawnCooldown()
 	#global_rotation = Vector3(0,0,0)
@@ -157,4 +167,7 @@ func boost(boostStrength:float = 1.1):
 	add_child(BOOST_VFX.instantiate())
 
 func raceFinished():
+	engine_force = 0
+	$EngineSound.stop()
 	set_physics_process(false)
+	set_process_input(false)

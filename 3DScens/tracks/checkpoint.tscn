@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ka0qd08ka1e4"]
 
 [ext_resource type="Script" uid="uid://dhro314r1o84e" path="res://3DScens/tracks/checkpoint.gd" id="1_6l5o1"]
-[ext_resource type="AudioStream" uid="uid://cihwva1ymcktk" path="res://Assets/SFX/coin.wav" id="2_yy7p1"]
+[ext_resource type="AudioStream" uid="uid://k47bbwedn4k" path="res://Assets/SFX/coin.ogg" id="2_yy7p1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajr1d"]
 resource_local_to_scene = true
@@ -31,7 +31,7 @@ transform = Transform3D(-0.5088943, 0, 0, 0, 9.208039, 0, 0, 0, 1, 6.101699, 1.9
 mesh = SubResource("BoxMesh_ajr1d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=278394171]
-transform = Transform3D(23.813885, 0, 0, 0, 4.2883263, 0, 0, 0, 2.2850132, -2.3568106, 1.9693756, 0)
+transform = Transform3D(23.813885, 0, 0, 0, 102.81691, 0, 0, 0, 2.2850132, -2.3568106, 1.9693756, 0)
 shape = SubResource("ConvexPolygonShape3D_gmsvl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1526508736]
