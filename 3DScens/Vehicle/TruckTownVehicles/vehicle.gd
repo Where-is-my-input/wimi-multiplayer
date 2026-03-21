@@ -17,6 +17,7 @@ const BRAKE_STRENGTH = 5.0
 @onready var wheelBackRight: VehicleWheel3D = $Wheel4
 @onready var speedLabel: Label = $"../playerHUD/speed"
 @onready var drop: CPUParticles3D = $drop
+const EMOTE = preload("uid://dea5da7wbux3r")
 
 @export var engine_force_value := 40.0
 @export var brakeForce: float = 2
@@ -109,6 +110,20 @@ func _input(event: InputEvent) -> void:
 		player_hud.useCard(2)
 	elif event.is_action_pressed("use3"):
 		player_hud.useCard(3)
+	elif event.is_action_pressed("emote0"):
+		useEmote()
+	elif event.is_action_pressed("emote1"):
+		useEmote(0)
+	elif event.is_action_pressed("emote2"):
+		useEmote(1)
+	elif event.is_action_pressed("emote3"):
+		useEmote(2)
+	elif event.is_action_pressed("emote4"):
+		useEmote(3)
+	elif event.is_action_pressed("emote5"):
+		useEmote(4)
+	elif event.is_action_pressed("emote6"):
+		useEmote(6)
 
 #@rpc("call_local")
 #func shootMissile():
@@ -155,12 +170,10 @@ func parry():
 			c.queue_free()
 			await get_tree().create_timer(0.5).timeout
 	var p = PARRY.instantiate()
-	#projectile_spawner.spawn(p)
 	add_child(p)
 
 func blast():
 	var p = LITTLE_BLAST.instantiate()
-	#projectile_spawner.spawn(p)
 	add_child(p)
 
 func boost(boostStrength:float = 1.1):
@@ -172,3 +185,12 @@ func raceFinished():
 	$EngineSound.stop()
 	set_physics_process(false)
 	set_process_input(false)
+
+func useEmote(emoteType:int = 5):
+	for c in get_children():
+		if c is EmoteClass: 
+			c.queue_free()
+	await get_tree().create_timer(0.05).timeout
+	var p = EMOTE.instantiate()
+	p.emoteType = emoteType
+	add_child(p)

@@ -567,7 +567,7 @@ offset_bottom = 610.0
 text = "speed"
 
 [node name="bodyProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1445990575]
-_spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h", "uid://c112ualpvwrab")
+_spawnable_scenes = PackedStringArray("uid://cd7e28n831lit", "uid://dy8royi8in62h", "uid://c112ualpvwrab", "uid://dea5da7wbux3r")
 spawn_path = NodePath("../Body")
 
 [node name="projectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1694482051]

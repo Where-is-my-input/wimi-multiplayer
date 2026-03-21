@@ -144,11 +144,11 @@ offset_bottom = 136.0
 
 [node name="btnServer" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1136691403]
 layout_mode = 2
-text = "Server"
+text = "Host"
 
 [node name="btnClient" type="Button" parent="highLevelUI/VBoxContainer" unique_id=1996972119]
 layout_mode = 2
-text = "Client"
+text = "Join"
 
 [node name="ip" type="LineEdit" parent="highLevelUI/VBoxContainer" unique_id=33938838]
 layout_mode = 2
