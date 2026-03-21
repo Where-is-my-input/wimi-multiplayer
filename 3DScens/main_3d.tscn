@@ -12,11 +12,30 @@
 [ext_resource type="Script" uid="uid://dcupyacr5n0pv" path="res://3DScens/players_connected.gd" id="10_88ymw"]
 [ext_resource type="Script" uid="uid://c13y3p7mvpgo" path="res://3DScens/track_spawner.gd" id="10_niptm"]
 [ext_resource type="Script" uid="uid://pxr31jo8jkoc" path="res://3DScens/options.gd" id="12_8hlv7"]
+[ext_resource type="Script" uid="uid://cxatjr6clgfay" path="res://scenes/HUD/track_selector.gd" id="12_w1gk0"]
 [ext_resource type="Script" uid="uid://dtd1evb5gh8dh" path="res://3DScens/winner_cam_spawner.gd" id="15_6brgv"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0iigc"]
 streams_count = 1
 stream_0/stream = ExtResource("8_fst4s")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1gk0"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.0033145398
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+ground_curve = 0.0025881492
+sun_angle_max = 34.06
+sun_curve = 0.7917044
+energy_multiplier = 1.94
+
+[sub_resource type="Sky" id="Sky_6brgv"]
+sky_material = SubResource("ProceduralSkyMaterial_w1gk0")
+
+[sub_resource type="Environment" id="Environment_33y3j"]
+background_mode = 2
+sky = SubResource("Sky_6brgv")
 
 [node name="main3D" type="Node3D" unique_id=568222157]
 script = ExtResource("1_fst4s")
@@ -100,6 +119,7 @@ text = "F3 > Change rear camera
 F4 > Change camera
 F5 > Force respawn
 M > Mute BGM
+Numpad 1 through 6: emote
 
 Host commands:
 P > Change to next track"
@@ -234,10 +254,44 @@ bus = &"BGM"
 [node name="track" type="Node" parent="." unique_id=363530957]
 
 [node name="trackSpawner" type="MultiplayerSpawner" parent="." unique_id=1165880129]
-_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik", "uid://dlajtv1hay3lr")
+_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik", "uid://dlajtv1hay3lr", "uid://c6gwbuv0h4ev1", "uid://eqkemvqhw7mt")
 spawn_path = NodePath("../track")
 spawn_limit = 1
 script = ExtResource("10_niptm")
+
+[node name="trackSelector" type="Control" parent="trackSpawner" unique_id=146677600]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 146.0
+offset_right = 963.0
+offset_bottom = 475.0
+script = ExtResource("12_w1gk0")
+
+[node name="Panel" type="Panel" parent="trackSpawner/trackSelector" unique_id=714658226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="trackSpawner/trackSelector" unique_id=524173566]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="lbltrackselection" type="Label" parent="trackSpawner/trackSelector/VBoxContainer" unique_id=183137587]
+layout_mode = 2
+text = "Track selection"
+
+[node name="tracksContainer" type="GridContainer" parent="trackSpawner/trackSelector/VBoxContainer" unique_id=1480093344]
+layout_mode = 2
+columns = 10
 
 [node name="projectiles" type="Node" parent="." unique_id=1451660750]
 
@@ -269,6 +323,9 @@ scale = Vector2(0.32278445, 0.32278445)
 _spawnable_scenes = PackedStringArray("uid://bberchp665sgt")
 spawn_path = NodePath("..")
 script = ExtResource("15_6brgv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=586873296]
+environment = SubResource("Environment_33y3j")
 
 [connection signal="text_changed" from="splashArt/username" to="splashArt/username" method="_on_text_changed"]
 [connection signal="pressed" from="highLevelUI/VBoxContainer/btnServer" to="highLevelUI" method="_on_btn_server_pressed"]

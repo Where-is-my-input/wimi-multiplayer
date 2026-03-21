@@ -30,6 +30,7 @@ func spawnProjectile(data:Variant):
 			m = MORTAR.instantiate() as CharacterBody3D
 			m.global_transform = get_parent().body.gun.global_transform
 			m.rotation.z = 0
+			#m.rotation.x = 0
 			m.speed += get_parent().body.linear_velocity.length()
 		_:
 			m = MISSILE.instantiate()

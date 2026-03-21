@@ -31,20 +31,20 @@ func drawCard():
 	var c
 	
 	match int(body.linear_velocity.length()) % Global.Cards.size():
-	#match 6:
+	#match 4:
 		Global.Cards.MISSILE:
 			c = MISSILE_CARD.instantiate()
 		Global.Cards.BOOST:
 			c = BOOST_CARD.instantiate()
-		Global.Cards.PARRY:
+		Global.Cards.PARRY:#2
 			c = PARRY_CARD.instantiate()
-		Global.Cards.BLAST:
+		Global.Cards.BLAST:#3
 			c = BLAST_CARD.instantiate()
-		Global.Cards.MORTAR:
+		Global.Cards.MORTAR:#4
 			c = MORTAR_CARD.instantiate()
-		Global.Cards.NAILS:
+		Global.Cards.NAILS:#5
 			c = NAILS_CARD.instantiate()
-		Global.Cards.WALL:
+		Global.Cards.WALL:#6
 			c = WALL_CARD.instantiate()
 		_:
 			c = BOOST_CARD.instantiate()

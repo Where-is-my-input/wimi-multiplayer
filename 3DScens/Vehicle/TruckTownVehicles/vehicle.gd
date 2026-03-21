@@ -150,7 +150,7 @@ func respawn(respawnTo = null, forceRespawn:bool = false):
 	linear_velocity = Vector3(1, 1, 1)
 	angular_velocity = Vector3(1, 1, 1)
 	#rotation = Vector3(0, 0, 0)
-	setRespawnCooldown()
+	setRespawnCooldown(0.5)
 	#global_rotation = Vector3(0,0,0)
 
 func setRespawnCooldown(value:float = 5):
