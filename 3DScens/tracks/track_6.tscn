@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cc7mmeahimrg1" path="res://3DScens/tracks/spawn_points.tscn" id="3_3kfg3"]
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="4_r5ngr"]
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="5_60qh3"]
+[ext_resource type="Texture2D" uid="uid://becp7fljvh3b8" path="res://Assets/2D/Planets/planet07.png" id="6_r5ngr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3kfg3"]
 sky_top_color = Color(0, 0.48639625, 0.6763975, 1)
@@ -62,3 +63,8 @@ transform = Transform3D(-0.9, 0, 7.86805e-08, 0, 0.9, 0, -7.86805e-08, 0, -0.9, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4" unique_id=1324672733]
 environment = SubResource("Environment_3kfg3")
 camera_attributes = SubResource("CameraAttributesPractical_r5ngr")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="5" unique_id=1771088899]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 22.030144, -176.66626, 1827.6248)
+fixed_size = true
+texture = ExtResource("6_r5ngr")

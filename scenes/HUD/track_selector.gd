@@ -8,7 +8,7 @@ func _ready() -> void:
 	for t in track_spawner.get_spawnable_scene_count():
 		var b = Button.new()
 		b.text = str(t)
-		b.set_custom_minimum_size(Vector2(100, 100))
+		b.set_custom_minimum_size(Vector2(75, 75))
 		tracks_container.add_child(b)
 		b.pressed.connect(on_press.bind(b.text))
 

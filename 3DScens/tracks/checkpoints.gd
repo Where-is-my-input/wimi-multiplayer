@@ -31,7 +31,8 @@ func _ready() -> void:
 func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 	if body is VehicleBody3D && body.is_multiplayer_authority():
 		if source == currentCheckpoint:
-			body.spawnPos = body.global_transform
+			var newSpawnPos = Transform3D(body.basis, source.global_position)
+			body.spawnPos = newSpawnPos
 			source.audio.play()
 			if currentCheckpoint == firstCheckpoint:
 				if lap > 0: Global.notify.emit("Lap " + str(lap) + " complete!")

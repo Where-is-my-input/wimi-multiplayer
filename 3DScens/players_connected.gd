@@ -16,7 +16,7 @@ func _onConnected(id:int):
 func addPlayer(playerName:String = "Nameless", peerId:int = 0):
 	if !multiplayer.is_server(): return
 	for c in player_list.get_children():
-		if c.get_child(0).text == playerName: return
+		if c.get_child(0).get_child(0).text == playerName: return
 	var data = {playerName = playerName, peerId = peerId}
 	player_list_spawner.spawn(data)
 
@@ -30,8 +30,8 @@ func _on_disconnected(id:int):
 
 func setUsernameLabel(peerId:int, username:String):
 	for c in player_list.get_children():
-		if c.get_child(0).text == str(peerId):
-			c.get_child(0).text = username
+		if c.get_child(0).get_child(0).text == str(peerId):
+			c.get_child(0).get_child(0).text = username
 
 func checkpointHit(peerId:int):
 	for c in player_list.get_children():
@@ -54,3 +54,21 @@ func comparator(a, b):
 func resetCheckpointCount():
 	for c in player_list.get_children():
 		c.checkpointsHit = 0
+
+func _on_ms_checker_timeout() -> void:
+	#if !multiplayer.is_server(): return
+	var Enet_Multiplayer: = multiplayer.multiplayer_peer
+	#var multiplayerPeers = multiplayer.
+	for c in player_list.get_children():
+		var Enet_Peer : ENetPacketPeer = Enet_Multiplayer.get_peer(c.peerId)
+		if Enet_Peer == null: 
+			if c.peerId == 1: c.setMs("0")
+			continue
+		var Client_Ping : float = Enet_Peer.get_statistic(ENetPacketPeer.PEER_LAST_ROUND_TRIP_TIME)
+		c.setMs(str(Client_Ping))
+		#for p in peers:
+			#Global.notify.emit(str(p))
+			#var ping = p.get_statistic(ENetPacketPeer.PEER_LAST_ROUND_TRIP_TIME)
+			#c.setMs(str(ping))
+			#Global.notify.emit(str(ping))
+			#break

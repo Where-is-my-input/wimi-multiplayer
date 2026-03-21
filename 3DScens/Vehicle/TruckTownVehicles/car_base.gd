@@ -12,6 +12,7 @@ extends Node3D
 
 func _ready() -> void:
 	body.global_transform = get_parent().get_parent().getSpawnPos()
+	body.spawnPos = body.global_transform
 	Global.connect("startRace", startRace)
 	selectModel(modelSelected)
 	set_multiplayer_authority(name.to_int())

@@ -2,13 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b78nkfssw14ib" path="res://player_row.gd" id="1_vvey1"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_vvey1"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vvey1"]
 properties/0/path = NodePath(".:text")
 properties/0/spawn = true
 properties/0/replication_mode = 2
-properties/1/path = NodePath("..:checkpointsHit")
+properties/1/path = NodePath("../ms:text")
 properties/1/spawn = true
 properties/1/replication_mode = 2
+properties/2/path = NodePath("../..:checkpointsHit")
+properties/2/spawn = true
+properties/2/replication_mode = 2
 
 [node name="playerRow" type="HBoxContainer" unique_id=1437123237]
 offset_right = 40.0
@@ -16,8 +23,16 @@ offset_bottom = 40.0
 alignment = 1
 script = ExtResource("1_vvey1")
 
-[node name="lblPlayer" type="Label" parent="." unique_id=211689155]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1597211165]
 layout_mode = 2
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="lblPlayer" unique_id=607431726]
+[node name="lblPlayer" type="Label" parent="HBoxContainer" unique_id=211689155]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_vvey1")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="HBoxContainer/lblPlayer" unique_id=607431726]
 replication_config = SubResource("SceneReplicationConfig_vvey1")
+
+[node name="ms" type="Label" parent="HBoxContainer" unique_id=107891198]
+layout_mode = 2
+text = "100ms"
