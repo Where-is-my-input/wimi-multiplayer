@@ -40,3 +40,5 @@ light_energy = 0.1
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=372040551]
 stream = ExtResource("2_yy7p1")
+volume_db = -20.0
+max_db = -10.0

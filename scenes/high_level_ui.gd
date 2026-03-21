@@ -35,12 +35,8 @@ func _on_btn_server_pressed() -> void:
 		Global.notify.emit("Server started, spawning player...")
 		var player = player_scene.instantiate()
 		player.name = "1"  # Server has peer ID 1
-		players_connected.addPlayer(Global.username)
-		if player.global_position is Vector3:
-			#player.global_position = Vector3(0, 1.46, 0)
-			#player.global_position = get_parent().getSpawnPos()
-			pass
-		else:
+		players_connected.addPlayer(Global.username, 1)
+		if player.global_position is Vector2:
 			player.global_position = Vector2(455, 79)
 		players.add_child(player)
 		Global.notify.emit("Server player spawned with name: " + player.name)

@@ -8,10 +8,8 @@ const BOOST_CARD = preload("uid://c72bf0q7d52h8")
 const PARRY_CARD = preload("uid://cw8e6agsvrtc1")
 const BLAST_CARD = preload("uid://c7rvw6g6lxg54")
 const MORTAR_CARD = preload("uid://b5kxgpasayi37")
-
-#func _ready() -> void:
-	#if !is_multiplayer_authority():
-		#queue_free()
+const NAILS_CARD = preload("uid://0iyf34mevmw1")
+const WALL_CARD = preload("uid://d17pe7jvbjnqc")
 
 var drawnCards:int = 0
 
@@ -28,13 +26,12 @@ func setDrawProgress(value:float = 100):
 	draw_progress.value = value
 
 func drawCard():
-	#if hand.get_child_count() > 3: return
 	if drawnCards > 3: return
 	
 	var c
 	
 	match int(body.linear_velocity.length()) % Global.Cards.size():
-	#match 4:
+	#match 6:
 		Global.Cards.MISSILE:
 			c = MISSILE_CARD.instantiate()
 		Global.Cards.BOOST:
@@ -45,6 +42,10 @@ func drawCard():
 			c = BLAST_CARD.instantiate()
 		Global.Cards.MORTAR:
 			c = MORTAR_CARD.instantiate()
+		Global.Cards.NAILS:
+			c = NAILS_CARD.instantiate()
+		Global.Cards.WALL:
+			c = WALL_CARD.instantiate()
 		_:
 			c = BOOST_CARD.instantiate()
 	
@@ -54,10 +55,9 @@ func drawCard():
 			drawnCards += 1
 			return
 
-#@rpc("call_local")
 func useCard(card:int = 0) -> bool:
 	var cardUsed = hand.get_child(card).get_child(0)
-	if cardUsed != null:
+	if cardUsed != null && !cardUsed.used:
 		cardUsed.activate(body)
 		drawnCards -= 1
 		return true

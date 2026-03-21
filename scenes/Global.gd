@@ -6,6 +6,7 @@ signal spawnProjectile
 signal spawnMissile
 signal setUsername
 signal setWinner
+signal checkpointHit
 
 enum Spells{
 	MISSILE,
@@ -13,7 +14,9 @@ enum Spells{
 	PARRY,
 	BLAST,
 	BIG_BLAST,
-	MORTAR
+	MORTAR,
+	NAILS,
+	WALL
 }
 
 enum Cards{
@@ -21,17 +24,27 @@ enum Cards{
 	BOOST,
 	PARRY,
 	BLAST,
-	MORTAR
+	MORTAR,
+	NAILS,
+	WALL
 }
 
 enum CameraType {
 	DEFAULT,
 	EXTERIOR,
+	EXTERIOR_FARTHER,
 	INTERIOR,
 	TOP_DOWN,
 	MAX,  # Represents the size of the CameraType enum.
 }
 
+enum RearCameraType{
+	SMALL,
+	BIG,
+	HIDDEN
+}
+
+var currentRearCamera:RearCameraType = RearCameraType.SMALL
 var currentCamera:CameraType = CameraType.EXTERIOR
 var username:String = "Random Username"
 
@@ -44,3 +57,7 @@ func _input(event: InputEvent) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func spawnWinnerCam(peerId:int):
 	setWinner.emit(peerId)
+
+@rpc("any_peer", "call_local", "reliable")
+func updateCheckpoints(peerId:int):
+	checkpointHit.emit(peerId)

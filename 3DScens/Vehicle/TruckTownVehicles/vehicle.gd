@@ -16,6 +16,7 @@ const BRAKE_STRENGTH = 5.0
 @onready var wheelFrontRight: VehicleWheel3D = $Wheel3
 @onready var wheelBackRight: VehicleWheel3D = $Wheel4
 @onready var speedLabel: Label = $"../playerHUD/speed"
+@onready var drop: CPUParticles3D = $drop
 
 @export var engine_force_value := 40.0
 @export var brakeForce: float = 2

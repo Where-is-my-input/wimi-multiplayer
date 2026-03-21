@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d17pe7jvbjnqc"]
+
+[ext_resource type="PackedScene" uid="uid://d00qkr2gh5xsc" path="res://scenes/HUD/card.tscn" id="1_gjuei"]
+[ext_resource type="Script" uid="uid://drxvnnph87hwr" path="res://scenes/HUD/missileEffect.gd" id="2_oe5c2"]
+
+[node name="wallCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_gjuei")]
+effect = NodePath("EffectClass")
+spellType = 7
+
+[node name="EffectClass" type="Node" parent="." index="2" unique_id=1084624532]
+script = ExtResource("2_oe5c2")
+projectileType = 7
+metadata/_custom_type_script = "uid://b5k6142gqxkjp"
+
+[node name="ColorRect3" type="ColorRect" parent="." index="3" unique_id=616191102]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 52.0
+offset_bottom = 88.0
+scale = Vector2(1.902439, 3.6831799)
+
+[node name="ColorRect4" type="ColorRect" parent="." index="4" unique_id=768076660]
+layout_mode = 0
+offset_left = 111.99999
+offset_top = 48.0
+offset_right = 152.0
+offset_bottom = 88.0
+scale = Vector2(1.902439, 3.6831799)

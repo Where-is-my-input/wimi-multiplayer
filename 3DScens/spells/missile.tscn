@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cvmvijfd3rl5c" path="res://3DScens/spells/missile.gd" id="2_j0sko"]
 [ext_resource type="Texture2D" uid="uid://d4ostmqwgytk" path="res://3DScens/Vehicle/TruckTownVehicles/particle_smoke.png" id="2_u0aht"]
 [ext_resource type="Script" uid="uid://cmlq5b5rre84h" path="res://3DScens/spells/miscelaneousAnimation.gd" id="4_u0aht"]
-[ext_resource type="AudioStream" uid="uid://d3u07g6yh3efs" path="res://Assets/SFX/missile.wav" id="5_j0sko"]
+[ext_resource type="AudioStream" uid="uid://c2wbxhu7aysvx" path="res://Assets/SFX/missile.ogg" id="5_j0sko"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuuj3"]
 transparency = 1
@@ -209,3 +209,5 @@ autoplay = &"rotate"
 stream = ExtResource("5_j0sko")
 autoplay = true
 bus = &"SFX"
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

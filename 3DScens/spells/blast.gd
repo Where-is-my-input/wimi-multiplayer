@@ -5,6 +5,8 @@ class_name BlastClass
 @export var scaleIncreaseTo:float = 18.0
 @export var angularStrength:float = 25.0
 
+var imuneWall = null
+
 func _ready():
 	connect("body_entered", blastEffect)
 	var t = create_tween()
@@ -13,7 +15,14 @@ func _ready():
 	queue_free()
 
 func blastEffect(body:Node3D):
-	if body is not VehicleBody3D: return
+	if body is not VehicleBody3D: 
+		if body.get_parent() is WallClass:
+			if imuneWall == null: 
+				imuneWall = body.get_parent().get_parent()
+			elif imuneWall == body.get_parent().get_parent():
+				return
+			body.get_parent().queue_free()
+		return
 	var vector_to_target = (body.global_position - global_position)
 	var vectorLength = angularStrength if vector_to_target.length() == 0 else vector_to_target.length()
 	body.linear_velocity -= (blastStrength / vectorLength) * vector_to_target.normalized() * -1 * Vector3(1, -1.0001, 1)

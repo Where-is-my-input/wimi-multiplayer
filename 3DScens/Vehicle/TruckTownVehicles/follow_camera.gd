@@ -40,10 +40,8 @@ func _input(event):
 func _physics_process(_delta):
 	if camera_type == Global.CameraType.DEFAULT:
 		position = back_camera_position.global_transform.origin
-		#position.x = back_camera_position.global_transform.origin.x
-		#position.z = back_camera_position.global_transform.origin.z
 		look_at(get_parent().global_transform.origin)
-	if camera_type == Global.CameraType.EXTERIOR:
+	if camera_type == Global.CameraType.EXTERIOR || camera_type == Global.CameraType.EXTERIOR_FARTHER:
 		var target: Vector3 = get_parent().global_transform.origin
 		var pos := global_transform.origin
 
@@ -80,6 +78,16 @@ func update_camera():
 	match camera_type:
 		Global.CameraType.EXTERIOR:
 			transform = initial_transform
+			global_transform = back_camera_position.global_transform
+			min_distance = 2.0
+			max_distance = 4.0
+			height = 1.5
+		Global.CameraType.EXTERIOR_FARTHER:
+			transform = initial_transform
+			global_transform = back_camera_position.global_transform
+			min_distance = 6.0
+			max_distance = 12.0
+			height = 4.5
 		Global.CameraType.INTERIOR:
 			global_transform = get_node(^"../../InteriorCameraPosition").global_transform
 		Global.CameraType.TOP_DOWN:
@@ -90,3 +98,8 @@ func update_camera():
 	# This detaches the camera transform from the parent spatial node, but only
 	# for exterior and top-down cameras.
 	set_as_top_level(camera_type != Global.CameraType.INTERIOR)
+
+
+#func _on_back_camera_position_ready() -> void:
+	#if back_camera_position == null: return
+	#global_transform = back_camera_position.global_transform

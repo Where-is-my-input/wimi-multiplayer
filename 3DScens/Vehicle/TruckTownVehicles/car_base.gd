@@ -13,7 +13,6 @@ extends Node3D
 func _ready() -> void:
 	body.global_transform = get_parent().get_parent().getSpawnPos()
 	Global.connect("startRace", startRace)
-	#lbl_player_name.text = name
 	selectModel(modelSelected)
 	set_multiplayer_authority(name.to_int())
 	body.set_physics_process(false)
@@ -23,7 +22,6 @@ func _ready() -> void:
 		lbl_player_name.visible = false
 		lbl_player_name.text = Global.username
 	else:
-		#player_hud.visible = false
 		player_hud.queue_free()
 
 func selectModel(modelId:int = 0):

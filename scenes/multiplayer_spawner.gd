@@ -9,31 +9,14 @@ func _ready() -> void:
 	multiplayer.peer_connected.connect(spawnPlayer)
 	spawn_function = Callable(self, "spawnPlayerCar")
 
-#func peerConnected(id):
-	#players_connected.addPlayer(str(id))
-
 func spawnPlayer(id: int):
 	if !multiplayer.is_server(): return
 	
 	var player: Node = networkPlayer.instantiate()
 	spawn({id = id, modelSelected = randi() % player.models.size()})
 	player.queue_free()
-	return
 	
-	player.name = str(id)
-	#player.modelSelected = randi() % player.models.size()
-	
-	if player.global_position is Vector3:
-		#player.global_position = Vector3(0, 1.46, 0)
-		#player.global_position = spawn_point.getNextSpawn()
-		#player.global_position = get_parent().getSpawnPos()
-		pass
-	else:
-		player.global_position = Vector2(455, 79)
-	
-	get_node(spawn_path).call_deferred("add_child", player)
-	
-	Global.notify.emit("Player spawned with name: " + player.name)
+	Global.notify.emit("Peer id " + str(id) + " spawned")
 
 func spawnAllPeers():
 	if !multiplayer.is_server(): return

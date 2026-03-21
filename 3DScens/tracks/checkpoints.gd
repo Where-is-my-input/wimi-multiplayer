@@ -40,6 +40,7 @@ func _on_checkpoint_body_entered(body: Node3D, source: Area3D) -> void:
 			currentCheckpoint.visible = false
 			currentCheckpoint = source.nextCheckpoint
 			currentCheckpoint.visible = true
+			Global.updateCheckpoints.rpc(body.get_multiplayer_authority())
 
 func finish(body:VehicleBody3D):
 	Global.notify.emit("We have a winner! " + body.name)

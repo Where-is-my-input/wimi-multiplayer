@@ -1,20 +1,8 @@
 extends EffectClass
-const MISSILE = preload("uid://dao4ok5uv6imf")
+class_name SpawnProjectileEffectClass
+
+@export var projectileType:Global.Spells = Global.Spells.MISSILE
 
 func activate(body:VehicleBody3D):
-	#var m = MISSILE.instantiate() as ProjectileClass
-	#m.global_transform = body.gun.global_transform
-	#m.speed += body.linear_velocity.length()
-	#shootMissile(m)
-	#Global.spawnProjectile.emit(body)
-	#Global.spawnMissile.emit(body)
-	body.get_parent().spawnProjectile(Global.Spells.MISSILE)
+	body.get_parent().spawnProjectile(projectileType, body.drop.global_transform)
 	super(body)
-
-#@rpc("call_local")p
-#func shootMissile(m:ProjectileClass):
-	##m.direction = Vector3(global_rotation.x, 0, global_rotation.z).normalized()
-	##m.global_position = global_position
-	##m.global_rotation = global_rotation
-	##get_tree().root.add_child(m)
-	#Global.spawnProjectile.emit(m)

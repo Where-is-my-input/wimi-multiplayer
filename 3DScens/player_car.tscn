@@ -202,7 +202,7 @@ max_db = 0.2
 max_polyphony = 3
 attenuation_filter_cutoff_hz = 20500.0
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Body" unique_id=1212703076]
+[node name="drop" type="CPUParticles3D" parent="Body" unique_id=1212703076]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201696, -0.022867, -1.10448)
 amount = 125
 lifetime = 1.25
@@ -560,10 +560,10 @@ near = 0.677
 
 [node name="speed" type="Label" parent="playerHUD" unique_id=1914226692]
 layout_mode = 0
-offset_left = 27.0
-offset_top = 577.0
-offset_right = 74.0
-offset_bottom = 600.0
+offset_left = 552.0
+offset_top = 587.0
+offset_right = 599.0
+offset_bottom = 610.0
 text = "speed"
 
 [node name="bodyProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1445990575]

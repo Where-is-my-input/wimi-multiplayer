@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://0iyf34mevmw1"]
+
+[ext_resource type="PackedScene" uid="uid://d00qkr2gh5xsc" path="res://scenes/HUD/card.tscn" id="1_nuwcl"]
+[ext_resource type="Script" uid="uid://bpogx62aamibe" path="res://scenes/HUD/nailsEffect.gd" id="2_eq3kf"]
+
+[node name="nailsCard" unique_id=1052156645 node_paths=PackedStringArray("effect") instance=ExtResource("1_nuwcl")]
+effect = NodePath("EffectClass")
+
+[node name="EffectClass" type="Node" parent="." index="2" unique_id=1471945502]
+script = ExtResource("2_eq3kf")
+projectileType = 6
+metadata/_custom_type_script = "uid://b5k6142gqxkjp"
+
+[node name="ColorRect3" type="ColorRect" parent="." index="3" unique_id=1580963863]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 85.0
+offset_right = 125.0
+offset_bottom = 125.0
+scale = Vector2(0.766782, 2.2776635)
+
+[node name="ColorRect4" type="ColorRect" parent="." index="4" unique_id=1886122936]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 156.0
+offset_right = 74.0
+offset_bottom = 196.0
+scale = Vector2(3.4216235, 0.7609393)

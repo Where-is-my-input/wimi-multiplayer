@@ -2,13 +2,12 @@ extends Node3D
 @onready var track: Node = $track
 const MISSILE = preload("uid://dao4ok5uv6imf")
 @onready var winner_cam_spawner: MultiplayerSpawner = $winner/winnerCamSpawner
-
 #@export var raceTrack:Node3D
 @onready var race_start_cooldown: Timer = $raceStartCooldown
 @onready var bgm: AudioStreamPlayer2D = $BGM
 @onready var track_spawner: MultiplayerSpawner = $trackSpawner
 @onready var projectiles: Node = $projectiles
-
+@onready var players_connected: Control = $playersConnected
 #@onready var spawn_point: Node3D = $spawnPoint
 @onready var players: Node = $players
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
@@ -27,6 +26,7 @@ func prepareRace():
 	#if !multiplayer.is_server(): return
 	Global.notify.emit("Race will start soon...")
 	winner_cam_spawner.newRace()
+	players_connected.resetCheckpointCount()
 	track_spawner.loadTrack()
 	await get_tree().create_timer(1.5).timeout
 	for c in players.get_children():
