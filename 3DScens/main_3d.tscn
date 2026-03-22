@@ -257,7 +257,7 @@ bus = &"BGM"
 [node name="track" type="Node" parent="." unique_id=363530957]
 
 [node name="trackSpawner" type="MultiplayerSpawner" parent="." unique_id=1165880129]
-_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik", "uid://dlajtv1hay3lr", "uid://c6gwbuv0h4ev1", "uid://eqkemvqhw7mt")
+_spawnable_scenes = PackedStringArray("uid://24ndew7bpnfj", "uid://1xion50akge", "uid://dpmno0g0xlaxa", "uid://libmtiegi3ik", "uid://dlajtv1hay3lr", "uid://c6gwbuv0h4ev1", "uid://eqkemvqhw7mt", "uid://dtm1gaynthp5p")
 spawn_path = NodePath("../track")
 spawn_limit = 1
 script = ExtResource("10_niptm")

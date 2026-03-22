@@ -6,6 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="4_lllup"]
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="5_uq3ew"]
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_uq3ew"]
+[ext_resource type="PackedScene" uid="uid://lmdk5wsigmps" path="res://3DScens/gridMaps/city_grid_map.tscn" id="7_klx2l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uq3ew"]
+sky_top_color = Color(0, 0.4548505, 0.80063194, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.058843866
+sky_energy_multiplier = 1.24
+ground_bottom_color = Color(0.087254845, 0.20864177, 0.031036971, 1)
+ground_horizon_color = Color(0, 0.77429724, 0.5143612, 1)
+ground_curve = 0.016817886
+sun_angle_max = 46.24
+sun_curve = 0.07244528
+energy_multiplier = 2.75
+
+[sub_resource type="Sky" id="Sky_klx2l"]
+sky_material = SubResource("ProceduralSkyMaterial_uq3ew")
+
+[sub_resource type="Environment" id="Environment_xsv1h"]
+background_mode = 2
+sky = SubResource("Sky_klx2l")
 
 [node name="track7" unique_id=1926592461 node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_ljpjm")]
 spawn_points = NodePath("spawnPoints")
@@ -72,3 +92,12 @@ transform = Transform3D(-3.152013e-07, 0, -0.9331938, 0, 0.9331938, 0, 0.9331938
 
 [node name="booster" parent="." index="6" unique_id=952101983 instance=ExtResource("6_uq3ew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.17431, 8.880269, 22.427538)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="7" unique_id=1116431078]
+environment = SubResource("Environment_xsv1h")
+
+[node name="cityGridMap" parent="." index="8" unique_id=709694751 instance=ExtResource("7_klx2l")]
+data = {
+"cells": PackedInt32Array(327637, 1, 655365, 327629, 1, 655370, 327644, 23, 655371, 327629, 23, 1048588, 327611, 20, 1048589, 262157, 65514, 1048599, 262170, 65515, 1048598, 262191, 65533, 1048597, 262180, 65515, 1048601, 262191, 65521, 1048602, 262184, 29, 1048617, 262191, 29, 1048616, 262168, 40, 1048599, 262168, 55, 1048596, 262193, 9, 1048599, 262203, 65532, 1048598, 327679, 65514, 1048611, 262156, 41, 1048603, 262151, 51, 655389, 327676, 53, 655387, 327664, 53, 655385, 327653, 53, 655383, 327639, 53, 655382, 327599, 23, 655383, 327622, 52, 655379, 327601, 53, 655382, 327575, 16, 655382)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)

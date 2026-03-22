@@ -120,9 +120,11 @@ models = Array[PackedScene]([ExtResource("2_ts40p"), ExtResource("3_un6yk"), Ext
 [node name="Body" type="VehicleBody3D" parent="." unique_id=810613696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4735619, 1.412787)
 collision_layer = 257
+mass = 80.0
 physics_material_override = SubResource("PhysicsMaterial_l7i2k")
 center_of_mass_mode = 1
 script = ExtResource("2_sgv7n")
+engine_force_value = 80.0
 
 [node name="Wheel1" type="VehicleWheel3D" parent="Body" unique_id=517667432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573678, 0.115169, 1.10416)
@@ -131,8 +133,10 @@ use_as_steering = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_stiffness = 75.0
+suspension_travel = 0.01
+suspension_stiffness = 150.0
 damping_compression = 0.88
+damping_relaxation = 0.1
 
 [node name="Wheel2" type="VehicleWheel3D" parent="Body" unique_id=1852676584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573678, 0.115169, -0.783403)
@@ -140,8 +144,10 @@ use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_stiffness = 75.0
+suspension_travel = 0.1
+suspension_stiffness = 150.0
 damping_compression = 0.88
+damping_relaxation = 0.1
 
 [node name="Wheel3" type="VehicleWheel3D" parent="Body" unique_id=442659941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573678, 0.115169, 1.10416)
@@ -150,30 +156,34 @@ use_as_steering = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
 wheel_friction_slip = 1.0
-suspension_stiffness = 75.0
+suspension_travel = 0.1
+suspension_stiffness = 150.0
 damping_compression = 0.88
+damping_relaxation = 0.1
 
 [node name="Wheel4" type="VehicleWheel3D" parent="Body" unique_id=1352631916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573678, 0.115169, -0.783403)
 use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.25
-suspension_stiffness = 75.0
+suspension_travel = 0.1
+suspension_stiffness = 150.0
 damping_compression = 0.88
+damping_relaxation = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1801338453]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8048265, 0.0774262)
+transform = Transform3D(0.92079437, 0, 0, 0, 0.92079437, 0, 0, 0, 0.92079437, 0, 0.9627768, 0.077426195)
 shape = SubResource("BoxShape3D_x74tc")
 
 [node name="rightSideCS" type="CollisionShape3D" parent="Body" unique_id=539307910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7258927, 0.3742993, 0.13201904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7258927, 0.52897465, 0.13201904)
 shape = SubResource("BoxShape3D_atssk")
-debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
+debug_color = Color(4.235506e-06, 0.5794952, 0.6776619, 1)
 
 [node name="leftSideCS2" type="CollisionShape3D" parent="Body" unique_id=1776044526]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726, 0.3745575, 0.132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726, 0.5292326, 0.13199997)
 shape = SubResource("BoxShape3D_atssk")
-debug_color = Color(7.2196127e-07, 0.27336222, 0.32447684, 0.41960785)
+debug_color = Color(4.235506e-06, 0.5794952, 0.6776619, 1)
 
 [node name="CameraBase" type="Node3D" parent="Body" unique_id=1051954387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97449, 0)

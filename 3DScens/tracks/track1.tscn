@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="6_owbra"]
 [ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="8_irtq8"]
 [ext_resource type="AudioStream" uid="uid://43r6gidipdku" path="res://Assets/Music/awake10_megaWall.mp3" id="9_28kto"]
+[ext_resource type="PackedScene" uid="uid://lmdk5wsigmps" path="res://3DScens/gridMaps/city_grid_map.tscn" id="10_28kto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anahg"]
 size = Vector3(1000, 1, 1000)
@@ -142,5 +143,11 @@ bus = &"BGM"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=561167411]
 environment = SubResource("Environment_28kto")
+
+[node name="buildings" parent="." unique_id=709694751 instance=ExtResource("10_28kto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0506783, 0)
+data = {
+"cells": PackedInt32Array(65524, 29, 1441797, 65525, 43, 1441796, 5, 65480, 655367, 5, 65496, 655368, 11, 65507, 655370, 11, 36, 655384, 49, 65440, 655381, 64, 65456, 655383, 65522, 65447, 655374, 65522, 65435, 655374, 65513, 65442, 655374, 65522, 65461, 655375, 65510, 65451, 655376, 65522, 65475, 1441809, 65512, 124, 1441838, 65514, 143, 1441838, 65523, 126, 1441838, 65525, 140, 1441838, 65532, 140, 1441838, 2, 131, 1441838, 65525, 135, 1441841, 3, 125, 1441841, 65525, 116, 1441841, 4, 148, 1441841, 4, 149, 1441841, 65509, 166, 1441841, 17, 118, 1441842, 4, 115, 1441842, 9, 143, 1441842, 65496, 148, 1441842, 65530, 118, 1441845, 65500, 119, 1441845, 65516, 170, 1441845, 7, 161, 1441845, 65525, 160, 1441845, 65514, 188, 1441845, 65529, 173, 1441845, 18, 149, 1441845, 65524, 58, 1441815, 12, 69, 655382, 25, 68, 655383, 65535, 68, 655384, 71, 65506, 655401, 78, 65495, 655384, 34, 48, 655388, 39, 34, 1048605, 51, 34, 1048606, 50, 22, 1048607, 64, 22, 1048608, 50, 10, 1048609, 63, 10, 1048610, 60, 65534, 1048611, 63, 65522, 1048620, 76, 65534, 1048607, 65, 36, 1048603, 48, 50, 1048615, 65521, 65504, 1048616, 65517, 65519, 1048600, 65521, 65535, 1048599, 65522, 12, 1048596, 50, 65423, 18, 50, 65413, 18, 49, 65403, 18, 28, 65403, 18, 6, 65402, 18, 65522, 65402, 18, 27, 65394, 18, 65521, 65411, 18)
+}
 
 [connection signal="body_entered" from="respawner" to="respawner" method="_on_body_entered"]

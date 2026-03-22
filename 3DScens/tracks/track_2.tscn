@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_qxcwo"]
 [ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="7_0nhm8"]
 [ext_resource type="AudioStream" uid="uid://b0i3smfqq7bqe" path="res://Assets/Music/cool_highway_remake_bpm140.mp3" id="8_tdmoy"]
+[ext_resource type="PackedScene" uid="uid://lmdk5wsigmps" path="res://3DScens/gridMaps/city_grid_map.tscn" id="9_tdmoy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vg5ml"]
 
@@ -123,14 +124,8 @@ transform = Transform3D(-0.008115709, 0, -0.9999671, 0, 1, 0, 0.9999671, 0, -0.0
 [node name="booster4" parent="boosters" index="1" unique_id=883186259 instance=ExtResource("6_qxcwo")]
 transform = Transform3D(-0.008115709, 0, -0.9999671, 0, 1, 0, 0.9999671, 0, -0.008115709, 7.7988367, 8.510433, 63.316402)
 
-[node name="booster2" parent="boosters" index="2" unique_id=1610215986 instance=ExtResource("6_qxcwo")]
-transform = Transform3D(-0.008115708, 0, -0.99996704, 0.9999671, -4.371139e-08, -0.008115709, -4.3709946e-08, -0.99999994, 3.5474887e-10, 30.40495, 50.74664, 43.91958)
-
-[node name="booster5" parent="boosters" index="3" unique_id=1473411058 instance=ExtResource("6_qxcwo")]
+[node name="booster5" parent="boosters" index="2" unique_id=1473411058 instance=ExtResource("6_qxcwo")]
 transform = Transform3D(-0.00811571, 4.656613e-10, -0.99996716, 0.7070836, 0.7071069, -0.0057386737, 0.7070836, -0.7071068, -0.005738673, 34.945145, 19.899761, 29.206726)
-
-[node name="booster3" parent="boosters" index="4" unique_id=282840147 instance=ExtResource("6_qxcwo")]
-transform = Transform3D(-0.008115709, 5.5511148e-17, -0.99996716, 0.865997, -0.50000006, -0.0070284116, -0.49998358, -0.8660253, 0.004057855, 27.19955, 80.62497, 33.31862)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6" unique_id=527256517]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 76.51782, 15.322273, 280.1798)
@@ -149,3 +144,9 @@ bus = &"BGM"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="9" unique_id=1698372003]
 environment = SubResource("Environment_amddf")
+
+[node name="buildings" parent="." index="10" unique_id=709694751 instance=ExtResource("9_tdmoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.125431, 0)
+data = {
+"cells": PackedInt32Array(15, 154, 7, 65, 149, 7, 31, 12, 21, 32, 65529, 22, 32, 65515, 1441814, 13, 29, 1441811, 30, 28, 1441811, 20, 42, 23, 39, 65478, 9, 38, 65467, 7, 21, 65465, 1441800, 21, 65454, 1441797, 36, 65455, 1441796, 0, 65456, 655378, 0, 65448, 655378, 49, 79, 655384, 62, 79, 655384, 60, 96, 655368, 69, 95, 655368, 78, 95, 655368, 74, 110, 655384, 76, 127, 655376, 93, 112, 655377, 79, 144, 655377, 65519, 75, 1048593, 65522, 96, 1048578, 65500, 74, 1048578, 65520, 113, 1048577, 65522, 133, 1048576, 65520, 152, 1048576, 65535, 65436, 1048632, 8, 65438, 1048632, 23, 65436, 1048632, 5, 65432, 1048633, 14, 65433, 1048633, 17, 65439, 1048633, 36, 61, 1048592, 49, 61, 1048592, 22, 155, 1048579, 33, 155, 1048579, 44, 155, 1048579)
+}

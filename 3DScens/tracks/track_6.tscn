@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="5_60qh3"]
 [ext_resource type="Texture2D" uid="uid://becp7fljvh3b8" path="res://Assets/2D/Planets/planet07.png" id="6_r5ngr"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r5ngr"]
+friction = 0.8
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3kfg3"]
 sky_top_color = Color(0, 0.48639625, 0.6763975, 1)
 sky_horizon_color = Color(1, 1, 1, 1)
@@ -35,6 +38,7 @@ dof_blur_near_distance = 1.57
 spawn_points = NodePath("spawnPoints")
 
 [node name="GridMap" parent="." index="1" unique_id=1964182731 instance=ExtResource("2_5bsl6")]
+physics_material = SubResource("PhysicsMaterial_r5ngr")
 data = {
 "cells": PackedInt32Array(65535, 65535, 6, 65535, 0, 6, 65535, 1, 6, 65535, 2, 6, 65535, 3, 6, 65535, 4, 6, 65535, 5, 6, 65535, 6, 6, 65535, 7, 6, 65535, 8, 6, 65535, 9, 6, 65535, 10, 6, 65535, 11, 6, 65535, 12, 6, 65535, 13, 6, 65535, 14, 6, 65535, 15, 6, 65535, 16, 1048578, 0, 16, 655362, 0, 15, 655366, 0, 14, 655366, 0, 13, 655366, 0, 12, 655366, 0, 11, 655366, 0, 10, 655366, 0, 9, 655366, 0, 8, 655366, 0, 7, 655366, 0, 6, 655366, 0, 5, 655366, 0, 4, 655366, 0, 3, 655366, 0, 2, 655366, 0, 1, 655366, 0, 0, 655366, 0, 65535, 655366, 0, 65534, 655366, 0, 65533, 655366, 0, 65532, 655366, 0, 65531, 655366, 0, 65530, 655366, 0, 65529, 655366, 0, 65528, 655366, 0, 65527, 655366, 0, 65526, 655366, 0, 65525, 655366, 0, 65524, 655366, 0, 65523, 655366, 0, 65522, 655366, 0, 65521, 655366, 0, 65520, 1441794, 65535, 65520, 2, 65535, 65521, 6, 65535, 65522, 6, 65535, 65523, 6, 65535, 65524, 6, 65535, 65534, 6, 65535, 65533, 6, 65535, 65532, 6, 65535, 65531, 6, 65535, 65530, 6, 65535, 65529, 6, 65535, 65528, 6, 65535, 65525, 655367, 65535, 65527, 7)
 }

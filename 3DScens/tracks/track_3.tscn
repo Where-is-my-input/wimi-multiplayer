@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_cmgro"]
 [ext_resource type="AudioStream" uid="uid://qncuygtuom4v" path="res://Assets/SFX/crowd_shouting.ogg" id="7_vxiqd"]
 [ext_resource type="AudioStream" uid="uid://cjf6yrpau6k8c" path="res://Assets/Music/darkness_road_remake_bpm165.ogg" id="8_vxiqd"]
+[ext_resource type="PackedScene" uid="uid://lmdk5wsigmps" path="res://3DScens/gridMaps/city_grid_map.tscn" id="9_8t2md"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ce1e4"]
 
@@ -119,3 +120,9 @@ bus = &"BGM"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="16" unique_id=1739348351]
 environment = SubResource("Environment_7lft6")
+
+[node name="buildings" parent="." index="17" unique_id=709694751 instance=ExtResource("9_8t2md")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6653137, 6.579628)
+data = {
+"cells": PackedInt32Array(38, 48, 1048601, 29, 47, 1048601, 19, 46, 1048601, 32, 64, 1048603, 31, 81, 1048603, 27, 103, 1048602, 10, 121, 1048602, 25, 124, 1048602, 11, 142, 1048602, 33, 143, 1048602, 164, 35, 1048604, 165, 17, 1048604, 162, 65533, 1048606, 162, 65514, 1048606, 181, 4, 1048607, 180, 21, 1048607, 164, 50, 1048608, 161, 67, 1048620, 161, 81, 1048620, 158, 65495, 1048619, 111, 65472, 1048619, 86, 65467, 1048619, 59, 147, 1048613, 82, 152, 1048613, 69, 160, 1048613, 65521, 7, 1048614, 127, 65459, 1048614, 159, 65472, 1048614, 68, 65462, 1048614, 23, 65468, 1048620, 47, 65447, 1048620, 65517, 35, 1048620, 65534, 58, 1048620, 5, 79, 1048620, 65530, 103, 1048620, 183, 65524, 1048621, 38, 164, 1048621, 32, 182, 1048621, 54, 180, 1048621, 129, 165, 1048599, 147, 162, 1048598, 175, 140, 1048598, 160, 161, 1048598, 119, 182, 1048597, 133, 180, 1048597, 155, 180, 1048597, 177, 158, 1048597)
+}
