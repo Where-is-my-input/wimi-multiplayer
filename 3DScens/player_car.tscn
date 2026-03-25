@@ -135,8 +135,6 @@ wheel_radius = 0.25
 wheel_friction_slip = 1.0
 suspension_travel = 0.01
 suspension_stiffness = 150.0
-damping_compression = 0.88
-damping_relaxation = 0.1
 
 [node name="Wheel2" type="VehicleWheel3D" parent="Body" unique_id=1852676584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573678, 0.115169, -0.783403)
@@ -146,8 +144,6 @@ wheel_radius = 0.25
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
 suspension_stiffness = 150.0
-damping_compression = 0.88
-damping_relaxation = 0.1
 
 [node name="Wheel3" type="VehicleWheel3D" parent="Body" unique_id=442659941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573678, 0.115169, 1.10416)
@@ -158,8 +154,6 @@ wheel_radius = 0.25
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
 suspension_stiffness = 150.0
-damping_compression = 0.88
-damping_relaxation = 0.1
 
 [node name="Wheel4" type="VehicleWheel3D" parent="Body" unique_id=1352631916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573678, 0.115169, -0.783403)
@@ -168,8 +162,6 @@ wheel_roll_influence = 0.4
 wheel_radius = 0.25
 suspension_travel = 0.1
 suspension_stiffness = 150.0
-damping_compression = 0.88
-damping_relaxation = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1801338453]
 transform = Transform3D(0.92079437, 0, 0, 0, 0.92079437, 0, 0, 0, 0.92079437, 0, 0.9627768, 0.077426195)

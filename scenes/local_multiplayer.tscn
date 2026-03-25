@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://brk1l7vo7ccl7"]
+
+[ext_resource type="PackedScene" uid="uid://c4hruxts2v85k" path="res://3DScens/main_3d.tscn" id="1_ij5lt"]
+
+[node name="localMultiplayer" type="Control" unique_id=1043333893]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1967764167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer" unique_id=1221698848]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer" unique_id=1387744855]
+size = Vector2i(574, 322)
+
+[node name="main3D" parent="GridContainer/SubViewportContainer/SubViewport" unique_id=568222157 instance=ExtResource("1_ij5lt")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer" unique_id=1978738220]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport2" type="SubViewport" parent="GridContainer/SubViewportContainer2" unique_id=1808876968]
+size = Vector2i(574, 322)
+
+[node name="main3D" parent="GridContainer/SubViewportContainer2/SubViewport2" unique_id=654872191 instance=ExtResource("1_ij5lt")]
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer" unique_id=1947488388]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport3" type="SubViewport" parent="GridContainer/SubViewportContainer3" unique_id=1939150897]
+size = Vector2i(574, 322)
+
+[node name="main3D" parent="GridContainer/SubViewportContainer3/SubViewport3" unique_id=902633647 instance=ExtResource("1_ij5lt")]
+
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="GridContainer" unique_id=136097652]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport4" type="SubViewport" parent="GridContainer/SubViewportContainer4" unique_id=471354339]
+size = Vector2i(574, 322)
+
+[node name="main3D" parent="GridContainer/SubViewportContainer4/SubViewport4" unique_id=660502466 instance=ExtResource("1_ij5lt")]

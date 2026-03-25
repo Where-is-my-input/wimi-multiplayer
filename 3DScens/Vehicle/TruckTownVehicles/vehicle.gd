@@ -149,6 +149,7 @@ func respawn(respawnTo = null, forceRespawn:bool = false):
 		global_position = respawnTo
 	linear_velocity = Vector3(1, 1, 1)
 	angular_velocity = Vector3(1, 1, 1)
+	global_position.y += 2
 	#rotation = Vector3(0, 0, 0)
 	setRespawnCooldown(0.5)
 	#global_rotation = Vector3(0,0,0)

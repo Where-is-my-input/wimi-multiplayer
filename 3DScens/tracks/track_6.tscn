@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bannoqdbj4xpf" path="res://3DScens/tracks/checkpoints.tscn" id="4_r5ngr"]
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="5_60qh3"]
 [ext_resource type="Texture2D" uid="uid://becp7fljvh3b8" path="res://Assets/2D/Planets/planet07.png" id="6_r5ngr"]
+[ext_resource type="AudioStream" uid="uid://b2qyn0sltr054" path="res://Assets/Music/Race of the Wasp.wav" id="7_60qh3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r5ngr"]
 friction = 0.8
@@ -72,3 +73,7 @@ camera_attributes = SubResource("CameraAttributesPractical_r5ngr")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 22.030144, -176.66626, 1827.6248)
 fixed_size = true
 texture = ExtResource("6_r5ngr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="6" unique_id=1188756457]
+stream = ExtResource("7_60qh3")
+autoplay = true

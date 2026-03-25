@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ka0qd08ka1e4" path="res://3DScens/tracks/checkpoint.tscn" id="5_uq3ew"]
 [ext_resource type="PackedScene" uid="uid://c1kqv0ch6nclx" path="res://3DScens/tracks/booster.tscn" id="6_uq3ew"]
 [ext_resource type="PackedScene" uid="uid://lmdk5wsigmps" path="res://3DScens/gridMaps/city_grid_map.tscn" id="7_klx2l"]
+[ext_resource type="AudioStream" uid="uid://f8q0dybwnxkj" path="res://Assets/Music/racing_game_ending_bpm100.ogg" id="8_xsv1h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uq3ew"]
 sky_top_color = Color(0, 0.4548505, 0.80063194, 1)
@@ -101,3 +102,8 @@ data = {
 "cells": PackedInt32Array(327637, 1, 655365, 327629, 1, 655370, 327644, 23, 655371, 327629, 23, 1048588, 327611, 20, 1048589, 262157, 65514, 1048599, 262170, 65515, 1048598, 262191, 65533, 1048597, 262180, 65515, 1048601, 262191, 65521, 1048602, 262184, 29, 1048617, 262191, 29, 1048616, 262168, 40, 1048599, 262168, 55, 1048596, 262193, 9, 1048599, 262203, 65532, 1048598, 327679, 65514, 1048611, 262156, 41, 1048603, 262151, 51, 655389, 327676, 53, 655387, 327664, 53, 655385, 327653, 53, 655383, 327639, 53, 655382, 327599, 23, 655383, 327622, 52, 655379, 327601, 53, 655382, 327575, 16, 655382)
 }
 metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9" unique_id=756008785]
+stream = ExtResource("8_xsv1h")
+autoplay = true
+bus = &"BGM"
